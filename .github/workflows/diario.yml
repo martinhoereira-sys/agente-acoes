@@ -1,0 +1,39 @@
+name: Registo diário
+
+on:
+  schedule:
+    - cron: "0 23 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  registar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ir buscar o código
+        uses: actions/checkout@v4
+
+      - name: Preparar o Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Correr o registo diário
+        run: python correr_diario.py
+
+      - name: Gravar os resultados no repositório
+        run: |
+          git config user.name "robo-agentes"
+          git config user.email "actions@github.com"
+          git add dados/
+          if git diff --staged --quiet; then
+            echo "Sem dados novos hoje."
+          else
+            git commit -m "Registo de $(date -u +%Y-%m-%d)"
+            git push
+          fi
