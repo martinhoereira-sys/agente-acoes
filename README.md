@@ -95,20 +95,24 @@ python correr_diario.py --simulado     # dados falsos, para testar
 
 ## O que há aqui dentro
 
+Todos os ficheiros ficam na raiz do repositório, sem pastas. A única pasta
+é `.github/workflows/`, que o GitHub exige, e `dados/`, que o programa cria
+sozinho na primeira vez que corre.
+
 ```
 config.py                  empresas, valor das apostas, custos, datas
 fonte_dados.py             ir buscar os preços (yfinance)
+base.py                    classe base + cálculo do stop e do alvo
+momentum.py                Agente 1 — momentum simples (só gráfico)
+controlos.py               os dois controlos idiotas
+lista_agentes.py           a lista de agentes ativos
 correr_diario.py           o programa que corre uma vez por dia
-agentes/
-  base.py                  classe base + cálculo do stop e do alvo
-  momentum.py              Agente 1 — momentum simples (só gráfico)
-  controlos.py             os dois controlos idiotas
-  __init__.py              a lista de agentes ativos
-dados/
-  precos.csv               um preço por empresa por dia
-  decisoes.csv             uma linha por decisão tomada
+requirements.txt           dependências
 .github/workflows/
   diario.yml               a tarefa automática
+dados/                     criada pelo programa
+  precos.csv               um preço por empresa por dia
+  decisoes.csv             uma linha por decisão tomada
 ```
 
 ---

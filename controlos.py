@@ -12,7 +12,7 @@ NUNCA remover. NUNCA dar-lhes vantagens.
 
 import random
 
-from agentes.base import Agente
+from base import Agente
 
 
 class SempreCompra(Agente):

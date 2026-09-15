@@ -20,8 +20,8 @@ import os
 import sys
 
 import config
-from agentes import AGENTES
-from agentes.base import calcular_stop_e_alvo
+from lista_agentes import AGENTES
+from base import calcular_stop_e_alvo
 from fonte_dados import buscar_historico
 
 COLUNAS_PRECOS = ["data", "ticker", "fecho", "volume"]

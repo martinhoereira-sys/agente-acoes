@@ -8,7 +8,7 @@ Custo de funcionamento: zero.
 CONGELADO a partir do arranque do torneio.
 """
 
-from agentes.base import Agente, media_movel
+from base import Agente, media_movel
 
 
 class MomentumSimples(Agente):
