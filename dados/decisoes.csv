@@ -1,0 +1,4 @@
+data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_aposta,comissao,slippage_pct
+2026-09-15,momentum-simples,AAPL,COMPRA,330.18,320.0942,360.4374,3.0,0.55,preço 3.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-15,controlo-sempre-compra,AAPL,COMPRA,330.18,320.0942,360.4374,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-15,controlo-moeda-ao-ar,AAPL,COMPRA,330.18,320.0942,360.4374,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
