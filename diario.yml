@@ -1,0 +1,46 @@
+name: Registo diário
+
+on:
+  schedule:
+    # 23:00 UTC, de segunda a sexta -- depois do fecho do mercado americano
+    # (16:00 em Nova Iorque, tanto no horário de verão como no de inverno).
+    # O GitHub às vezes atrasa alguns minutos. Não faz diferença nenhuma.
+    - cron: "0 23 * * 1-5"
+
+  # Permite correr à mão pelo separador Actions -- útil para testar.
+  workflow_dispatch:
+
+# Necessário para o robô poder gravar os CSV de volta no repositório.
+permissions:
+  contents: write
+
+jobs:
+  registar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ir buscar o código
+        uses: actions/checkout@v4
+
+      - name: Preparar o Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Correr o registo diário
+        run: python correr_diario.py
+
+      - name: Gravar os resultados no repositório
+        run: |
+          git config user.name "robo-agentes"
+          git config user.email "actions@github.com"
+          git add dados/
+          # Se não houve nada de novo (feriado, por exemplo), não faz commit.
+          if git diff --staged --quiet; then
+            echo "Sem dados novos hoje."
+          else
+            git commit -m "Registo de $(date -u +%Y-%m-%d)"
+            git push
+          fi
