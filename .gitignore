@@ -5,3 +5,7 @@
 # programa morrer a meio da escrita fica lá um -- e o workflow faz "git add
 # dados/", que o apanhava e o comitava para o repositório.
 dados/*.tmp
+
+# O Python compila os módulos para aqui na primeira vez que o programa corre.
+# É gerado, não é código -- e é diferente de máquina para máquina.
+__pycache__/
