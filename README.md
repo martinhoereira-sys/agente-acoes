@@ -150,6 +150,6 @@ a noite, a ação abre abaixo do stop e perde-se mais do que o planeado.
 
 ## Fase atual
 
-**Teste técnico.** 1 empresa (AAPL), 1 agente + 2 controlos.
+**Teste técnico.** 40 empresas (por setor, ver `config.py`), 1 agente + 2 controlos.
 Nesta fase não se olha para acertos — só se confirma que o registo grava todos
 os dias sem falhar. Estes dados não contam para nada.

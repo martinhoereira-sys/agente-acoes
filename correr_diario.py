@@ -25,11 +25,12 @@ Correr:
 import csv
 import os
 import sys
+import time
 
 import config
 from lista_agentes import AGENTES
 from base import calcular_stop_e_alvo
-from fonte_dados import buscar_historico
+from fonte_dados import buscar_varios
 
 COLUNAS_PRECOS = ["data", "ticker", "fecho", "volume"]
 COLUNAS_DECISOES = [
@@ -173,6 +174,7 @@ def _resumo(precos, decisoes, falhas):
 
 
 def main(simulado=False):
+    comeco = time.monotonic()
     _garantir_ficheiro(config.FICHEIRO_PRECOS, COLUNAS_PRECOS)
     _garantir_ficheiro(config.FICHEIRO_DECISOES, COLUNAS_DECISOES)
 
@@ -181,11 +183,19 @@ def main(simulado=False):
     decisoes_novas = []
     falhas = 0
 
+    # Tudo de uma vez: com 40 empresas, uma chamada por empresa apanha limites
+    # de pedidos do Yahoo. Ver fonte_dados.py.
+    relogio = time.monotonic()
+    historicos = buscar_varios(config.EMPRESAS, dias=250, simulado=simulado)
+    segundos_dados = time.monotonic() - relogio
+    print(f"\nDados: {len(config.EMPRESAS)} empresas em {segundos_dados:.1f}s")
+
     for ticker in config.EMPRESAS:
-        historico = buscar_historico(ticker, dias=250, simulado=simulado)
+        historico = historicos.get(ticker)
         if not historico:
             # Empresa sem dados não se processa, logo também não se apaga o que
-            # já lá estiver gravado para ela.
+            # já lá estiver gravado para ela. Uma empresa que falhe não pode
+            # levar as outras atrás.
             print(f"  {ticker}: SEM DADOS -- ignorado hoje")
             falhas += 1
             continue
@@ -233,6 +243,8 @@ def main(simulado=False):
                        CHAVE_DECISAO, dias_tickers, decisoes_novas)
 
     print(f"\nResumo: {_resumo(precos, decisoes, falhas)}")
+    print(f"Tempo: {segundos_dados:.1f}s a ir buscar os dados, "
+          f"{time.monotonic() - comeco:.1f}s no total")
 
     # Se NENHUMA empresa deu dados, sai com erro para o GitHub Actions avisar.
     if falhas and falhas == len(config.EMPRESAS):
