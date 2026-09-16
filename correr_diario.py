@@ -3,7 +3,8 @@ O programa que corre uma vez por dia.
 
 Faz sempre as mesmas três coisas:
   1. vai buscar os preços de cada empresa
-  2. grava o preço de hoje em dados/precos.csv
+  2. grava o dia de hoje (abertura, máximo, mínimo, fecho, volume) em
+     dados/precos.csv
   3. pergunta a cada agente o que faria, e grava a resposta em dados/decisoes.csv
 
 A ÚLTIMA CORRIDA DO DIA GANHA. Se o programa já tiver corrido hoje, as linhas
@@ -32,7 +33,11 @@ from lista_agentes import AGENTES
 from base import calcular_stop_e_alvo
 from fonte_dados import buscar_varios
 
-COLUNAS_PRECOS = ["data", "ticker", "fecho", "volume"]
+# O dia inteiro, não só o fecho: o fecho sozinho não chega para saber se uma
+# aposta acertou. Uma ação pode descer até ao stop a meio do dia e fechar acima
+# dele -- com só o fecho, essa perda desaparecia do registo. E se abrir abaixo
+# do stop, a perda é maior do que a planeada, o que só se vê pela abertura.
+COLUNAS_PRECOS = ["data", "ticker", "abertura", "maximo", "minimo", "fecho", "volume"]
 COLUNAS_DECISOES = [
     "data", "agente", "ticker", "acao", "preco_entrada",
     "stop", "alvo", "racio", "confianca", "razao",
@@ -74,12 +79,14 @@ def _ler_csv(caminho, colunas):
 
     with open(caminho, newline="", encoding="utf-8") as f:
         leitor = csv.DictReader(f, restval="")
-        cabecalho = list(leitor.fieldnames or colunas)
+        do_ficheiro = list(leitor.fieldnames or [])
         linhas = [dict(linha) for linha in leitor]
 
-    # Se alguma vez se acrescentar uma coluna, vai para o fim: as que já lá
-    # estavam ficam na mesma ordem e os ficheiros antigos continuam a ler-se.
-    cabecalho += [coluna for coluna in colunas if coluna not in cabecalho]
+    # O cabeçalho é sempre o de agora, pela ordem de agora. Quando se acrescenta
+    # uma coluna, as linhas antigas ficam com ela vazia -- não se inventam
+    # valores nem se apagam linhas. As colunas que estejam no ficheiro e já não
+    # sejam usadas vão para o fim, para não se perder nada que lá esteja.
+    cabecalho = list(colunas) + [c for c in do_ficheiro if c not in colunas]
     return cabecalho, linhas
 
 
@@ -139,6 +146,14 @@ def _fundir(antigas, novas, dias_tickers, chave_unica):
     return linhas, len(por_chave) - atualizadas, atualizadas, removidas
 
 
+def _cabecalho_atual(caminho):
+    """O cabeçalho tal como está gravado, para se ver se precisa de mudar."""
+    if not os.path.exists(caminho):
+        return None
+    with open(caminho, newline="", encoding="utf-8") as f:
+        return next(csv.reader(f), None)
+
+
 def _gravar(caminho, colunas, chave_unica, dias_tickers, novas):
     """Aplica as linhas novas ao ficheiro. Devolve (novas, atualizadas, removidas)."""
     cabecalho, antigas = _ler_csv(caminho, colunas)
@@ -146,7 +161,10 @@ def _gravar(caminho, colunas, chave_unica, dias_tickers, novas):
         antigas, novas, dias_tickers, chave_unica)
 
     # Sem nada para mudar não se toca no ficheiro: evita commits vazios do robô.
-    if n_novas or n_atualizadas or n_removidas:
+    # A exceção é o cabeçalho ter mudado: aí reescreve-se mesmo sem linhas
+    # novas, senão um ficheiro antigo nunca chegava a ganhar as colunas novas.
+    mudou_cabecalho = _cabecalho_atual(caminho) != cabecalho
+    if n_novas or n_atualizadas or n_removidas or mudou_cabecalho:
         _escrever_csv(caminho, cabecalho, linhas)
     return n_novas, n_atualizadas, n_removidas
 
@@ -201,13 +219,17 @@ def main(simulado=False):
             continue
 
         hoje = historico[-1]
-        print(f"  {ticker}: {hoje['data']} fecho {hoje['fecho']}")
+        print(f"  {ticker}: {hoje['data']} fecho {hoje['fecho']} "
+              f"(min {hoje.get('minimo')} / max {hoje.get('maximo')})")
         dias_tickers.add((hoje["data"], ticker))
 
         # 1. preço
         precos_novos.append({
             "data": hoje["data"],
             "ticker": ticker,
+            "abertura": hoje.get("abertura"),
+            "maximo": hoje.get("maximo"),
+            "minimo": hoje.get("minimo"),
             "fecho": hoje["fecho"],
             "volume": hoje["volume"],
         })

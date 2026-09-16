@@ -43,10 +43,25 @@ def _dias_uteis(n):
     return list(reversed(dias))
 
 
+def _numero(valor):
+    """Devolve o número arredondado, ou None se vier vazio ou NaN."""
+    if valor is None or valor != valor:            # NaN != NaN
+        return None
+    return round(float(valor), 4)
+
+
 def _linhas_da_tabela(tabela):
     """
     Converte uma tabela do yfinance na lista de dicionários que o resto do
-    programa usa, do mais antigo para o mais recente.
+    programa usa, do mais antigo para o mais recente:
+
+        {"data": "2026-09-15", "abertura": 229.90, "maximo": 232.10,
+         "minimo": 229.05, "fecho": 231.40, "volume": 48120000}
+
+    Guarda-se o dia inteiro, não só o fecho, porque o fecho sozinho não chega
+    para saber se uma aposta acertou: uma ação pode descer até ao stop a meio
+    do dia e fechar acima dele, e se abrir abaixo do stop a perda é maior do
+    que a planeada. Isso só se vê com abertura, máximo e mínimo.
 
     Linhas sem fecho são deitadas fora. Quando se pedem várias empresas de uma
     vez, o yfinance alinha todas pelo mesmo calendário e mete NaN nos dias em
@@ -57,15 +72,18 @@ def _linhas_da_tabela(tabela):
 
     linhas = []
     for indice, linha in tabela.iterrows():
-        fecho = linha.get("Close")
-        if fecho is None or fecho != fecho:        # NaN != NaN
+        fecho = _numero(linha.get("Close"))
+        if fecho is None:
             continue
         volume = linha.get("Volume")
         if volume is None or volume != volume:
             volume = 0
         linhas.append({
             "data": indice.date().isoformat(),
-            "fecho": round(float(fecho), 4),
+            "abertura": _numero(linha.get("Open")),
+            "maximo": _numero(linha.get("High")),
+            "minimo": _numero(linha.get("Low")),
+            "fecho": fecho,
             "volume": int(volume),
         })
     return linhas
@@ -183,14 +201,28 @@ def buscar_historico(ticker, dias=250, simulado=False):
 
 
 def _historico_simulado(ticker, dias):
-    """Passeio aleatório. Só para testar que o resto do programa funciona."""
+    """
+    Passeio aleatório. Só para testar que o resto do programa funciona.
+
+    A abertura, o máximo e o mínimo são construídos à volta do fecho de modo a
+    não poderem sair incoerentes: o máximo parte do maior de (abertura, fecho)
+    e sobe, o mínimo parte do menor e desce. Um dia simulado com o máximo
+    abaixo do mínimo dava testes que passavam sem provar nada.
+    """
     random.seed(ticker)                      # mesmo ticker = mesma série
     preco = 100.0
     linhas = []
     for d in _dias_uteis(dias):
+        anterior = preco
         preco *= (1 + random.gauss(0.0004, 0.015))
+        abertura = anterior * (1 + random.gauss(0, 0.004))   # gap da noite
+        maximo = max(abertura, preco) * (1 + abs(random.gauss(0, 0.005)))
+        minimo = min(abertura, preco) * (1 - abs(random.gauss(0, 0.005)))
         linhas.append({
             "data": d.isoformat(),
+            "abertura": round(abertura, 4),
+            "maximo": round(maximo, 4),
+            "minimo": round(minimo, 4),
             "fecho": round(preco, 4),
             "volume": random.randint(10_000_000, 90_000_000),
         })
