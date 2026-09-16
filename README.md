@@ -91,6 +91,20 @@ python correr_diario.py                # dados a sério
 python correr_diario.py --simulado     # dados falsos, para testar
 ```
 
+### Correr duas vezes no mesmo dia
+
+Pode-se correr as vezes que se quiser: **a última corrida do dia ganha.** Se já
+houver linhas para esse dia e essa empresa, são substituídas, não repetidas.
+
+Isto serve para o caso de se correr a meio da sessão de bolsa por engano: o
+preço que fica gravado é um preço intradiário e não o fecho. Basta correr outra
+vez depois do fecho que o preço fica corrigido e as decisões desse dia são
+recalculadas com o preço certo — uma decisão apontada a um preço de entrada que
+nunca existiu não serve para medir nada.
+
+Fica sempre **uma linha por (data, empresa)** em `precos.csv` e **uma por
+(data, agente, empresa)** em `decisoes.csv`. Os outros dias não são tocados.
+
 ---
 
 ## O que há aqui dentro
