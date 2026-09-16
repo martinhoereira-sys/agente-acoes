@@ -1,0 +1,7 @@
+# Ficheiros temporários do correr_diario.py.
+#
+# Ao gravar, o programa escreve para dados/<ficheiro>.csv.tmp e só depois é que
+# substitui o CSV verdadeiro. Normalmente o .tmp nem chega a ser visto, mas se o
+# programa morrer a meio da escrita fica lá um -- e o workflow faz "git add
+# dados/", que o apanhava e o comitava para o repositório.
+dados/*.tmp
