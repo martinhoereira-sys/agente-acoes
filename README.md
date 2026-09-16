@@ -125,7 +125,8 @@ requirements.txt           dependências
 .github/workflows/
   diario.yml               a tarefa automática
 dados/                     criada pelo programa
-  precos.csv               um preço por empresa por dia
+  precos.csv               o dia de cada empresa: abertura, máximo,
+                           mínimo, fecho e volume
   decisoes.csv             uma linha por decisão tomada
 ```
 
@@ -145,6 +146,12 @@ apertado de mais numa ação nervosa e largo de mais numa calma.
 
 **Atenção:** o stop não garante a perda máxima. Se sair uma notícia má durante
 a noite, a ação abre abaixo do stop e perde-se mais do que o planeado.
+
+É por isso que o `precos.csv` guarda a abertura, o máximo e o mínimo, e não só o
+fecho: sem eles não dava para ver que isso aconteceu. Pelo mesmo motivo, uma
+ação que desça até ao stop a meio do dia e feche acima dele é uma perda a sério
+— com só o fecho, essa perda desaparecia do registo e os agentes pareciam
+melhores do que são.
 
 ---
 
