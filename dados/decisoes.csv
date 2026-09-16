@@ -2,3 +2,81 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-09-15,momentum-simples,AAPL,COMPRA,330.18,320.0942,360.4374,3.0,0.55,preço 3.6% acima da média de 50 dias,1000.0,1.0,0.05
 2026-09-15,controlo-sempre-compra,AAPL,COMPRA,330.18,320.0942,360.4374,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-09-15,controlo-moeda-ao-ar,AAPL,COMPRA,330.18,320.0942,360.4374,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,momentum-simples,AAPL,COMPRA,332.41,322.476,362.2121,3.0,0.55,preço 4.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,AAPL,COMPRA,332.41,322.476,362.2121,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,momentum-simples,MSFT,COMPRA,490.3,477.1278,529.8166,3.0,0.55,preço 6.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,MSFT,COMPRA,490.3,477.1278,529.8166,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,GOOGL,COMPRA,342.87,332.8881,372.8158,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,GOOGL,COMPRA,342.87,332.8881,372.8158,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,AMZN,COMPRA,245.96,237.5148,271.2956,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,momentum-simples,META,COMPRA,673.31,649.5872,744.4785,3.0,0.55,preço 11.3% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,META,COMPRA,673.31,649.5872,744.4785,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,META,COMPRA,673.31,649.5872,744.4785,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,NVDA,COMPRA,213.9,201.6444,250.6669,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,momentum-simples,AMD,COMPRA,512.5,481.5846,605.2463,3.0,0.55,preço 3.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,AMD,COMPRA,512.5,481.5846,605.2463,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,momentum-simples,INTC,COMPRA,101.05,93.6722,123.1834,3.0,0.55,preço 4.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,INTC,COMPRA,101.05,93.6722,123.1834,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,INTC,COMPRA,101.05,93.6722,123.1834,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,momentum-simples,CRM,COMPRA,250.54,225.486,325.702,3.0,0.55,preço 22.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,CRM,COMPRA,250.54,225.486,325.702,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,momentum-simples,ORCL,COMPRA,143.16,134.3632,169.5504,3.0,0.55,preço 1.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,ORCL,COMPRA,143.16,134.3632,169.5504,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,JPM,COMPRA,348.92,341.9485,369.8346,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,BAC,COMPRA,57.9,56.0931,63.3206,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,BAC,COMPRA,57.9,56.0931,63.3206,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,GS,COMPRA,937.98,900.7881,1049.5556,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,GS,COMPRA,937.98,900.7881,1049.5556,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,MS,COMPRA,202.42,195.7533,222.4202,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,momentum-simples,V,COMPRA,370.93,362.0857,397.4629,3.0,0.55,preço 1.4% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,V,COMPRA,370.93,362.0857,397.4629,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,V,COMPRA,370.93,362.0857,397.4629,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,MA,COMPRA,567.75,554.8209,606.5373,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,momentum-simples,JNJ,COMPRA,267.28,260.7884,286.7547,3.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,JNJ,COMPRA,267.28,260.7884,286.7547,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,JNJ,COMPRA,267.28,260.7884,286.7547,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,momentum-simples,PFE,COMPRA,27.46,26.6875,29.7776,3.0,0.55,preço 4.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,PFE,COMPRA,27.46,26.6875,29.7776,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,UNH,COMPRA,375.26,364.7374,406.8279,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,UNH,COMPRA,375.26,364.7374,406.8279,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,momentum-simples,ABBV,COMPRA,262.51,255.0423,284.913,3.0,0.55,preço 3.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,ABBV,COMPRA,262.51,255.0423,284.913,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,momentum-simples,MRK,COMPRA,144.91,135.3983,173.445,3.0,0.55,preço 6.4% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,MRK,COMPRA,144.91,135.3983,173.445,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,MRK,COMPRA,144.91,135.3983,173.445,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,LLY,COMPRA,1137.8199,1099.3346,1253.2759,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,LLY,COMPRA,1137.8199,1099.3346,1253.2759,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,momentum-simples,XOM,COMPRA,163.32,157.93,179.4901,3.0,0.55,preço 4.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,XOM,COMPRA,163.32,157.93,179.4901,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,momentum-simples,CVX,COMPRA,211.54,205.6041,229.3478,3.0,0.55,preço 7.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,CVX,COMPRA,211.54,205.6041,229.3478,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,momentum-simples,COP,COMPRA,132.54,127.109,148.833,3.0,0.55,preço 6.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,COP,COMPRA,132.54,127.109,148.833,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,momentum-simples,KO,COMPRA,87.87,86.2667,92.68,3.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,KO,COMPRA,87.87,86.2667,92.68,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,KO,COMPRA,87.87,86.2667,92.68,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,PEP,COMPRA,134.34,131.9159,141.6124,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,MCD,COMPRA,248.56,242.7309,266.0472,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,MCD,COMPRA,248.56,242.7309,266.0472,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,NKE,COMPRA,35.78,34.5798,39.3805,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,SBUX,COMPRA,97.34,94.5061,105.8417,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,SBUX,COMPRA,97.34,94.5061,105.8417,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,WMT,COMPRA,107.5,102.2756,123.1731,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,COST,COMPRA,893.74,870.9108,962.2277,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,PG,COMPRA,147.02,144.2243,155.407,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,PG,COMPRA,147.02,144.2243,155.407,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,BA,COMPRA,201.96,195.9125,220.1025,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,CAT,COMPRA,782.72,755.9776,862.9473,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,CAT,COMPRA,782.72,755.9776,862.9473,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,GE,COMPRA,312.9,300.1904,351.0287,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,momentum-simples,DIS,COMPRA,106.99,103.6912,116.8863,3.0,0.55,preço 4.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,DIS,COMPRA,106.99,103.6912,116.8863,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,momentum-simples,T,COMPRA,25.86,25.1105,28.1085,3.0,0.55,preço 6.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,T,COMPRA,25.86,25.1105,28.1085,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,T,COMPRA,25.86,25.1105,28.1085,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,momentum-simples,VZ,COMPRA,49.76,48.565,53.3451,3.0,0.55,preço 5.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,VZ,COMPRA,49.76,48.565,53.3451,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,VZ,COMPRA,49.76,48.565,53.3451,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-16,momentum-simples,TSLA,COMPRA,358.08,335.0072,427.2984,3.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-16,controlo-sempre-compra,TSLA,COMPRA,358.08,335.0072,427.2984,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-16,controlo-moeda-ao-ar,TSLA,COMPRA,358.08,335.0072,427.2984,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
