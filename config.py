@@ -1,18 +1,37 @@
 """
 Definições do projeto.
 
-FASE ATUAL: fatia fina (teste técnico).
-Só uma empresa e um agente. Não mexer nos agentes depois do arranque oficial
-do torneio -- ver README.md.
+FASE ATUAL: teste técnico.
+40 empresas, 1 agente + 2 controlos. As empresas subiram de 1 para 40 antes do
+arranque para dar para ver se o yfinance aguenta o volume de pedidos.
+Não mexer nos agentes depois do arranque oficial do torneio -- ver README.md.
 """
 
 # ---------------------------------------------------------------------------
 # Empresas a seguir
 # ---------------------------------------------------------------------------
-# Fase 1 (teste técnico): apenas uma.
-# Fase 2 (torneio): sobe para 40-50 para haver decisões suficientes.
+# Agrupadas por setor. O setor não é usado pelo programa -- serve para depois
+# dar para ter agentes especialistas (um só de tecnologia, um só de energia) e
+# para comparar o mesmo agente entre setores.
 EMPRESAS = [
-    "AAPL",   # Apple
+    # Tecnologia
+    "AAPL", "MSFT", "GOOGL", "AMZN", "META",
+    "NVDA", "AMD", "INTC", "CRM", "ORCL",
+
+    # Financeira
+    "JPM", "BAC", "GS", "MS", "V", "MA",
+
+    # Saúde
+    "JNJ", "PFE", "UNH", "ABBV", "MRK", "LLY",
+
+    # Energia
+    "XOM", "CVX", "COP",
+
+    # Consumo
+    "KO", "PEP", "MCD", "NKE", "SBUX", "WMT", "COST", "PG",
+
+    # Outros
+    "BA", "CAT", "GE", "DIS", "T", "VZ", "TSLA",
 ]
 
 # ---------------------------------------------------------------------------
