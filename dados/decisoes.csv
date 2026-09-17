@@ -80,3 +80,20 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-09-16,momentum-simples,TSLA,COMPRA,358.08,335.0072,427.2984,3.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
 2026-09-16,controlo-sempre-compra,TSLA,COMPRA,358.08,335.0072,427.2984,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-09-16,controlo-moeda-ao-ar,TSLA,COMPRA,358.08,335.0072,427.2984,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-17,controlo-moeda-ao-ar,MSFT,COMPRA,497.75,484.0413,538.8761,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-17,controlo-moeda-ao-ar,AMZN,COMPRA,251.19,242.6987,276.6639,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-17,momentum-simples,NVDA,COMPRA,219.34,206.5529,257.7013,3.0,0.55,preço 2.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-17,controlo-moeda-ao-ar,NVDA,COMPRA,219.34,206.5529,257.7013,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-17,controlo-moeda-ao-ar,ORCL,COMPRA,150.59,140.7151,180.2148,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-17,controlo-moeda-ao-ar,MS,COMPRA,203.52,196.8701,223.4698,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-17,controlo-moeda-ao-ar,MA,COMPRA,565.73,552.8242,604.4474,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-17,controlo-moeda-ao-ar,PFE,COMPRA,27.64,27.0101,29.5296,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-17,controlo-moeda-ao-ar,COP,COMPRA,133.19,127.7377,149.5469,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-17,controlo-moeda-ao-ar,PEP,COMPRA,133.66,131.5606,139.9581,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-17,controlo-moeda-ao-ar,NKE,COMPRA,36.36,35.1912,39.8663,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-17,controlo-moeda-ao-ar,WMT,COMPRA,106.79,101.6025,122.3526,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-17,momentum-simples,PG,COMPRA,147.55,144.7624,155.9128,3.0,0.55,preço 1.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-17,controlo-moeda-ao-ar,BA,COMPRA,197.0,190.8527,215.4418,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-17,momentum-simples,VZ,COMPRA,48.33,47.0569,52.1492,3.0,0.55,preço 1.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-17,controlo-sempre-compra,VZ,COMPRA,48.33,47.0569,52.1492,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-17,controlo-moeda-ao-ar,VZ,COMPRA,48.33,47.0569,52.1492,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
