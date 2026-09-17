@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentes de Ações</title>
+<meta name="description" content="Torneio de agentes que analisam empresas e apostam com dinheiro simulado.">
+<!--
+  Página de teste do GitHub Pages. O site a sério chega em outubro.
+  Sem bibliotecas externas de propósito: se isto aparecer, o Pages está bom.
+-->
+<style>
+  :root {
+    --fundo: #fbfaf8;
+    --texto: #1a1a1a;
+    --suave: #5c5c5c;
+    --risco: #e0ddd6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fundo: #16161a;
+      --texto: #ececea;
+      --suave: #9a9a96;
+      --risco: #2e2e34;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 16px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 34rem; width: 100%; }
+  h1 {
+    margin: 0 0 0.6rem;
+    font-size: clamp(1.9rem, 7vw, 2.8rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .subtitulo { margin: 0 0 2rem; color: var(--suave); }
+  .aviso {
+    margin: 0 0 2rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--risco);
+  }
+  .aviso strong { font-weight: 600; }
+  footer {
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--risco);
+    color: var(--suave);
+    font-size: 0.9rem;
+  }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Agentes de Ações</h1>
+
+  <p class="subtitulo">
+    Torneio de agentes que analisam empresas e apostam com dinheiro
+    <strong>simulado</strong>.
+  </p>
+
+  <p class="aviso">
+    <strong>O site a sério chega em outubro.</strong><br>
+    Por agora isto é só uma página de teste, para confirmar que o GitHub Pages
+    está a publicar. O torneio arranca a 24 de outubro de 2026.
+  </p>
+
+  <footer>
+    <p>
+      Página gerada a <time datetime="2026-09-17">17 de setembro de 2026</time>.
+    </p>
+  </footer>
+</main>
+</body>
+</html>
