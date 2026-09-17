@@ -38,6 +38,23 @@ os custos reais.
 O programa só grava preços e decisões. Se um agente acertou ou não é sempre
 derivado dos preços que vieram depois.
 
+**7. A partir de 24 de outubro, a lógica de avaliação fica congelada.**
+O `posicoes.py` fica trancado tal como os agentes. É o reverso da regra 6:
+como os resultados são sempre recalculados e nunca gravados, mudar este
+ficheiro **reescreve em silêncio os resultados de todo o histórico** — não há
+número nenhum gravado que passe a não bater certo e te avise. Mexer numa
+linha em junho muda o vencedor de outubro sem deixar rasto.
+
+Se for mesmo indispensável alterar, tem de ficar registado aqui em baixo a
+data, o motivo e o que mudou, e a análise final tem de dizer com que versão
+foi feita.
+
+### Alterações à lógica de avaliação depois do arranque
+
+Nenhuma até hoje.
+
+<!-- Formato: | data | o que mudou | porque é que era indispensável | -->
+
 ---
 
 ## Regra de paragem (decidida antes de haver resultados)
