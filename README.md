@@ -39,11 +39,22 @@ O programa só grava preços e decisões. Se um agente acertou ou não é sempre
 derivado dos preços que vieram depois.
 
 **7. A partir de 24 de outubro, a lógica de avaliação fica congelada.**
-O `posicoes.py` fica trancado tal como os agentes. É o reverso da regra 6:
-como os resultados são sempre recalculados e nunca gravados, mudar este
-ficheiro **reescreve em silêncio os resultados de todo o histórico** — não há
-número nenhum gravado que passe a não bater certo e te avise. Mexer numa
-linha em junho muda o vencedor de outubro sem deixar rasto.
+Ficam trancados, tal como os agentes:
+
+- o `posicoes.py` inteiro;
+- o `DIAS_MAXIMOS_POSICAO` no `config.py` — é uma regra de avaliação disfarçada
+  de definição. Mudá-lo de 60 para 40 fecha ao fim de 40 dias apostas que já
+  tinham sido dadas como fechadas aos 60, com outro preço e outro resultado.
+
+É o reverso da regra 6: como os resultados são sempre recalculados e nunca
+gravados, mexer em qualquer um deles **reescreve em silêncio os resultados de
+todo o histórico** — não há número nenhum gravado que passe a não bater certo e
+te avise. Mexer numa linha em junho muda o vencedor de outubro sem deixar rasto.
+
+Os outros números do `config.py` não entram aqui: o `VALOR_POR_APOSTA`, a
+`COMISSAO_POR_OPERACAO` e o `SLIPPAGE_PCT` são copiados para cada linha do
+`decisoes.csv` no dia em que a decisão é tomada, e é de lá que a avaliação os
+lê. Mudá-los afeta as decisões daí para a frente, nunca as antigas.
 
 Se for mesmo indispensável alterar, tem de ficar registado aqui em baixo a
 data, o motivo e o que mudou, e a análise final tem de dizer com que versão
