@@ -47,6 +47,15 @@ VALOR_POR_APOSTA = 1000.0      # euros simulados por posição
 COMISSAO_POR_OPERACAO = 1.00   # euros, à entrada e à saída
 SLIPPAGE_PCT = 0.05            # % -- compras um pouco acima do preço no ecrã
 
+# Ao fim de quantos dias de bolsa se fecha uma posição que não chegou ao stop
+# nem ao alvo, ao preço de fecho desse dia.
+#
+# Cada agente só pode ter uma posição aberta por empresa de cada vez. Sem este
+# limite, uma ação que ficasse parada entre o stop e o alvo bloqueava o agente
+# nessa empresa durante meses -- e uma aposta que nunca fecha também nunca
+# entra nas contas do fim.
+DIAS_MAXIMOS_POSICAO = 60
+
 # ---------------------------------------------------------------------------
 # Ficheiros de registo
 # ---------------------------------------------------------------------------
