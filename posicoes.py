@@ -7,13 +7,15 @@ resultados calculados por uma regra que já não usamos e sem maneira de saber
 quais.
 
 REGRA DE OURO: a partir do arranque oficial do torneio, este ficheiro fica
-congelado tal como os agentes. É o reverso de não gravar nada: como os
-resultados são sempre recalculados, mexer aqui reescreve em silêncio os
-resultados de todo o histórico, e não há número nenhum gravado que passe a não
-bater certo e avise. Mexer numa linha em junho muda o vencedor de outubro sem
-deixar rasto. Se for mesmo indispensável, a data, o motivo e o que mudou vão
-para o README (regra 7), e a análise final tem de dizer com que versão foi
-feita.
+congelado tal como os agentes -- e com ele o config.DIAS_MAXIMOS_POSICAO, que é
+uma regra de avaliação apesar de viver no config.py.
+
+É o reverso de não gravar nada: como os resultados são sempre recalculados,
+mexer aqui reescreve em silêncio os resultados de todo o histórico, e não há
+número nenhum gravado que passe a não bater certo e avise. Mexer numa linha em
+junho muda o vencedor de outubro sem deixar rasto. Se for mesmo indispensável,
+a data, o motivo e o que mudou vão para o README (regra 7), e a análise final
+tem de dizer com que versão foi feita.
 
 Serve duas coisas:
 

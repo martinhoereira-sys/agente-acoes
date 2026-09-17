@@ -54,6 +54,15 @@ SLIPPAGE_PCT = 0.05            # % -- compras um pouco acima do preço no ecrã
 # limite, uma ação que ficasse parada entre o stop e o alvo bloqueava o agente
 # nessa empresa durante meses -- e uma aposta que nunca fecha também nunca
 # entra nas contas do fim.
+#
+# CONGELADO a partir do arranque do torneio (regra 7 do README). Isto não é uma
+# definição como as outras: é uma regra de avaliação. Ao contrário do valor da
+# aposta e dos custos, que ficam copiados em cada linha do decisoes.csv no dia
+# em que a decisão é tomada, este número é lido no momento em que as contas são
+# feitas -- e as contas são refeitas de raiz de cada vez. Baixá-lo de 60 para 40
+# passa a fechar aos 40 dias apostas antigas que já tinham sido dadas como
+# fechadas aos 60, com outro preço e outro resultado, e nada avisa que mudou.
+# Se for mesmo indispensável, regista no README a data, o motivo e o que mudou.
 DIAS_MAXIMOS_POSICAO = 60
 
 # ---------------------------------------------------------------------------
