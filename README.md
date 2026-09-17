@@ -89,7 +89,7 @@ por frustração.
 | 3 out → 17 out | Construir o sistema completo: 10 agentes, 40+ empresas, notícias, site |
 | 17 out → 24 out | Teste técnico do sistema completo. Dados deitados fora. |
 | **24 out 2026** | **Arranque oficial. A partir daqui não se toca em nada.** |
-| 28 nov · 26 dez · 30 jan · 27 fev · 27 mar | Pontos de observação — só olhar |
+| 28 nov · 26 dez · 30 jan · 27 fev · 27 mar · 30 abr · 31 mai | Pontos de observação — só olhar (ver **Registo de observação**) |
 | 30 jun 2027 | Fim do torneio |
 | 3 jul 2027 | Análise dos resultados |
 | 10 jul 2027 | Escolher os 3 melhores, criar clones com variações |
@@ -229,3 +229,33 @@ melhores do que são.
 **Teste técnico.** 40 empresas (por setor, ver `config.py`), 1 agente + 2 controlos.
 Nesta fase não se olha para acertos — só se confirma que o registo grava todos
 os dias sem falhar. Estes dados não contam para nada.
+
+---
+
+## Registo de observação
+
+Uma linha por ponto de observação. Serve para duas coisas: guardar o que foi
+observado em cada data, e garantir atividade manual no repositório — o GitHub
+desliga tarefas agendadas em repositórios sem atividade durante cerca de 60
+dias. Os commits diários são empurrados pelo próprio GitHub Actions, com o
+token dele, e não se deve contar com eles para isto: daí a linha ser escrita à
+mão. Se isto ficar por fazer, o registo diário pára sozinho e só se dá por isso
+quando faltarem semanas de dados.
+
+Escrever aqui é **olhar, não mexer**. A partir de 24 de outubro valem as regras
+1, 2 e 7: nem os agentes nem a lógica de avaliação se tocam. Se alguma vez for
+mesmo indispensável alterar, isso vai para **Alterações à lógica de avaliação
+depois do arranque**, lá em cima, e não para aqui.
+
+Datas previstas: 28 nov 2026 · 26 dez 2026 · 30 jan 2027 · 27 fev 2027 ·
+27 mar 2027 · 30 abr 2027 · 31 mai 2027.
+
+Formato:
+
+```
+- AAAA-MM-DD — o que foi observado. Nada foi alterado.
+```
+
+### Observações
+
+*(ainda nenhuma — a primeira é a 28 de novembro de 2026)*
