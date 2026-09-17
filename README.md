@@ -120,6 +120,7 @@ base.py                    classe base + cálculo do stop e do alvo
 momentum.py                Agente 1 — momentum simples (só gráfico)
 controlos.py               os dois controlos idiotas
 lista_agentes.py           a lista de agentes ativos
+posicoes.py                que apostas já fecharam, e com que resultado
 correr_diario.py           o programa que corre uma vez por dia
 requirements.txt           dependências
 .github/workflows/
@@ -128,6 +129,39 @@ dados/                     criada pelo programa
   precos.csv               o dia de cada empresa: abertura, máximo,
                            mínimo, fecho e volume
   decisoes.csv             uma linha por decisão tomada
+```
+
+---
+
+## Uma posição de cada vez
+
+Cada agente só pode ter **uma posição aberta por empresa** ao mesmo tempo.
+Enquanto a aposta anterior dele nessa empresa não fechar, não se lhe pergunta
+nada e não se grava linha nenhuma.
+
+Uma pessoa a sério não compra a mesma ação todos os dias. E comprar a mesma
+empresa 60 dias seguidos não são 60 provas de que o agente é bom: é a mesma
+aposta contada 60 vezes. Isso dava a ideia de haver muito mais provas do que há.
+
+Uma posição aberta no dia D fecha no primeiro dia a seguir em que:
+
+| o que acontece | fecha em | sai a que preço |
+|---|---|---|
+| a abertura já vem abaixo do stop | STOP | **à abertura** — pior do que o stop |
+| o mínimo chega ao stop | STOP | ao stop |
+| o máximo chega ao alvo | ALVO | ao alvo |
+| passam `DIAS_MAXIMOS_POSICAO` dias de bolsa | TEMPO | ao fecho desse dia |
+
+**Se no mesmo dia tocar no stop e no alvo, conta como stop.** Com preços diários
+não dá para saber qual veio primeiro, e é preferível ser pessimista a dar aos
+agentes um resultado melhor do que a realidade.
+
+Nada disto é gravado em ficheiro. O estado é sempre recalculado a partir dos
+preços — se um dia corrigirmos a regra, todo o histórico fica corrigido sozinho.
+É também a mesma conta que dirá, em julho, quem ganhou:
+
+```bash
+python posicoes.py
 ```
 
 ---

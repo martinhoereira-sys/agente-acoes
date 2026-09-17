@@ -7,6 +7,15 @@ Faz sempre as mesmas três coisas:
      dados/precos.csv
   3. pergunta a cada agente o que faria, e grava a resposta em dados/decisoes.csv
 
+Cada agente só pode ter UMA posição aberta por empresa de cada vez. Se a aposta
+anterior dele nessa empresa ainda não fechou, não se lhe pergunta nada. Uma
+pessoa a sério não compra a mesma ação todos os dias, e apostas repetidas na
+mesma empresa também não são observações independentes -- enchiam o registo e
+davam a ideia de haver mais provas do que há.
+
+Se uma posição já fechou é sempre calculado a partir dos preços (ver
+posicoes.py), nunca gravado.
+
 A ÚLTIMA CORRIDA DO DIA GANHA. Se o programa já tiver corrido hoje, as linhas
 desse dia são substituídas em vez de saltadas: a corrida a meio da sessão grava
 um preço intradiário e a corrida de depois do fecho corrige-o para o fecho
@@ -32,6 +41,7 @@ import config
 from lista_agentes import AGENTES
 from base import calcular_stop_e_alvo
 from fonte_dados import buscar_varios
+from posicoes import posicoes_abertas
 
 # O dia inteiro, não só o fecho: o fecho sozinho não chega para saber se uma
 # aposta acertou. Uma ação pode descer até ao stop a meio do dia e fechar acima
@@ -173,7 +183,7 @@ def _contar(quantidade, singular, plural):
     return f"{quantidade} {singular if quantidade == 1 else plural}"
 
 
-def _resumo(precos, decisoes, falhas):
+def _resumo(precos, decisoes, falhas, ignoradas=0):
     """'2 preços novos, 1 preço atualizado, 3 decisões atualizadas'."""
     n_precos, a_precos, r_precos = precos
     n_decisoes, a_decisoes, r_decisoes = decisoes
@@ -185,6 +195,8 @@ def _resumo(precos, decisoes, falhas):
         (n_decisoes, "decisão nova", "decisões novas"),
         (a_decisoes, "decisão atualizada", "decisões atualizadas"),
         (r_decisoes, "decisão removida", "decisões removidas"),
+        (ignoradas, "ignorada por já haver posição aberta",
+                    "ignoradas por já haver posição aberta"),
         (falhas, "falha", "falhas"),
     ]
     texto = [_contar(q, s, p) for q, s, p in partes if q]
@@ -208,6 +220,8 @@ def main(simulado=False):
     segundos_dados = time.monotonic() - relogio
     print(f"\nDados: {len(config.EMPRESAS)} empresas em {segundos_dados:.1f}s")
 
+    # Os preços primeiro, todos, porque as posições abertas calculam-se com os
+    # preços de hoje já lá dentro.
     for ticker in config.EMPRESAS:
         historico = historicos.get(ticker)
         if not historico:
@@ -222,8 +236,6 @@ def main(simulado=False):
         print(f"  {ticker}: {hoje['data']} fecho {hoje['fecho']} "
               f"(min {hoje.get('minimo')} / max {hoje.get('maximo')})")
         dias_tickers.add((hoje["data"], ticker))
-
-        # 1. preço
         precos_novos.append({
             "data": hoje["data"],
             "ticker": ticker,
@@ -234,9 +246,34 @@ def main(simulado=False):
             "volume": hoje["volume"],
         })
 
-        # 2. decisões -- recalculadas sempre, porque o preço de entrada é o
+    # Que posições é que ainda estão de pé? Calcula-se a partir dos preços, com
+    # os de hoje já incluídos -- uma posição pode ter fechado hoje mesmo, e
+    # nesse caso o agente já pode voltar a decidir esta empresa.
+    _, decisoes_gravadas = _ler_csv(config.FICHEIRO_DECISOES, COLUNAS_DECISOES)
+    _, precos_gravados = _ler_csv(config.FICHEIRO_PRECOS, COLUNAS_PRECOS)
+    abertas = posicoes_abertas(
+        decisoes_gravadas,
+        precos_gravados + precos_novos,
+        ignorar_datas_tickers=dias_tickers,
+    )
+
+    ignoradas = 0
+    for ticker in config.EMPRESAS:
+        historico = historicos.get(ticker)
+        if not historico:
+            continue                      # já foi contado como falha acima
+
+        hoje = historico[-1]
+
+        # As decisões são recalculadas sempre, porque o preço de entrada é o
         # preço que acabámos de ir buscar.
         for agente in AGENTES:
+            if (agente.nome, ticker) in abertas:
+                # A aposta anterior dele nesta empresa ainda está de pé. Não se
+                # lhe pergunta nada e não se grava linha nenhuma.
+                ignoradas += 1
+                continue
+
             decisao = agente.decidir(ticker, historico)
             if not decisao:
                 continue
@@ -264,7 +301,7 @@ def main(simulado=False):
     decisoes = _gravar(config.FICHEIRO_DECISOES, COLUNAS_DECISOES,
                        CHAVE_DECISAO, dias_tickers, decisoes_novas)
 
-    print(f"\nResumo: {_resumo(precos, decisoes, falhas)}")
+    print(f"\nResumo: {_resumo(precos, decisoes, falhas, ignoradas)}")
     print(f"Tempo: {segundos_dados:.1f}s a ir buscar os dados, "
           f"{time.monotonic() - comeco:.1f}s no total")
 
