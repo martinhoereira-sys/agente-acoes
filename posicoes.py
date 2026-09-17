@@ -2,10 +2,18 @@
 Saber o que aconteceu a cada decisão, a partir dos preços que vieram a seguir.
 
 Isto NUNCA se grava em ficheiro. O estado de uma posição é sempre recalculado
-a partir do dados/precos.csv. Se um dia corrigirmos a lógica aqui, todo o
-histórico fica corrigido sozinho -- se estivesse gravado, ficávamos com anos de
+a partir do dados/precos.csv -- se estivesse gravado, ficávamos com anos de
 resultados calculados por uma regra que já não usamos e sem maneira de saber
 quais.
+
+REGRA DE OURO: a partir do arranque oficial do torneio, este ficheiro fica
+congelado tal como os agentes. É o reverso de não gravar nada: como os
+resultados são sempre recalculados, mexer aqui reescreve em silêncio os
+resultados de todo o histórico, e não há número nenhum gravado que passe a não
+bater certo e avise. Mexer numa linha em junho muda o vencedor de outubro sem
+deixar rasto. Se for mesmo indispensável, a data, o motivo e o que mudou vão
+para o README (regra 7), e a análise final tem de dizer com que versão foi
+feita.
 
 Serve duas coisas:
 
