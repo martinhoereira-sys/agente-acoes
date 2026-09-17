@@ -148,13 +148,20 @@ Uma posição aberta no dia D fecha no primeiro dia a seguir em que:
 | o que acontece | fecha em | sai a que preço |
 |---|---|---|
 | a abertura já vem abaixo do stop | STOP | **à abertura** — pior do que o stop |
+| a abertura já vem acima do alvo | ALVO | **à abertura** — melhor do que o alvo |
 | o mínimo chega ao stop | STOP | ao stop |
 | o máximo chega ao alvo | ALVO | ao alvo |
 | passam `DIAS_MAXIMOS_POSICAO` dias de bolsa | TEMPO | ao fecho desse dia |
 
-**Se no mesmo dia tocar no stop e no alvo, conta como stop.** Com preços diários
-não dá para saber qual veio primeiro, e é preferível ser pessimista a dar aos
-agentes um resultado melhor do que a realidade.
+A abertura é vista primeiro porque é o primeiro preço do dia: se já vem fora do
+intervalo, a ordem executa logo ali e o que a cotação fizer a seguir nesse dia
+não interessa. Sai-se ao preço que o mercado deu, nos dois sentidos — para baixo
+perde-se mais do que o planeado, para cima ganha-se mais.
+
+**Se, depois da abertura, tocar no stop e no alvo no mesmo dia, conta como
+stop.** Com preços diários não dá para saber qual veio primeiro, e é preferível
+ser pessimista a dar aos agentes um resultado melhor do que a realidade. Na
+abertura não há esta dúvida.
 
 Nada disto é gravado em ficheiro. O estado é sempre recalculado a partir dos
 preços — se um dia corrigirmos a regra, todo o histórico fica corrigido sozinho.

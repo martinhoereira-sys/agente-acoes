@@ -18,15 +18,21 @@ AS REGRAS
 Uma posição aberta no dia D, com stop S e alvo A, fecha no primeiro dia a
 seguir a D em que:
 
-  * a abertura já vem abaixo do stop  -> sai à ABERTURA, não ao stop. É o caso
-    da notícia má durante a noite: o stop não protege, e a perda é maior do que
-    a planeada. Fingir que se saiu ao stop era inventar dinheiro que não havia.
-  * o mínimo chega ao stop            -> sai ao STOP
-  * o máximo chega ao alvo            -> sai ao ALVO
+  * a abertura já vem fora do intervalo -> sai à ABERTURA, não ao stop nem ao
+    alvo. É o primeiro preço do dia: a ordem executa logo ali e nada do que
+    aconteça a seguir nesse dia interessa. Abaixo do stop é a notícia má
+    durante a noite -- o stop não protege e perde-se mais do que o planeado;
+    acima do alvo é o contrário, e ganha-se mais. Nos dois casos o preço é o
+    que o mercado deu. Fingir o contrário era inventar dinheiro num sentido ou
+    deitá-lo fora no outro.
+  * o mínimo chega ao stop              -> sai ao STOP
+  * o máximo chega ao alvo              -> sai ao ALVO
 
-Se no mesmo dia o mínimo tocar no stop E o máximo tocar no alvo, conta como
-STOP. Com preços diários não dá para saber qual veio primeiro, e é preferível
-ser pessimista a dar aos agentes um resultado melhor do que a realidade.
+Se DEPOIS DA ABERTURA o mínimo tocar no stop E o máximo tocar no alvo no mesmo
+dia, conta como STOP. Com preços diários não dá para saber qual veio primeiro,
+e é preferível ser pessimista a dar aos agentes um resultado melhor do que a
+realidade. Na abertura não há esta dúvida -- é o primeiro preço do dia, e por
+isso é que os dois gaps são vistos antes.
 
 Ao fim de config.DIAS_MAXIMOS_POSICAO dias de bolsa sem tocar em nada, fecha ao
 preço de fecho desse dia.
@@ -128,12 +134,21 @@ def _fecho_da_posicao(decisao, dias_seguintes):
         if maximo is None: maximo = fecho
         if minimo is None: minimo = fecho
 
-        # 1. Gap: abriu já abaixo do stop. Sai-se ao que o mercado dá.
-        if stop is not None and abertura is not None and abertura <= stop:
-            return STOP, dia["data"], abertura, passados
+        # 1. A abertura primeiro, porque é o primeiro preço do dia. Se já vem
+        #    fora do intervalo, a ordem executa logo ali e nada do que aconteça
+        #    depois nesse dia interessa. Sai-se ao preço que o mercado deu, não
+        #    ao que estava planeado -- para baixo perde-se mais, para cima
+        #    ganha-se mais. Os dois casos nunca colidem: o stop é sempre
+        #    abaixo do alvo.
+        if abertura is not None:
+            if stop is not None and abertura <= stop:
+                return STOP, dia["data"], abertura, passados
+            if alvo is not None and abertura >= alvo:
+                return ALVO, dia["data"], abertura, passados
 
-        # 2. Stop antes do alvo: quando os dois são tocados no mesmo dia não
-        #    sabemos a ordem, e assume-se a pior.
+        # 2. Dentro do dia, o stop ganha ao alvo: quando os dois são tocados no
+        #    mesmo dia não sabemos qual veio primeiro, e assume-se a pior. Isto
+        #    é só para o que acontece depois da abertura -- aí sim há dúvida.
         if stop is not None and minimo <= stop:
             return STOP, dia["data"], stop, passados
 
