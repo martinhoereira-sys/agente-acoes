@@ -97,3 +97,13 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-09-17,momentum-simples,VZ,COMPRA,48.33,47.0569,52.1492,3.0,0.55,preço 1.7% acima da média de 50 dias,1000.0,1.0,0.05
 2026-09-17,controlo-sempre-compra,VZ,COMPRA,48.33,47.0569,52.1492,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-09-17,controlo-moeda-ao-ar,VZ,COMPRA,48.33,47.0569,52.1492,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,momentum-simples,GOOGL,COMPRA,349.54,339.3271,380.1788,3.0,0.55,preço 1.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,JPM,COMPRA,349.67,343.5666,367.9803,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,ABBV,COMPRA,263.96,257.4366,283.5302,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,XOM,COMPRA,163.54,158.1913,179.586,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,PEP,COMPRA,129.75,127.1929,137.4212,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,PEP,COMPRA,129.75,127.1929,137.4212,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,BA,COMPRA,198.2,192.4365,215.4905,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,DIS,COMPRA,102.67,99.5019,112.1743,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,momentum-simples,T,COMPRA,25.4,24.6346,27.6962,3.0,0.55,preço 4.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,T,COMPRA,25.4,24.6346,27.6962,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
