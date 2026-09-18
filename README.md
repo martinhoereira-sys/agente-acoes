@@ -222,6 +222,17 @@ ação que desça até ao stop a meio do dia e feche acima dele é uma perda a s
 — com só o fecho, essa perda desaparecia do registo e os agentes pareciam
 melhores do que são.
 
+**O máximo e o mínimo são alargados até cobrirem a abertura e o fecho.** O Yahoo
+manda de vez em quando dias impossíveis (a 17 de setembro de 2026, a MS e a CAT
+vieram com a abertura acima do máximo). Como o `posicoes.py` usa o máximo e o
+mínimo para ver se o preço tocou no stop, um intervalo que não cobre a abertura
+pode deixar passar um stop realmente atingido, e a posição fica aberta quando já
+devia ter fechado a perder. A correção não inventa nada: a abertura e o fecho
+são preços a que se negociou mesmo, logo o verdadeiro máximo do dia é pelo menos
+o maior dos três. Só se alarga até ao que já se sabe ser verdade, nunca se
+aperta. Cada corrida diz quantas linhas corrigiu — se um dia forem muitas, é
+sinal de problema maior na fonte.
+
 ---
 
 ## Fase atual

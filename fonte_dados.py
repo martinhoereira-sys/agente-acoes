@@ -14,6 +14,11 @@ empresa estragada (símbolo mudado, ação saída de bolsa) não leva as outras
 atrás, que é o que interessa: o torneio não pode ficar sem 39 empresas por
 causa de uma.
 
+O máximo e o mínimo de cada dia são alargados até cobrirem a abertura e o
+fecho. O Yahoo manda de vez em quando dias impossíveis, e um intervalo que não
+cobre a abertura faz o posicoes.py passar ao lado de um stop realmente
+atingido. Ver _corrigir_intervalo.
+
 Modo --simulado: gera preços falsos para testar a canalização sem rede.
 Serve para desenvolvimento. NUNCA usar dados simulados no torneio a sério.
 """
@@ -50,6 +55,41 @@ def _numero(valor):
     return round(float(valor), 4)
 
 
+def _corrigir_intervalo(linha):
+    """
+    Alarga o máximo e o mínimo até cobrirem a abertura e o fecho.
+
+    O Yahoo manda de vez em quando dias impossíveis -- abertura acima do máximo,
+    ou abaixo do mínimo. Isto não é um pormenor de arrumação: o posicoes.py usa
+    o máximo e o mínimo para ver se o preço tocou no stop ou no alvo, e um
+    intervalo que não cobre a abertura pode deixar passar um stop realmente
+    atingido. A posição ficava aberta quando já devia ter fechado a perder.
+
+    A correção não inventa nada. A abertura e o fecho são preços a que se
+    negociou mesmo, por isso o verdadeiro máximo do dia é pelo menos o maior dos
+    três e o verdadeiro mínimo é pelo menos o menor. Só se alarga o intervalo
+    até ao que já se sabe ser verdade -- nunca se aperta.
+
+    Devolve True se mexeu em alguma coisa.
+    """
+    conhecidos = [linha[c] for c in ("abertura", "fecho") if linha[c] is not None]
+    if not conhecidos:
+        return False
+
+    corrigida = False
+    if linha["maximo"] is not None:
+        maior = max([linha["maximo"]] + conhecidos)
+        if maior != linha["maximo"]:
+            linha["maximo"] = maior
+            corrigida = True
+    if linha["minimo"] is not None:
+        menor = min([linha["minimo"]] + conhecidos)
+        if menor != linha["minimo"]:
+            linha["minimo"] = menor
+            corrigida = True
+    return corrigida
+
+
 def _linhas_da_tabela(tabela):
     """
     Converte uma tabela do yfinance na lista de dicionários que o resto do
@@ -66,11 +106,14 @@ def _linhas_da_tabela(tabela):
     Linhas sem fecho são deitadas fora. Quando se pedem várias empresas de uma
     vez, o yfinance alinha todas pelo mesmo calendário e mete NaN nos dias em
     que uma delas não negociou (feriados diferentes, ações mais recentes).
+
+    Devolve (linhas, quantas tiveram o máximo/mínimo corrigido).
     """
     if tabela is None or len(tabela) == 0:
-        return []
+        return [], 0
 
     linhas = []
+    corrigidas = 0
     for indice, linha in tabela.iterrows():
         fecho = _numero(linha.get("Close"))
         if fecho is None:
@@ -78,15 +121,18 @@ def _linhas_da_tabela(tabela):
         volume = linha.get("Volume")
         if volume is None or volume != volume:
             volume = 0
-        linhas.append({
+        nova = {
             "data": indice.date().isoformat(),
             "abertura": _numero(linha.get("Open")),
             "maximo": _numero(linha.get("High")),
             "minimo": _numero(linha.get("Low")),
             "fecho": fecho,
             "volume": int(volume),
-        })
-    return linhas
+        }
+        if _corrigir_intervalo(nova):
+            corrigidas += 1
+        linhas.append(nova)
+    return linhas, corrigidas
 
 
 def _tabela_da_empresa(lote, ticker):
@@ -120,6 +166,7 @@ def buscar_varios(tickers, dias=250, simulado=False):
         return {t: [] for t in tickers}
 
     resultado = {t: [] for t in tickers}
+    corrigidas = {}                                  # ticker -> quantas linhas
     lote = _buscar_lote(yf, tickers, dias)
 
     if lote is not None:
@@ -129,7 +176,9 @@ def buscar_varios(tickers, dias=250, simulado=False):
             except Exception as erro:                # uma empresa estragada
                 print(f"AVISO: não se percebeu a tabela de {ticker}: {erro}")
                 continue
-            resultado[ticker] = _linhas_da_tabela(tabela)
+            resultado[ticker], n_corrigidas = _linhas_da_tabela(tabela)
+            if n_corrigidas:
+                corrigidas[ticker] = n_corrigidas
 
     faltam = [t for t in tickers if not resultado[t]]
 
@@ -139,7 +188,17 @@ def buscar_varios(tickers, dias=250, simulado=False):
         print(f"  ({len(faltam)} sem dados no lote: {', '.join(faltam)} -- a tentar uma a uma)")
         for ticker in faltam:
             time.sleep(PAUSA_ENTRE_EMPRESAS)
-            resultado[ticker] = buscar_historico(ticker, dias=dias)
+            resultado[ticker], n_corrigidas = _buscar_uma(yf, ticker, dias)
+            if n_corrigidas:
+                corrigidas[ticker] = n_corrigidas
+
+    if corrigidas:
+        # Serve para vigiar a fonte ao longo do torneio: duas empresas num dia
+        # é o Yahoo a ser o Yahoo; quinze em quarenta é problema a sério.
+        total = sum(corrigidas.values())
+        nomes = ", ".join(sorted(corrigidas))
+        plural = "linha" if total == 1 else "linhas"
+        print(f"  {total} {plural} com máximo/mínimo corrigidos ({nomes})")
 
     return resultado
 
@@ -187,15 +246,20 @@ def buscar_historico(ticker, dias=250, simulado=False):
         print("ERRO: yfinance não instalado. Corre: pip install -r requirements.txt")
         return []
 
+    return _buscar_uma(yf, ticker, dias)[0]
+
+
+def _buscar_uma(yf, ticker, dias):
+    """Uma empresa só. Devolve (linhas, quantas foram corrigidas)."""
     try:
         tabela = yf.Ticker(ticker).history(period=f"{dias}d", interval="1d")
     except Exception as erro:
         print(f"ERRO ao buscar {ticker}: {erro}")
-        return []
+        return [], 0
 
     if tabela is None or len(tabela) == 0:
         print(f"AVISO: sem dados para {ticker}")
-        return []
+        return [], 0
 
     return _linhas_da_tabela(tabela)
 
