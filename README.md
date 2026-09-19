@@ -159,11 +159,14 @@ não ter apostas que cheguem.
 difícil de bater — o que der o valor mais baixo. Passar contra esse é passar
 contra os dois.
 
-A conta está no `selecao.py` e pode ser corrida a qualquer momento:
+As três condições estão no `selecao.py` e podem ser corridas a qualquer momento:
 
 ```bash
 python selecao.py
 ```
+
+Mostra, por agente, o veredicto e os números de cada condição — incluindo as
+que não chegaram a decidir, para se ver onde ficou.
 
 ### Porquê a condição 3
 
@@ -171,10 +174,31 @@ As duas primeiras condições olham para o total. A terceira é um **teste de
 robustez**: mede se o agente ganha por acumulação ou por um golpe de sorte.
 
 Um agente que faça 60 apostas pequenas e termine acima dos controlos mostrou um
-padrão. Um agente cujo lucro inteiro venha de uma única posição que disparou não
-mostrou nada — tirando essa posição, é igual à moeda ao ar. E a diferença
-importa, porque o que se quer saber é se a ideia se repete, não se teve um bom
-dia. Retirar a melhor posição é a maneira mais simples de perguntar isso.
+padrão. Um agente cujo lucro venha em boa parte de uma posição que disparou
+mostrou muito menos. O que se quer saber é se a ideia se repete, não se teve um
+bom dia, e retirar a melhor posição é a maneira mais simples de perguntar isso.
+
+**Uma surpresa, descoberta ao implementar isto.** O caso extremo — o agente cujo
+lucro vem *todo* de uma única posição — **já é chumbado pela condição 2, sozinha**.
+A razão é aritmética: uma posição enorme puxa a média para cima, mas puxa o
+erro-padrão exatamente na mesma proporção. Os dois crescem ao mesmo ritmo e o
+resultado da divisão tende para 1, por muito grande que a posição seja. Nunca
+chega perto de 2,5.
+
+| 59 apostas de −2 EUR, mais uma de… | valor da condição 2 |
+|---|---|
+| 100 EUR | −0,12 |
+| 1 000 EUR | 0,88 |
+| 100 000 EUR | 1,00 |
+| 1 000 000 000 EUR | 1,00 |
+
+Ou seja: a condição 3 **não** é o que apanha o golpe de sorte. Ela aperta a
+margem para os casos em cima da linha — um agente com vantagem real mas apertada,
+em que a melhor posição é o que o empurra para o lado bom do limiar. Num exemplo
+testado: 2,51 com todas as posições, 2,31 sem a melhor. Passa a 2, chumba na 3.
+
+Fica na mesma, e fica de propósito: é uma barra a mais e não custa nada. Mas o
+trabalho pesado de rejeitar a sorte é da condição 2.
 
 ### Porquê escrito agora
 
