@@ -60,6 +60,11 @@ Se for mesmo indispensável alterar, tem de ficar registado aqui em baixo a
 data, o motivo e o que mudou, e a análise final tem de dizer com que versão
 foi feita.
 
+**8. O critério de seleção do fim está decidido desde já.**
+No fim do torneio não se escolhem "os três melhores". Escolhem-se todos os
+agentes que passarem as três condições abaixo, e apenas esses — podem ser
+cinco, podem ser dois, pode não ser nenhum. Ver **Critério de seleção**.
+
 ### Alterações à lógica de avaliação depois do arranque
 
 Nenhuma até hoje.
@@ -80,6 +85,51 @@ por frustração.
 
 ---
 
+## Critério de seleção (decidido antes de haver resultados)
+
+No fim do torneio **não se escolhem "os três melhores"**. Escolher os três
+primeiros de uma lista garante sempre três vencedores, mesmo que os três sejam
+ruído. Em vez disso há uma barra fixa, e passa quem a passar.
+
+Um agente só é selecionado se cumprir as **três** condições:
+
+> **1. Pelo menos 50 posições fechadas.**
+> Abaixo disso não há como distinguir talento de sorte.
+>
+> **2. Mais dinheiro do que o melhor dos dois controlos, com margem clara.**
+> Empatar com a moeda ao ar não é passar.
+>
+> **3. Continua acima dos controlos depois de lhe ser retirada a sua melhor
+> posição isolada.**
+> Se todo o resultado vier de um único acerto grande, foi sorte.
+
+Podem passar cinco, podem passar dois, pode não passar nenhum.
+
+**Se nenhum agente passar, o site diz isso com todas as letras:** *"nenhum
+agente passou o critério de seleção"*. Isso é um resultado válido e publica-se
+na mesma. Oito meses a descobrir que nenhuma das ideias funciona é informação
+que vale o mesmo que o contrário — e é bem mais barata do que descobri-lo com
+dinheiro a sério.
+
+### Porquê a condição 3
+
+As duas primeiras condições olham para o total. A terceira é um **teste de
+robustez**: mede se o agente ganha por acumulação ou por um golpe de sorte.
+
+Um agente que faça 60 apostas pequenas e termine acima dos controlos mostrou um
+padrão. Um agente cujo lucro inteiro venha de uma única posição que disparou não
+mostrou nada — tirando essa posição, é igual à moeda ao ar. E a diferença
+importa, porque o que se quer saber é se a ideia se repete, não se teve um bom
+dia. Retirar a melhor posição é a maneira mais simples de perguntar isso.
+
+### Porquê escrito agora
+
+Este critério está aqui **antes de existirem resultados**, de propósito. Uma
+linha de corte traçada depois de se ver os números acaba sempre a passar no
+sítio onde algum agente fica do lado bom. Escrita antes, ou passa, ou não passa.
+
+---
+
 ## Calendário
 
 | Data | Fase |
@@ -92,7 +142,7 @@ por frustração.
 | 28 nov · 26 dez · 30 jan · 27 fev · 27 mar · 30 abr · 31 mai | Pontos de observação — só olhar (ver **Registo de observação**) |
 | 30 jun 2027 | Fim do torneio |
 | 3 jul 2027 | Análise dos resultados |
-| 10 jul 2027 | Escolher os 3 melhores, criar clones com variações |
+| 10 jul 2027 | Aplicar o **critério de seleção** — passa quem passar, podem ser zero. Criar clones com variações dos que passarem |
 | 17 jul → out 2027 | Fase de confirmação (3 meses congelados) |
 
 ---
