@@ -41,7 +41,7 @@ derivado dos preços que vieram depois.
 **7. A partir de 24 de outubro, a lógica de avaliação fica congelada.**
 Ficam trancados, tal como os agentes:
 
-- o `posicoes.py` inteiro;
+- o `posicoes.py` e o `selecao.py` inteiros;
 - o `DIAS_MAXIMOS_POSICAO` no `config.py` — é uma regra de avaliação disfarçada
   de definição. Mudá-lo de 60 para 40 fecha ao fim de 40 dias apostas que já
   tinham sido dadas como fechadas aos 60, com outro preço e outro resultado.
@@ -63,7 +63,9 @@ foi feita.
 **8. O critério de seleção do fim está decidido desde já.**
 No fim do torneio não se escolhem "os três melhores". Escolhem-se todos os
 agentes que passarem as três condições abaixo, e apenas esses — podem ser
-cinco, podem ser dois, pode não ser nenhum. Ver **Critério de seleção**.
+cinco, podem ser dois, pode não ser nenhum. As condições têm números fixos
+desde já, incluindo o limiar de significância de 2,5. Ver **Critério de
+seleção**.
 
 ### Alterações à lógica de avaliação depois do arranque
 
@@ -96,8 +98,13 @@ Um agente só é selecionado se cumprir as **três** condições:
 > **1. Pelo menos 50 posições fechadas.**
 > Abaixo disso não há como distinguir talento de sorte.
 >
-> **2. Mais dinheiro do que o melhor dos dois controlos, com margem clara.**
-> Empatar com a moeda ao ar não é passar.
+> **2. A vantagem sobre o melhor dos dois controlos tem de ser
+> estatisticamente significativa.**
+> Calcula-se o resultado médio por posição fechada do agente e o do controlo,
+> o erro-padrão da diferença entre as duas médias, e divide-se a diferença por
+> esse erro-padrão. O resultado tem de ser **maior que 2,5**. Em texto simples:
+> a vantagem tem de ser pelo menos 2,5 vezes maior do que a incerteza com que
+> foi medida. Empatar com a moeda ao ar não é passar.
 >
 > **3. Continua acima dos controlos depois de lhe ser retirada a sua melhor
 > posição isolada.**
@@ -110,6 +117,53 @@ agente passou o critério de seleção"*. Isso é um resultado válido e publica
 na mesma. Oito meses a descobrir que nenhuma das ideias funciona é informação
 que vale o mesmo que o contrário — e é bem mais barata do que descobri-lo com
 dinheiro a sério.
+
+### Porquê um número e não "margem clara"
+
+A condição 2 já teve escrito "com margem clara". Isso não é um critério: é uma
+decisão adiada. Em julho de 2027 alguém olharia para os números e decidiria ali
+o que conta como clara — que é exatamente o que este capítulo existe para
+impedir. Agora tem um número.
+
+**O que é o erro-padrão.** Um agente que fechou 60 posições tem uma média de
+euros por posição. Se o torneio voltasse a correr, essa média não dava
+exatamente o mesmo: umas apostas corriam melhor, outras pior. O erro-padrão é a
+estimativa de quanto essa média ainda oscilaria. Uma vantagem de 5 euros por
+posição quer dizer coisas muito diferentes conforme a medição tenha uma margem
+de 1 euro ou de 10.
+
+**Por isso se divide.** A diferença entre as duas médias a dividir pelo
+erro-padrão dessa diferença dá a vantagem medida na sua própria unidade de
+incerteza. Um valor de 2,5 quer dizer que a vantagem é duas vezes e meia maior
+do que a margem de erro. Abaixo disso, não se consegue distinguir de ruído.
+
+**Porquê 2,5 e não 2.** O limiar habitual seria 2. Mas 2 é o valor para quando
+se testa **um** candidato. Nós vamos ter dez agentes a serem avaliados ao mesmo
+tempo, e quanto mais candidatos houver, maior a hipótese de um deles passar por
+puro acaso — é como atirar dez moedas ao ar em vez de uma e depois reparar que
+uma saiu cinco vezes seguidas a cara.
+
+Por alto, e assumindo os agentes independentes uns dos outros:
+
+| limiar | hipótese de **algum** dos 10 passar só por acaso |
+|---|---|
+| 2,0 | cerca de 21%, ou seja 1 em cada 5 torneios |
+| 2,5 | cerca de 6%, ou seja 1 em cada 17 |
+| 3,0 | cerca de 1% |
+
+O 2,5 é o meio-termo: aperta o suficiente para o falso vencedor deixar de ser
+provável, sem ser tão exigente que um agente genuinamente bom seja chumbado por
+não ter apostas que cheguem.
+
+**Contra qual dos controlos.** O melhor dos dois é, na prática, o que for mais
+difícil de bater — o que der o valor mais baixo. Passar contra esse é passar
+contra os dois.
+
+A conta está no `selecao.py` e pode ser corrida a qualquer momento:
+
+```bash
+python selecao.py
+```
 
 ### Porquê a condição 3
 
