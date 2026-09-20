@@ -71,6 +71,36 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .pos { color: var(--sobe); }
 .neg { color: var(--desce); }
 .vazio { color: var(--suave); font-style: italic; }
+
+.veredicto {
+  background: var(--caixa); border: 1px solid var(--risco);
+  border-radius: 6px; padding: 0.8rem 1rem; margin: 0 0 0.7rem;
+}
+.veredicto .cabeca {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  gap: 0.3rem 0.7rem; margin-bottom: 0.5rem;
+}
+.veredicto .nome { font-weight: 650; }
+.veredicto .selo {
+  font-size: 0.75rem; font-weight: 650; letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.condicoes { list-style: none; margin: 0; padding: 0; font-size: 0.92rem; }
+.condicoes li {
+  display: flex; flex-wrap: wrap; gap: 0.1rem 0.5rem;
+  padding: 0.15rem 0; color: var(--suave);
+}
+.condicoes .valor { color: var(--texto); font-variant-numeric: tabular-nums; }
+.condicoes .marca { font-size: 0.78rem; font-weight: 650; letter-spacing: 0.04em; }
+
+.conclusao {
+  background: var(--caixa); border: 1px solid var(--risco);
+  border-left: 4px solid var(--suave); border-radius: 6px;
+  padding: 0.9rem 1.1rem; margin: 1.2rem 0 0;
+  font-size: 1.02rem;
+}
+.conclusao p { margin: 0; }
+.conclusao strong { font-weight: 650; }
 footer {
   margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--risco);
   color: var(--suave); font-size: 0.85rem;
@@ -80,7 +110,7 @@ footer {
 <body>
 <main>
   <h1>Agentes de Ações</h1>
-  <p class="data">Atualizado a 2026-09-19 11:14 UTC</p>
+  <p class="data">Atualizado a 2026-09-20 10:22 UTC</p>
 
   <div class="aviso"><p>FASE DE TESTE TÉCNICO. O torneio a sério começa a 24 de outubro de 2026. Estes números não significam nada ainda. Com rácio 3:1, as perdas aparecem em dias e os ganhos em semanas — por isso é normal a tabela parecer má no início.</p></div>
 
@@ -107,6 +137,24 @@ footer {
     nenhum agente merece ser copiado. Por isso é que aparecem aqui sem qualquer
     distinção — se precisassem de um asterisco para se perceber que perderam,
     a comparação não estava a ser justa.
+  </p>
+
+  <h2>Critério de seleção (regra 8)</h2>
+  <p>
+    No fim do torneio não se escolhem os melhores da lista: escolhem-se os que
+    passarem as três condições, e só esses. Um agente tem de ter apostas que
+    cheguem, ter uma vantagem sobre os controlos maior do que a incerteza com
+    que foi medida, e continuar a tê-la depois de lhe ser retirada a melhor
+    posição. O critério está escrito desde antes de haver resultados, de
+    propósito.
+  </p>
+  <div class="veredicto"><div class="cabeca"><span class="nome">momentum-simples</span><span class="selo neg">NÃO PASSA</span></div><ul class="condicoes"><li><span>1. posições fechadas:</span> <span class="valor">3 de 50</span> <span class="marca neg">falha</span></li><li><span>2. t contra o controlo mais difícil:</span> <span class="valor">-1,07 (precisa de &gt; 2,5)</span> <span class="marca neg">falha</span></li><li><span>3. sem a melhor posição:</span> <span class="valor">-1,71</span> <span class="marca neg">falha</span></li></ul></div><div class="conclusao"><p><strong>Nenhum agente passou o critério de seleção.</strong></p></div>
+  <p class="legenda">
+    <strong>Isto só significa alguma coisa depois de 24 de outubro de 2026.</strong>
+    Até lá nenhum agente tem posições fechadas que cheguem para a condição 1,
+    por isso o veredicto é sempre o mesmo e não diz nada sobre ninguém. O painel
+    está aqui desde o início para nascer com a página, e não para aparecer a
+    meio do torneio quando já houvesse números para olhar.
   </p>
 
   <h2>Posições abertas</h2>
