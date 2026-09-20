@@ -6,8 +6,9 @@ commit dos dados.
 
 NÃO grava resultados em ficheiro nenhum. Tudo o que a página mostra é
 recalculado de raiz a cada corrida, a partir do dados/precos.csv e do
-dados/decisoes.csv, pelo posicoes.py -- regras 6 e 7 do README. O index.html é
-só o desenho de um cálculo que se refaz sozinho; apagá-lo não perde nada.
+dados/decisoes.csv, pelo posicoes.py e pelo selecao.py -- regras 6 e 7 do
+README. O index.html é só o desenho de um cálculo que se refaz sozinho;
+apagá-lo não perde nada.
 
 Correr à mão:
     python gerar_site.py
@@ -21,6 +22,7 @@ from datetime import datetime, timezone
 
 import config
 import posicoes
+import selecao
 
 FICHEIRO_SITE = "index.html"
 
@@ -152,8 +154,17 @@ def recolher(decisoes, precos, agora=None):
                                  -(p["caminho"] if p["caminho"] is not None else 0)))
     fechadas.sort(key=lambda f: f["data"], reverse=True)
 
+    # O critério da regra 8, recalculado como tudo o resto.
+    vereditos = selecao.veredictos(decisoes, precos)
+
     return {
         "atualizado": agora.strftime("%Y-%m-%d %H:%M UTC"),
+        "selecao": {
+            "agentes": vereditos,
+            "passaram": [v["agente"] for v in vereditos if v["passa"]],
+            "limiar": selecao.LIMIAR,
+            "minimo": selecao.MINIMO_FECHADAS,
+        },
         "dias": len({l["data"] for l in precos}),
         "decisoes": len(decisoes),
         "abertas": sum(1 for e in estados if e["estado"] == posicoes.ABERTA),
@@ -233,6 +244,36 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .pos { color: var(--sobe); }
 .neg { color: var(--desce); }
 .vazio { color: var(--suave); font-style: italic; }
+
+.veredicto {
+  background: var(--caixa); border: 1px solid var(--risco);
+  border-radius: 6px; padding: 0.8rem 1rem; margin: 0 0 0.7rem;
+}
+.veredicto .cabeca {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  gap: 0.3rem 0.7rem; margin-bottom: 0.5rem;
+}
+.veredicto .nome { font-weight: 650; }
+.veredicto .selo {
+  font-size: 0.75rem; font-weight: 650; letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.condicoes { list-style: none; margin: 0; padding: 0; font-size: 0.92rem; }
+.condicoes li {
+  display: flex; flex-wrap: wrap; gap: 0.1rem 0.5rem;
+  padding: 0.15rem 0; color: var(--suave);
+}
+.condicoes .valor { color: var(--texto); font-variant-numeric: tabular-nums; }
+.condicoes .marca { font-size: 0.78rem; font-weight: 650; letter-spacing: 0.04em; }
+
+.conclusao {
+  background: var(--caixa); border: 1px solid var(--risco);
+  border-left: 4px solid var(--suave); border-radius: 6px;
+  padding: 0.9rem 1.1rem; margin: 1.2rem 0 0;
+  font-size: 1.02rem;
+}
+.conclusao p { margin: 0; }
+.conclusao strong { font-weight: 650; }
 footer {
   margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--risco);
   color: var(--suave); font-size: 0.85rem;
@@ -362,6 +403,57 @@ def _tabela_ultimas(ultimas):
             f'<tbody>{"".join(linhas)}</tbody></table></div>')
 
 
+def _linha_condicao(numero, texto, valor, passa):
+    """Uma das três condições, com o número e o veredicto dela."""
+    marca = "ok" if passa else "falha"
+    cor = "pos" if passa else "neg"
+    return (f'<li><span>{numero}. {html.escape(texto)}:</span> '
+            f'<span class="valor">{html.escape(valor)}</span> '
+            f'<span class="marca {cor}">{marca}</span></li>')
+
+
+def _painel_selecao(sel):
+    """Uma caixa por agente com as três condições, e a conclusão por baixo."""
+    limiar = _fmt(sel["limiar"], 1)
+    caixas = []
+
+    for v in sel["agentes"]:
+        c1, c2, c3 = v["condicao_1"], v["condicao_2"], v["condicao_3"]
+        selo = "PASSA" if v["passa"] else "NÃO PASSA"
+        cor_selo = "pos" if v["passa"] else "neg"
+
+        t2 = "—" if c2["t_minimo"] is None else _fmt(c2["t_minimo"])
+        t3 = "—" if c3["t_minimo"] is None else _fmt(c3["t_minimo"])
+
+        caixas.append(
+            '<div class="veredicto">'
+            f'<div class="cabeca"><span class="nome">{html.escape(v["agente"])}</span>'
+            f'<span class="selo {cor_selo}">{selo}</span></div>'
+            '<ul class="condicoes">'
+            + _linha_condicao(1, "posições fechadas",
+                              f'{c1["fechadas"]} de {c1["minimo"]}', c1["passa"])
+            + _linha_condicao(2, "t contra o controlo mais difícil",
+                              f"{t2} (precisa de > {limiar})", c2["passa"])
+            + _linha_condicao(3, "sem a melhor posição", t3, c3["passa"])
+            + "</ul></div>")
+
+    if not caixas:
+        caixas.append('<p class="vazio">Ainda não há agentes para avaliar.</p>')
+
+    passaram = sel["passaram"]
+    if not passaram:
+        conclusao = "<strong>Nenhum agente passou o critério de seleção.</strong>"
+    elif len(passaram) == 1:
+        conclusao = ("<strong>Um agente passou o critério de seleção:</strong> "
+                     + html.escape(passaram[0]) + ".")
+    else:
+        conclusao = (f"<strong>{len(passaram)} agentes passaram o critério de "
+                     "seleção:</strong> " + html.escape(", ".join(passaram)) + ".")
+
+    return ("".join(caixas)
+            + f'<div class="conclusao"><p>{conclusao}</p></div>')
+
+
 def desenhar(dados):
     """Devolve o HTML completo da página."""
     return f"""<!DOCTYPE html>
@@ -404,6 +496,24 @@ def desenhar(dados):
     nenhum agente merece ser copiado. Por isso é que aparecem aqui sem qualquer
     distinção — se precisassem de um asterisco para se perceber que perderam,
     a comparação não estava a ser justa.
+  </p>
+
+  <h2>Critério de seleção (regra 8)</h2>
+  <p>
+    No fim do torneio não se escolhem os melhores da lista: escolhem-se os que
+    passarem as três condições, e só esses. Um agente tem de ter apostas que
+    cheguem, ter uma vantagem sobre os controlos maior do que a incerteza com
+    que foi medida, e continuar a tê-la depois de lhe ser retirada a melhor
+    posição. O critério está escrito desde antes de haver resultados, de
+    propósito.
+  </p>
+  {_painel_selecao(dados["selecao"])}
+  <p class="legenda">
+    <strong>Isto só significa alguma coisa depois de 24 de outubro de 2026.</strong>
+    Até lá nenhum agente tem posições fechadas que cheguem para a condição 1,
+    por isso o veredicto é sempre o mesmo e não diz nada sobre ninguém. O painel
+    está aqui desde o início para nascer com a página, e não para aparecer a
+    meio do torneio quando já houvesse números para olhar.
   </p>
 
   <h2>Posições abertas</h2>
