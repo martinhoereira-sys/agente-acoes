@@ -1,15 +1,32 @@
 """
 Sazonalidade -- compra nos meses historicamente mais fortes.
 
-TESE: há meses do ano em que as ações sobem mais, em média, e vale a pena estar
-dentro nesses e fora nos outros. É a versão testável do dito "sell in May".
+TESE: há meses do ano que são sistematicamente maus, e vale a pena estar fora
+nesses. É a versão testável do dito "sell in May".
 
 O QUE ELE SABE, E DE ONDE
 -------------------------
 Lê a tabela do sazonalidade_tabela.csv, gerada uma vez pelo
 gerar_sazonalidade.py com dez anos fechados (2016-2025) e as 40 empresas
-juntas. Compra se o mês de hoje estiver entre os MESES_BONS com melhor média
-histórica.
+juntas. Compra sempre, EXCETO nos MESES_MAUS com pior média histórica.
+
+PORQUÊ "COMPRA EXCETO" E NÃO "COMPRA NOS MELHORES"
+--------------------------------------------------
+A primeira versão comprava nos 4 melhores meses -- novembro, julho, janeiro e
+agosto. Só que o torneio vai de 24 de outubro de 2026 a 30 de junho de 2027, e
+desses quatro só novembro e janeiro lá caem dentro. O agente ficava ativo em 2
+dos 8 meses, e em cada um comprava quase todas as empresas ao mesmo tempo pelo
+mesmo motivo. Na prática eram duas apostas, não centenas -- e o t-teste da
+regra 8 trataria as centenas como independentes e daria uma confiança que não
+existe.
+
+Virado ao contrário, fica ativo em 6 dos 8 meses e passa a ser um par
+controlado com o controlo-sempre-compra: iguais em tudo menos nos meses
+excluídos. A diferença entre os dois mede exatamente o valor de ficar de fora
+nos meses maus.
+
+A mudança é de calendário, não de desempenho -- está registada no README com
+a data e o motivo.
 
 NUNCA RECALCULA A TABELA. Esta é a parte que interessa: se recalculasse, a
 tabela mudava à medida que chegassem dados novos e o agente passava a aprender
@@ -33,8 +50,9 @@ from base import Agente
 
 FICHEIRO_TABELA = "sazonalidade_tabela.csv"
 
-# Quantos dos doze meses contam como "dos bons".
-MESES_BONS = 4
+# Quantos dos doze meses se evitam. Com a tabela atual são fevereiro,
+# setembro, março e dezembro.
+MESES_MAUS = 4
 
 _tabela = None          # {mes: variacao_media_pct}, lida uma vez
 _avisou = False
@@ -75,16 +93,16 @@ def carregar_tabela(caminho=None):
     return _tabela
 
 
-def meses_escolhidos(tabela=None):
-    """Os MESES_BONS meses com melhor média, do melhor para o pior."""
+def meses_evitados(tabela=None):
+    """Os MESES_MAUS meses com pior média, do pior para o menos mau."""
     tabela = carregar_tabela() if tabela is None else tabela
     return [mes for mes, _ in
-            sorted(tabela.items(), key=lambda par: -par[1])[:MESES_BONS]]
+            sorted(tabela.items(), key=lambda par: par[1])[:MESES_MAUS]]
 
 
 class Sazonalidade(Agente):
     nome = "sazonalidade"
-    descricao = ("Compra nos 4 meses com melhor média histórica "
+    descricao = ("Compra sempre, exceto nos 4 meses com pior média histórica "
                  "(2016-2025, 40 empresas juntas)")
     racio = 3.0
 
@@ -96,14 +114,14 @@ class Sazonalidade(Agente):
         if not tabela:
             return None                       # sem tabela não há tese nenhuma
 
-        bons = meses_escolhidos(tabela)
+        maus = meses_evitados(tabela)
         mes = datetime.date.fromisoformat(historico[-1]["data"]).month
-        if mes not in bons:
+        if mes in maus:
             return None
 
         return {
             "acao": "COMPRA",
-            "razao": (f"mês {mes} está entre os {MESES_BONS} melhores "
+            "razao": (f"mês {mes} não está entre os {MESES_MAUS} piores "
                       f"historicamente ({tabela[mes]:+.2f}% de média)"),
             "confianca": 0.55,
         }
