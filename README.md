@@ -75,6 +75,29 @@ cinco, podem ser dois, pode não ser nenhum. As condições têm números fixos
 desde já, incluindo o limiar de significância de 2,5. Ver **Critério de
 seleção**.
 
+### Alterações antes do arranque
+
+O congelamento só começa a 24 de outubro. Estas foram feitas antes disso, mas
+**depois de a lista das voláteis já estar gerada**, por isso ficam registadas
+aqui na mesma — para se poder ver que não foram feitas a olhar para resultados.
+
+| data | o que mudou | porquê |
+|---|---|---|
+| 2026-09-21 | `STOP_MAXIMO_PCT` de 10% para 15% (`base.py`) | Com 10%, o stop das ações mais nervosas ficava cortado muito abaixo dos 2 desvios-padrão que a regra manda. Na MRNA ficava *dentro* de um movimento normal de um dia: a posição fechava quase sempre de imediato, e sempre para o mesmo lado. |
+| 2026-09-21 | A regra da escolha das voláteis passa a excluir candidatas acima de 7,5% de volatilidade diária (`escolher_volateis.py`), e a lista foi gerada outra vez com a regra nova | O mesmo problema, visto do outro lado: uma ação em que o stop cabe dentro de um dia normal não é uma observação, é uma perda combinada de antemão. O limite é `STOP_MAXIMO_PCT / 2`, derivado e não escrito à mão. |
+
+**O motivo é a mecânica do stop, não o desempenho de nenhuma ação.** O que se
+mediu foi o rácio entre a distância do stop e o movimento diário normal, que
+sai só da volatilidade — não se olhou para nenhum resultado, nem para nenhum
+agente, nem para o que a MRNA ou qualquer outra fez. O que empurrou a mudança
+foi quem mais sofria com ela: o `controlo-sempre-compra` compra tudo todos os
+dias, por isso apanhava estas perdas mais do que ninguém, e isso **baixava a
+barra que os agentes têm de bater**. Corrigir isto torna o torneio mais
+exigente, não menos.
+
+A lista final saiu da regra corrida outra vez, não de uma remoção à mão: saiu
+a MRNA e entrou a 21.ª classificada. Ver **As empresas**.
+
 ### Alterações à lógica de avaliação depois do arranque
 
 Nenhuma até hoje.
@@ -460,7 +483,10 @@ matéria-prima do torneio.
 
 > As 20 ações do S&P 500 com **maior desvio-padrão das variações diárias** nos
 > 12 meses que terminam a **18 de setembro de 2026**, excluindo as 40 que já
-> estavam na lista, e exigindo pelo menos 200 dias de negociação na janela.
+> estavam na lista, exigindo pelo menos 200 dias de negociação na janela, e
+> **excluindo as que são voláteis de mais** — aquelas cujo movimento de 2
+> desvios-padrão diários passa o teto do stop, ou seja, acima de 7,5% de
+> volatilidade diária.
 
 A regra foi escrita **antes** de se ver a lista, e a janela está fixada no
 código em vez de ser "hoje": correr o `escolher_volateis.py` noutro dia tem de
@@ -468,9 +494,26 @@ dar o mesmo resultado. Escolher ações voláteis a olho seria escolher as que d
 jeito, e ninguém saberia dizer se uma empresa entrou por ser volátil ou por
 alguém gostar dela.
 
-Foram medidos 461 candidatos dos 463 possíveis. Dois ficaram de fora por terem
-menos de 200 dias — sem esse filtro, uma empresa que entrou em bolsa há três
-semanas com cinco dias agitados aparecia no topo sem ter história nenhuma.
+Dos 463 candidatos, foram medidos 459. Dois ficaram de fora por terem menos de
+200 dias — sem esse filtro, uma empresa que entrou em bolsa há três semanas com
+cinco dias agitados aparecia no topo sem ter história nenhuma. Um ficou de fora
+pelo teto (a MRNA). E um ficou por medir: o Yahoo falhou o download da PH nessa
+corrida. A PH é uma industrial calma, a uma distância enorme do corte de 4,24%,
+por isso não mudava nada — mas fica dito em vez de escondido. A escolha foi
+corrida duas vezes, e a segunda deu exatamente a mesma lista.
+
+**Porquê excluir as voláteis de mais.** O stop é 2 desvios-padrão diários,
+limitado a `STOP_MAXIMO_PCT` (15%). Numa ação cuja volatilidade passe metade
+desse teto, o stop fica mais apertado do que a regra manda, e no caso extremo
+fica *dentro* de um movimento normal de um dia — a posição fecha quase de
+imediato, sempre para o mesmo lado. Isso não afeta os agentes por igual: quem
+comprar mais essas ações apanha mais perdas, e o `controlo-sempre-compra`, que
+compra tudo todos os dias, é o que mais apanha. Baixa artificialmente a barra
+que os agentes têm de bater, que é o contrário do que um torneio serve.
+
+O limite de 7,5% não está escrito à mão no código: é `STOP_MAXIMO_PCT / 2`.
+Os dois não podem sair de sincronia — se o teto do stop mudar, este muda com
+ele.
 
 ### As 20 escolhidas
 
@@ -478,44 +521,48 @@ Volatilidade diária, em percentagem, na janela acima:
 
 | # | Ticker | Vol. | # | Ticker | Vol. | # | Ticker | Vol. | # | Ticker | Vol. |
 |---|---|---:|---|---|---:|---|---|---:|---|---|---:|
-| 1 | MRNA | 12,15% | 6 | COHR | 5,41% | 11 | DELL | 4,75% | 16 | GLW | 4,56% |
-| 2 | SNDK | 7,34% | 7 | MU | 5,15% | 12 | STX | 4,73% | 17 | COIN | 4,55% |
-| 3 | BE | 7,22% | 8 | WDC | 5,08% | 13 | APP | 4,63% | 18 | RDDT | 4,51% |
-| 4 | LITE | 6,18% | 9 | MRVL | 5,02% | 14 | HOOD | 4,58% | 19 | DDOG | 4,40% |
-| 5 | SMCI | 5,84% | 10 | TER | 4,89% | 15 | CIEN | 4,57% | 20 | FLEX | 4,36% |
+| 1 | SNDK | 7,34% | 6 | MU | 5,15% | 11 | STX | 4,73% | 16 | COIN | 4,55% |
+| 2 | BE | 7,22% | 7 | WDC | 5,08% | 12 | APP | 4,63% | 17 | RDDT | 4,51% |
+| 3 | LITE | 6,18% | 8 | MRVL | 5,02% | 13 | HOOD | 4,58% | 18 | DDOG | 4,40% |
+| 4 | SMCI | 5,84% | 9 | TER | 4,89% | 14 | CIEN | 4,57% | 19 | FLEX | 4,36% |
+| 5 | COHR | 5,41% | 10 | DELL | 4,75% | 15 | GLW | 4,56% | 20 | P | 4,24% |
 
-O corte foi limpo: a 20.ª tem 4,364% e a 21.ª tinha 4,238%. Não foi um empate
+O corte foi limpo: a 20.ª tem 4,238% e a 21.ª tinha 4,197%. Não foi um empate
 decidido por acaso.
 
-### O que isto faz ao stop, e é preciso saber
+**Uma só candidata ficou de fora pelo teto: a MRNA, com 12,15%.** A lista
+começou com ela lá dentro, porque o teto de 7,5% só foi acrescentado à regra
+a 21 de setembro, depois de a lista estar gerada. Não foi tirada à mão: a
+regra foi corrida outra vez com o critério novo, e o lugar vago foi ocupado
+pela 21.ª classificada, que era a P. Ver o registo em **As regras do torneio**.
 
-O stop é 2 desvios-padrão diários, **limitado a 10%** (ver `base.py`). Nove
-destas vinte passam esse limite, e para essas o stop fica mais apertado do que
-a regra pretendia:
+### O que isto faz ao stop
 
-| Ticker | Vol. diária | 2 desvios | Stop real | O stop vale |
-|---|---:|---:|---:|---|
-| MRNA | 12,15% | 24,3% | 10% | **0,8× um dia normal** |
-| SNDK | 7,34% | 14,7% | 10% | 1,4× |
-| BE | 7,22% | 14,4% | 10% | 1,4× |
-| LITE | 6,18% | 12,4% | 10% | 1,6× |
-| SMCI | 5,84% | 11,7% | 10% | 1,7× |
-| COHR · MU · WDC · MRVL | 5,0–5,4% | 10,0–10,8% | 10% | 1,8–2,0× |
+O stop é 2 desvios-padrão diários, **limitado a 15%** (ver `base.py`). Com o
+teto a 15% e o critério a cortar acima de 7,5%, **nenhuma das vinte bate no
+limite**: a mais nervosa das que ficaram é a SNDK, com 7,34%, cujos 2 desvios
+dão 14,7%. Todas ficam com o stop exatamente onde a regra o quer.
 
-**A MRNA é o caso a sério:** o stop fica *dentro* de um movimento diário
-normal, por isso quase todas as posições nela vão fechar no stop quase de
-imediato. Não é aleatório — é previsível e é sempre para o mesmo lado.
+Não era assim antes de 21 de setembro. Com o teto a 10%, oito destas
+passavam-no — e a MRNA, que então estava na lista, passava-o de longe: o
+stop ficava-lhe *dentro* de um movimento normal de um dia, por isso quase
+todas as posições nela fechariam no stop quase de imediato. Não é aleatório:
+é previsível e é sempre para o mesmo lado.
 
-Isto não afeta todos os agentes por igual, e é aí que incomoda. Um agente que
-compre a MRNA muitas vezes apanha muitas destas perdas; um que compre poucas
-vezes, poucas. O `controlo-sempre-compra` compra tudo todos os dias, por isso é
-o que mais apanha — o que faz os agentes a sério parecerem melhores do que são
-em comparação com ele. As restantes oito são muito menos graves: a 2,0× o
-limite quase não morde.
+E não afetava todos os agentes por igual, que é o que incomodava. Um agente
+que comprasse essas ações muitas vezes apanhava muitas destas perdas; um que
+comprasse poucas, poucas. O `controlo-sempre-compra` compra tudo todos os
+dias, por isso era o que mais apanhava — o que fazia os agentes a sério
+parecerem melhores do que são em comparação com ele. As duas mudanças de 21
+de setembro tratam disso pelos dois lados: o teto sobe, e as ações em que ele
+morderia deixam de entrar.
 
-Fica registado aqui em vez de corrigido porque mexer no limite do stop muda o
-comportamento de **todos** os agentes, e isso é uma decisão a tomar antes de 24
-de outubro, não uma correção a fazer de passagem.
+**Atenção ao que isto não é.** O teto do stop continua a existir, e continua a
+poder morder: as 40 grandes também têm dias agitados, e a volatilidade que
+conta para o stop é a dos últimos 20 dias, não a dos 12 meses da escolha. A
+CRM, que é das 40, chegou a bater no teto de 10% a 16 e a 18 de setembro. O
+que o critério novo garante é só que nenhuma empresa entra na lista já com o
+stop condenado a ficar dentro de um dia normal.
 
 ---
 
@@ -568,8 +615,11 @@ A conta que interessa: **a 3:1 podes errar 3 em cada 4 vezes e ainda assim
 sair a ganhar.** Precisas de acertar mais de 25%.
 
 A distância do stop não é um número fixo: é medida pela volatilidade da própria
-ação (2 desvios-padrão diários), limitada entre 1,5% e 10%. Um stop fixo seria
+ação (2 desvios-padrão diários), limitada entre 1,5% e 15%. Um stop fixo seria
 apertado de mais numa ação nervosa e largo de mais numa calma.
+
+O teto de 15% foi 10% até 21 de setembro de 2026 — ver o registo em
+**As regras do torneio**.
 
 **Atenção:** o stop não garante a perda máxima. Se sair uma notícia má durante
 a noite, a ação abre abaixo do stop e perde-se mais do que o planeado.

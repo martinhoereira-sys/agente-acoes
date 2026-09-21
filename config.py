@@ -46,10 +46,10 @@ EMPRESAS_BASE = [
 # a posição fecha por tempo sem dizer nada. Estas fecham posições mais
 # depressa, e uma posição fechada é uma observação.
 EMPRESAS_VOLATEIS = [
-    "MRNA", "SNDK", "BE", "LITE", "SMCI",
-    "COHR", "MU", "WDC", "MRVL", "TER",
-    "DELL", "STX", "APP", "HOOD", "CIEN",
-    "GLW", "COIN", "RDDT", "DDOG", "FLEX",
+    "SNDK", "BE", "LITE", "SMCI", "COHR",
+    "MU", "WDC", "MRVL", "TER", "DELL",
+    "STX", "APP", "HOOD", "CIEN", "GLW",
+    "COIN", "RDDT", "DDOG", "FLEX", "P",
 ]
 
 EMPRESAS = EMPRESAS_BASE + EMPRESAS_VOLATEIS
