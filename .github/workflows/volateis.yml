@@ -1,0 +1,41 @@
+name: Escolher as empresas voláteis
+
+# Corre à MÃO, uma vez, antes do arranque do torneio. Não tem agendamento: a
+# escolha é para ser feita uma vez e ficar congelada. Se um dia for mesmo
+# preciso repeti-la, isso é uma alteração à lista de empresas e vai para o
+# registo do README, como qualquer outra.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  escolher:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ir buscar o código
+        uses: actions/checkout@v4
+
+      - name: Preparar o Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Escolher as 20 mais voláteis
+        run: python escolher_volateis.py
+
+      - name: Gravar a escolha no repositório
+        run: |
+          git config user.name "robo-agentes"
+          git config user.email "actions@github.com"
+          git add volateis_escolhidas.csv
+          if git diff --staged --quiet; then
+            echo "A escolha não mudou."
+          else
+            git commit -m "Empresas voláteis escolhidas por regra"
+            git push
+          fi
