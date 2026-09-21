@@ -40,15 +40,20 @@ _tabela = None          # {mes: variacao_media_pct}, lida uma vez
 _avisou = False
 
 
-def carregar_tabela(caminho=FICHEIRO_TABELA):
+def carregar_tabela(caminho=None):
     """
     {mes: variação média} a partir do ficheiro. {} se não houver ficheiro.
 
     Lê do disco uma vez por corrida; das seguintes devolve o que já tem.
+
+    O caminho por omissão é resolvido aqui dentro, e não na assinatura, para
+    FICHEIRO_TABELA continuar a valer se alguém lhe mexer -- numa assinatura o
+    valor ficava preso ao que a constante era quando o módulo foi importado.
     """
     global _tabela, _avisou
     if _tabela is not None:
         return _tabela
+    caminho = caminho or FICHEIRO_TABELA
 
     if not os.path.exists(caminho):
         if not _avisou:
