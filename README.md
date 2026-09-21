@@ -42,6 +42,9 @@ derivado dos preços que vieram depois.
 Ficam trancados, tal como os agentes:
 
 - o `posicoes.py` e o `selecao.py` inteiros;
+- o `sazonalidade_tabela.csv` — é o que o agente da sazonalidade sabia à
+  partida. Regerá-lo com dados mais recentes muda retroativamente a tese
+  dele, e ninguém dava por isso a olhar para o código;
 - o `DIAS_MAXIMOS_POSICAO` no `config.py` — é uma regra de avaliação disfarçada
   de definição. Mudá-lo de 60 para 40 fecha ao fim de 40 dias apostas que já
   tinham sido dadas como fechadas aos 60, com outro preço e outro resultado.
@@ -273,19 +276,77 @@ sozinho na primeira vez que corre.
 config.py                  empresas, valor das apostas, custos, datas
 fonte_dados.py             ir buscar os preços (yfinance)
 base.py                    classe base + cálculo do stop e do alvo
-momentum.py                Agente 1 — momentum simples (só gráfico)
 controlos.py               os dois controlos idiotas
 lista_agentes.py           a lista de agentes ativos
+momentum.py                Agentes 1-3 — momentum com rácio 3:1, 2:1 e 5:1
+contrarian.py              Agente 4 — o oposto do momentum
+sazonalidade.py            Agente 5 — compra nos melhores meses do ano
+gerar_sazonalidade.py      gera a tabela da sazonalidade (corre uma vez)
+sazonalidade_tabela.csv    a tabela, congelada (regra 7)
 posicoes.py                que apostas já fecharam, e com que resultado
+selecao.py                 as três condições da regra 8, congelado
 correr_diario.py           o programa que corre uma vez por dia
+gerar_site.py              escreve o index.html a partir dos CSV
+index.html                 a página de resultados (gerada, não editar)
 requirements.txt           dependências
 .github/workflows/
-  diario.yml               a tarefa automática
+  diario.yml               a tarefa automática de todos os dias
+  sazonalidade.yml         gera a tabela da sazonalidade (à mão, uma vez)
 dados/                     criada pelo programa
   precos.csv               o dia de cada empresa: abertura, máximo,
                            mínimo, fecho e volume
   decisoes.csv             uma linha por decisão tomada
 ```
+
+---
+
+## Os agentes
+
+Cada agente é uma tese fixa sobre como o mercado funciona. Nenhum usa IA nem
+notícias: só preços do yfinance. A partir de 24 de outubro nenhum se altera
+(regra 1).
+
+| Agente | Rácio | A tese |
+|---|---|---|
+| `momentum-simples` | 3:1 | Uma ação que vem a subir continua a subir. Compra >1% acima da média de 50 dias. |
+| `momentum-2-1` | 2:1 | A mesma tese, alvo mais perto. Precisa de acertar >33%. |
+| `momentum-5-1` | 5:1 | A mesma tese, alvo mais longe. Precisa de acertar >17%. |
+| `contrarian` | 3:1 | O mercado exagera nas descidas. Compra >5% **abaixo** da média de 50 dias. |
+| `sazonalidade` | 3:1 | Há meses do ano que são melhores. Compra nos 4 melhores historicamente. |
+| `controlo-sempre-compra` | 3:1 | CONTROLO: compra todos os dias sem ler nada. |
+| `controlo-moeda-ao-ar` | 3:1 | CONTROLO: decide à sorte. |
+
+**Os três momentum existem para responder a uma pergunta só: qual é o rácio
+certo?** A tese é idêntica e o código é o mesmo — a única coisa que muda é a
+distância do alvo. No fim, a diferença entre eles é atribuível ao rácio e a
+mais nada.
+
+**O contrarian é o par do momentum, de propósito.** Os dois não podem ter razão
+ao mesmo tempo, e nunca compram a mesma empresa no mesmo dia. Se ambos ficarem
+abaixo dos controlos, a resposta é que nenhuma das duas histórias funciona
+nestes dados — com só um dos lados a correr, uma derrota pareceria conclusiva
+sem o ser.
+
+### Como a sazonalidade sabe o que sabe
+
+A tabela está no `sazonalidade_tabela.csv`, gerada **uma vez** pelo
+`gerar_sazonalidade.py` com dados de janeiro de 2016 a dezembro de 2025 — dez
+anos fechados, nenhum a meio.
+
+A variação média mensal é calculada com as **40 empresas juntas**, não empresa
+a empresa. Por empresa cada mês teria dez observações, e dez números chegam
+para qualquer mês parecer o melhor do ano por puro acaso. Juntas são cerca de
+400 por mês. Continua a não ser muito — os meses das mesmas 40 empresas
+americanas andam bastante juntos, por isso 400 observações valem menos do que
+400 independentes — mas é outra ordem de grandeza.
+
+**O agente lê o ficheiro e nunca o recalcula.** Se recalculasse, a tabela mudava
+à medida que chegassem dados novos e o agente passava a aprender durante o
+torneio: deixava de ser uma tese fixa a ser testada e passava a ser um modelo a
+ajustar-se ao que está a acontecer. Seria a regra 1 a ser violada sem ninguém
+dar por isso, porque a linha de código seria exatamente a mesma.
+
+<!-- TABELA-SAZONALIDADE -->
 
 ---
 
@@ -365,7 +426,7 @@ sinal de problema maior na fonte.
 
 ## Fase atual
 
-**Teste técnico.** 40 empresas (por setor, ver `config.py`), 1 agente + 2 controlos.
+**Teste técnico.** 40 empresas (por setor, ver `config.py`), 5 agentes + 2 controlos.
 Nesta fase não se olha para acertos — só se confirma que o registo grava todos
 os dias sem falhar. Estes dados não contam para nada.
 

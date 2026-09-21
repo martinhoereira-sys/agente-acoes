@@ -1,0 +1,41 @@
+name: Gerar tabela de sazonalidade
+
+# Corre à MÃO, uma vez, antes do arranque do torneio. Não tem agendamento:
+# a tabela é para ser gerada uma vez e ficar congelada (regra 7). Se um dia
+# for mesmo preciso voltar a gerá-la, isso é uma alteração à lógica de
+# avaliação e vai para o registo do README, como qualquer outra.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  gerar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ir buscar o código
+        uses: actions/checkout@v4
+
+      - name: Preparar o Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Gerar a tabela
+        run: python gerar_sazonalidade.py
+
+      - name: Gravar a tabela no repositório
+        run: |
+          git config user.name "robo-agentes"
+          git config user.email "actions@github.com"
+          git add sazonalidade_tabela.csv
+          if git diff --staged --quiet; then
+            echo "A tabela não mudou."
+          else
+            git commit -m "Tabela de sazonalidade (2016-2025)"
+            git push
+          fi
