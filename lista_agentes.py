@@ -8,7 +8,8 @@ para o histórico continuar a fazer sentido.
 
 from contrarian import Contrarian
 from controlos import MoedaAoAr, SempreCompra
-from momentum import Momentum2Para1, Momentum5Para1, MomentumSimples
+from momentum import (Momentum2Para1, Momentum5Para1, MomentumComTeto,
+                      MomentumSimples)
 from sazonalidade import Sazonalidade
 
 AGENTES = [
@@ -16,6 +17,10 @@ AGENTES = [
     MomentumSimples(),
     Momentum2Para1(),
     Momentum5Para1(),
+
+    # Igual ao momentum-simples menos o teto: a diferença entre os dois mede
+    # o efeito de comprar ações já esticadas.
+    MomentumComTeto(),
 
     # O oposto do momentum. Os dois não podem ter razão ao mesmo tempo.
     Contrarian(),

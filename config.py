@@ -2,7 +2,7 @@
 Definições do projeto.
 
 FASE ATUAL: teste técnico.
-60 empresas (40 grandes + 20 voláteis), 5 agentes + 2 controlos.
+60 empresas (40 grandes + 20 voláteis), 6 agentes + 2 controlos.
 Não mexer nos agentes depois do arranque oficial do torneio -- ver README.md.
 """
 

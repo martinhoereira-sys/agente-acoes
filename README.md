@@ -45,6 +45,8 @@ Ficam trancados, tal como os agentes:
 - o `sazonalidade_tabela.csv` — é o que o agente da sazonalidade sabia à
   partida. Regerá-lo com dados mais recentes muda retroativamente a tese
   dele, e ninguém dava por isso a olhar para o código;
+- o `TETO_ACIMA_DA_MEDIA` do `momentum.py` — é o que o par
+  `momentum-simples` / `momentum-com-teto` está a medir;
 - a lista `EMPRESAS` do `config.py` — acrescentar ou tirar empresas a meio
   muda o terreno debaixo dos agentes, e um agente que só corra em metade das
   empresas não é comparável com os outros;
@@ -281,7 +283,7 @@ fonte_dados.py             ir buscar os preços (yfinance)
 base.py                    classe base + cálculo do stop e do alvo
 controlos.py               os dois controlos idiotas
 lista_agentes.py           a lista de agentes ativos
-momentum.py                Agentes 1-3 — momentum com rácio 3:1, 2:1 e 5:1
+momentum.py                Agentes 1-4 — momentum 3:1, 2:1, 5:1 e com teto
 contrarian.py              Agente 4 — o oposto do momentum
 sazonalidade.py            Agente 5 — compra nos melhores meses do ano
 gerar_sazonalidade.py      gera a tabela da sazonalidade (corre uma vez)
@@ -317,15 +319,31 @@ notícias: só preços do yfinance. A partir de 24 de outubro nenhum se altera
 | `momentum-simples` | 3:1 | Uma ação que vem a subir continua a subir. Compra >1% acima da média de 50 dias. |
 | `momentum-2-1` | 2:1 | A mesma tese, alvo mais perto. Precisa de acertar >33%. |
 | `momentum-5-1` | 5:1 | A mesma tese, alvo mais longe. Precisa de acertar >17%. |
+| `momentum-com-teto` | 3:1 | A mesma tese, mas recusa acima de **15%** da média. Comprar esticado é pior? |
 | `contrarian` | 3:1 | O mercado exagera nas descidas. Compra >5% **abaixo** da média de 50 dias. |
 | `sazonalidade` | 3:1 | Há meses do ano que são melhores. Compra nos 4 melhores historicamente. |
 | `controlo-sempre-compra` | 3:1 | CONTROLO: compra todos os dias sem ler nada. |
 | `controlo-moeda-ao-ar` | 3:1 | CONTROLO: decide à sorte. |
 
-**Os três momentum existem para responder a uma pergunta só: qual é o rácio
-certo?** A tese é idêntica e o código é o mesmo — a única coisa que muda é a
+**Os três primeiros momentum existem para responder a uma pergunta só: qual é
+o rácio certo?** A tese é idêntica e o código é o mesmo — a única coisa que muda é a
 distância do alvo. No fim, a diferença entre eles é atribuível ao rácio e a
 mais nada.
+
+**O `momentum-com-teto` é um par controlado com o `momentum-simples`.** São
+iguais em tudo — mesmo limiar de entrada (1% acima da média), mesmo rácio,
+mesmo código, por herança — menos numa coisa: o de teto recusa comprar quando o
+preço já está mais de **15%** acima da média de 50 dias.
+
+Isso torna a comparação entre os dois limpa. Em julho, a diferença de
+resultados entre eles é atribuível ao teto e a mais nada, e responde a uma
+pergunta sozinha: **comprar uma ação que já subiu de mais é pior do que comprar
+uma que só começou a subir?** Com dois agentes que diferissem em duas coisas,
+não haveria maneira de saber qual delas explicava a diferença.
+
+O valor de 15% está fixo no `momentum.py` (`TETO_ACIMA_DA_MEDIA`) e fica
+congelado a partir de 24 de outubro, como o resto: mexer nele muda o que o par
+está a medir, retroativamente.
 
 **O contrarian é o par do momentum, de propósito.** Os dois não podem ter razão
 ao mesmo tempo, e nunca compram a mesma empresa no mesmo dia. Se ambos ficarem
@@ -534,7 +552,7 @@ sinal de problema maior na fonte.
 
 ## Fase atual
 
-**Teste técnico.** 60 empresas (40 grandes + 20 voláteis), 5 agentes + 2 controlos.
+**Teste técnico.** 60 empresas (40 grandes + 20 voláteis), 6 agentes + 2 controlos.
 Nesta fase não se olha para acertos — só se confirma que o registo grava todos
 os dias sem falhar. Estes dados não contam para nada.
 
