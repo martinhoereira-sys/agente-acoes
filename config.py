@@ -12,7 +12,11 @@ Não mexer nos agentes depois do arranque oficial do torneio -- ver README.md.
 # Agrupadas por setor. O setor não é usado pelo programa -- serve para depois
 # dar para ter agentes especialistas (um só de tecnologia, um só de energia) e
 # para comparar o mesmo agente entre setores.
-EMPRESAS = [
+# As 40 grandes, escolhidas por setor. É contra ESTA lista que a regra das
+# voláteis exclui candidatas -- se excluísse contra a lista toda, voltar a
+# correr a escolha deitava fora as voláteis que já lá estão e escolhia outras
+# vinte quaisquer.
+EMPRESAS_BASE = [
     # Tecnologia
     "AAPL", "MSFT", "GOOGL", "AMZN", "META",
     "NVDA", "AMD", "INTC", "CRM", "ORCL",
@@ -31,19 +35,24 @@ EMPRESAS = [
 
     # Outros
     "BA", "CAT", "GE", "DIS", "T", "VZ", "TSLA",
+]
 
-    # Voláteis -- as 20 ações do S&P 500 com maior desvio-padrão das variações
-    # diárias nos 12 meses até 18 de setembro de 2026, excluindo as de cima.
-    # Escolhidas por regra, não a dedo: ver escolher_volateis.py e o README.
-    # As 40 de cima são as maiores empresas americanas e mexem-se pouco; com um
-    # stop a 2 desvios-padrão, uma ação calma raramente chega ao stop ou ao
-    # alvo e a posição fecha por tempo sem dizer nada. Estas fecham posições
-    # mais depressa, e uma posição fechada é uma observação.
+# As 20 voláteis, escolhidas por regra e não a dedo: as do S&P 500 com maior
+# desvio-padrão das variações diárias nos 12 meses até 18 de setembro de 2026,
+# sem as de cima e sem as que passariam o teto do stop. Ver escolher_volateis.py.
+#
+# As 40 de cima são as maiores empresas americanas e mexem-se pouco; com um
+# stop a 2 desvios-padrão, uma ação calma raramente chega ao stop ou ao alvo e
+# a posição fecha por tempo sem dizer nada. Estas fecham posições mais
+# depressa, e uma posição fechada é uma observação.
+EMPRESAS_VOLATEIS = [
     "MRNA", "SNDK", "BE", "LITE", "SMCI",
     "COHR", "MU", "WDC", "MRVL", "TER",
     "DELL", "STX", "APP", "HOOD", "CIEN",
     "GLW", "COIN", "RDDT", "DDOG", "FLEX",
 ]
+
+EMPRESAS = EMPRESAS_BASE + EMPRESAS_VOLATEIS
 
 # ---------------------------------------------------------------------------
 # Regras de aposta (iguais para TODOS os agentes)
