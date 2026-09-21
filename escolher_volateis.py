@@ -34,6 +34,7 @@ Escreve volateis_escolhidas.csv. Feita a escolha, a lista fica congelada.
 """
 
 import csv
+import io
 import statistics
 import sys
 import urllib.request
@@ -64,13 +65,16 @@ def lista_sp500():
         with urllib.request.urlopen(pedido, timeout=60) as resposta:
             html = resposta.read().decode("utf-8")
     except Exception as erro:
-        print(f"ERRO ao ir buscar a lista do S&P 500: {erro}")
+        print(f"ERRO ao ir buscar a lista do S&P 500: "
+              f"{type(erro).__name__}: {str(erro)[:300]}")
         return []
 
     try:
-        tabelas = pd.read_html(html)
+        # io.StringIO e não a string à solta: o pandas 3 já não aceita HTML
+        # literal, e o erro que dá traz a página inteira atrás.
+        tabelas = pd.read_html(io.StringIO(html))
     except Exception as erro:
-        print(f"ERRO ao ler a tabela: {erro}")
+        print(f"ERRO ao ler a tabela: {type(erro).__name__}: {str(erro)[:300]}")
         return []
 
     for tabela in tabelas:
