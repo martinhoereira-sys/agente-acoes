@@ -45,6 +45,9 @@ Ficam trancados, tal como os agentes:
 - o `sazonalidade_tabela.csv` — é o que o agente da sazonalidade sabia à
   partida. Regerá-lo com dados mais recentes muda retroativamente a tese
   dele, e ninguém dava por isso a olhar para o código;
+- a lista `EMPRESAS` do `config.py` — acrescentar ou tirar empresas a meio
+  muda o terreno debaixo dos agentes, e um agente que só corra em metade das
+  empresas não é comparável com os outros;
 - o `DIAS_MAXIMOS_POSICAO` no `config.py` — é uma regra de avaliação disfarçada
   de definição. Mudá-lo de 60 para 40 fecha ao fim de 40 dias apostas que já
   tinham sido dadas como fechadas aos 60, com outro preço e outro resultado.
@@ -283,6 +286,8 @@ contrarian.py              Agente 4 — o oposto do momentum
 sazonalidade.py            Agente 5 — compra nos melhores meses do ano
 gerar_sazonalidade.py      gera a tabela da sazonalidade (corre uma vez)
 sazonalidade_tabela.csv    a tabela, congelada (regra 7)
+escolher_volateis.py       escolhe as 20 voláteis por regra (corre uma vez)
+volateis_escolhidas.csv    a escolha, com a volatilidade de cada uma
 posicoes.py                que apostas já fecharam, e com que resultado
 selecao.py                 as três condições da regra 8, congelado
 correr_diario.py           o programa que corre uma vez por dia
@@ -292,6 +297,7 @@ requirements.txt           dependências
 .github/workflows/
   diario.yml               a tarefa automática de todos os dias
   sazonalidade.yml         gera a tabela da sazonalidade (à mão, uma vez)
+  volateis.yml             escolhe as 20 voláteis (à mão, uma vez)
 dados/                     criada pelo programa
   precos.csv               o dia de cada empresa: abertura, máximo,
                            mínimo, fecho e volume
@@ -375,6 +381,83 @@ dos controlos, a resposta é que o padrão era do passado e não se repetiu.
 
 ---
 
+## As empresas
+
+60 no total: 40 grandes empresas americanas, escolhidas por setor, e 20
+voláteis, escolhidas por regra. A lista está no `config.py` e fica **congelada
+a partir de 24 de outubro** (regra 7).
+
+### Porquê 20 voláteis
+
+As 40 grandes mexem-se pouco. Com um stop a 2 desvios-padrão, uma ação calma
+raramente chega ao stop **ou** ao alvo, e a posição acaba a fechar por tempo ao
+fim de 60 dias — que é uma observação que não diz nada sobre o agente. Ações
+mais nervosas resolvem-se mais depressa, e uma posição fechada é a
+matéria-prima do torneio.
+
+### A regra da escolha
+
+> As 20 ações do S&P 500 com **maior desvio-padrão das variações diárias** nos
+> 12 meses que terminam a **18 de setembro de 2026**, excluindo as 40 que já
+> estavam na lista, e exigindo pelo menos 200 dias de negociação na janela.
+
+A regra foi escrita **antes** de se ver a lista, e a janela está fixada no
+código em vez de ser "hoje": correr o `escolher_volateis.py` noutro dia tem de
+dar o mesmo resultado. Escolher ações voláteis a olho seria escolher as que dão
+jeito, e ninguém saberia dizer se uma empresa entrou por ser volátil ou por
+alguém gostar dela.
+
+Foram medidos 461 candidatos dos 463 possíveis. Dois ficaram de fora por terem
+menos de 200 dias — sem esse filtro, uma empresa que entrou em bolsa há três
+semanas com cinco dias agitados aparecia no topo sem ter história nenhuma.
+
+### As 20 escolhidas
+
+Volatilidade diária, em percentagem, na janela acima:
+
+| # | Ticker | Vol. | # | Ticker | Vol. | # | Ticker | Vol. | # | Ticker | Vol. |
+|---|---|---:|---|---|---:|---|---|---:|---|---|---:|
+| 1 | MRNA | 12,15% | 6 | COHR | 5,41% | 11 | DELL | 4,75% | 16 | GLW | 4,56% |
+| 2 | SNDK | 7,34% | 7 | MU | 5,15% | 12 | STX | 4,73% | 17 | COIN | 4,55% |
+| 3 | BE | 7,22% | 8 | WDC | 5,08% | 13 | APP | 4,63% | 18 | RDDT | 4,51% |
+| 4 | LITE | 6,18% | 9 | MRVL | 5,02% | 14 | HOOD | 4,58% | 19 | DDOG | 4,40% |
+| 5 | SMCI | 5,84% | 10 | TER | 4,89% | 15 | CIEN | 4,57% | 20 | FLEX | 4,36% |
+
+O corte foi limpo: a 20.ª tem 4,364% e a 21.ª tinha 4,238%. Não foi um empate
+decidido por acaso.
+
+### O que isto faz ao stop, e é preciso saber
+
+O stop é 2 desvios-padrão diários, **limitado a 10%** (ver `base.py`). Nove
+destas vinte passam esse limite, e para essas o stop fica mais apertado do que
+a regra pretendia:
+
+| Ticker | Vol. diária | 2 desvios | Stop real | O stop vale |
+|---|---:|---:|---:|---|
+| MRNA | 12,15% | 24,3% | 10% | **0,8× um dia normal** |
+| SNDK | 7,34% | 14,7% | 10% | 1,4× |
+| BE | 7,22% | 14,4% | 10% | 1,4× |
+| LITE | 6,18% | 12,4% | 10% | 1,6× |
+| SMCI | 5,84% | 11,7% | 10% | 1,7× |
+| COHR · MU · WDC · MRVL | 5,0–5,4% | 10,0–10,8% | 10% | 1,8–2,0× |
+
+**A MRNA é o caso a sério:** o stop fica *dentro* de um movimento diário
+normal, por isso quase todas as posições nela vão fechar no stop quase de
+imediato. Não é aleatório — é previsível e é sempre para o mesmo lado.
+
+Isto não afeta todos os agentes por igual, e é aí que incomoda. Um agente que
+compre a MRNA muitas vezes apanha muitas destas perdas; um que compre poucas
+vezes, poucas. O `controlo-sempre-compra` compra tudo todos os dias, por isso é
+o que mais apanha — o que faz os agentes a sério parecerem melhores do que são
+em comparação com ele. As restantes oito são muito menos graves: a 2,0× o
+limite quase não morde.
+
+Fica registado aqui em vez de corrigido porque mexer no limite do stop muda o
+comportamento de **todos** os agentes, e isso é uma decisão a tomar antes de 24
+de outubro, não uma correção a fazer de passagem.
+
+---
+
 ## Uma posição de cada vez
 
 Cada agente só pode ter **uma posição aberta por empresa** ao mesmo tempo.
@@ -451,7 +534,7 @@ sinal de problema maior na fonte.
 
 ## Fase atual
 
-**Teste técnico.** 40 empresas (por setor, ver `config.py`), 5 agentes + 2 controlos.
+**Teste técnico.** 60 empresas (40 grandes + 20 voláteis), 5 agentes + 2 controlos.
 Nesta fase não se olha para acertos — só se confirma que o registo grava todos
 os dias sem falhar. Estes dados não contam para nada.
 
