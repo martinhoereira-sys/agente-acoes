@@ -64,8 +64,16 @@ def volatilidade_diaria(historico, dias=20):
 # Limites para a distância do stop, em percentagem do preço.
 # Sem o mínimo, uma ação muito calma dava um stop colado ao preço, disparado
 # na primeira oscilação. Sem o máximo, um dia de pânico dava um stop absurdo.
+#
+# O máximo subiu de 10% para 15% a 21 de setembro de 2026, antes do arranque.
+# Com 10%, as ações mais nervosas ficavam com o stop cortado muito abaixo dos
+# 2 desvios-padrão que a regra manda -- na MRNA o stop ficava DENTRO de um
+# movimento normal de um dia, e fechava quase sempre de imediato. Isso não
+# afetava os agentes por igual: quem comprasse mais essas ações apanhava mais
+# perdas, e o controlo-sempre-compra, que compra tudo, era o mais penalizado.
+# Baixava artificialmente a barra que os agentes têm de bater. Ver o README.
 STOP_MINIMO_PCT = 0.015     # 1,5%
-STOP_MAXIMO_PCT = 0.10      # 10%
+STOP_MAXIMO_PCT = 0.15      # 15%
 
 
 def calcular_stop_e_alvo(preco, historico, racio):

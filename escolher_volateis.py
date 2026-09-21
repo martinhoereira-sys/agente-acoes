@@ -5,7 +5,8 @@ A REGRA
 -------
 As 20 ações do S&P 500 com maior volatilidade diária -- o desvio-padrão das
 variações de um dia para o outro -- na janela de 12 meses que termina em
-FIM_DA_JANELA, excluindo as que já estão no config.EMPRESAS.
+FIM_DA_JANELA, excluindo as que já estão no config.EMPRESAS_BASE e as que são
+voláteis DE MAIS (ver a seguir).
 
 A regra está escrita antes de se ver a lista, de propósito. Escolher ações
 voláteis "a olho" seria escolher as que dão jeito, e ninguém saberia dizer se
@@ -18,6 +19,22 @@ Com um stop a 2 desvios-padrão, uma ação calma raramente chega ao stop OU ao
 alvo, e a posição fecha por tempo sem dizer nada. Ações mais nervosas fecham
 posições mais depressa -- e uma posição fechada é uma observação, que é a
 matéria-prima do torneio.
+
+O TETO: VOLÁTEIS DE MAIS TAMBÉM NÃO SERVEM
+------------------------------------------
+O stop é 2 desvios-padrão diários, limitado a base.STOP_MAXIMO_PCT. Numa ação
+cuja volatilidade seja tão alta que 2 desvios passem esse limite, o stop fica
+mais apertado do que a regra manda -- e no caso extremo fica DENTRO de um
+movimento normal de um dia, por isso a posição fecha quase sempre de imediato.
+
+Isso não é aleatório e não afeta os agentes por igual: quem comprar mais essas
+ações apanha mais perdas, e o controlo-sempre-compra, que compra tudo todos os
+dias, é o que mais apanha. Baixa artificialmente a barra que os agentes têm de
+bater, que é o sentido errado num torneio feito para os pôr à prova.
+
+Por isso exclui-se qualquer candidata cuja volatilidade diária passe
+VOLATILIDADE_MAXIMA. O limite é derivado do teto do stop, e não escrito à mão,
+para os dois não poderem sair de sincronia: se o teto mudar, este muda com ele.
 
 O MÍNIMO DE DIAS
 ----------------
@@ -40,8 +57,13 @@ import sys
 import urllib.request
 
 import config
+from base import STOP_MAXIMO_PCT
 
 FICHEIRO = "volateis_escolhidas.csv"
+
+# Acima disto, 2 desvios-padrão passam o teto do stop e a posição fecha quase
+# de imediato. Derivado, nunca escrito à mão: com o teto a 15%, dá 7,5%.
+VOLATILIDADE_MAXIMA = STOP_MAXIMO_PCT / 2 * 100
 
 # A janela: 12 meses a terminar aqui. A data está escrita e não é "hoje", para
 # a escolha ser sempre reproduzível -- correr isto noutro dia dá o mesmo.
@@ -110,10 +132,14 @@ def main():
         return 1
     print(f"S&P 500: {len(todos)} tickers")
 
-    ja_temos = set(config.EMPRESAS)
+    # Só as 40 de base. Excluir a lista toda deitava fora as voláteis já
+    # escolhidas e mandava escolher outras vinte quaisquer.
+    ja_temos = set(config.EMPRESAS_BASE)
     candidatos = [t for t in todos if t not in ja_temos]
-    print(f"{len(ja_temos)} já estão na lista e ficam de fora; "
+    print(f"{len(ja_temos)} da lista base ficam de fora; "
           f"sobram {len(candidatos)} candidatos")
+    print(f"Teto do stop: {STOP_MAXIMO_PCT:.0%} -> exclui-se acima de "
+          f"{VOLATILIDADE_MAXIMA:.2f}% de volatilidade diária")
 
     print(f"A ir buscar {INICIO_DA_JANELA} a {FIM_DA_JANELA}...")
     lote = yf.download(
@@ -130,7 +156,7 @@ def main():
         print("ERRO: o Yahoo não devolveu dados.")
         return 1
 
-    medidos, curtos, sem_dados = [], 0, 0
+    medidos, curtos, sem_dados, nervosas = [], 0, 0, []
     for ticker in candidatos:
         try:
             if isinstance(lote.columns, pd.MultiIndex):
@@ -157,12 +183,18 @@ def main():
         if dias < MINIMO_DIAS:
             curtos += 1
             continue
+        if vol > VOLATILIDADE_MAXIMA:
+            nervosas.append((ticker, vol))
+            continue
         medidos.append({"ticker": ticker,
                         "volatilidade_diaria_pct": round(vol, 4),
                         "dias": dias})
 
     print(f"{len(medidos)} medidos, {curtos} com menos de {MINIMO_DIAS} dias "
-          f"(fora), {sem_dados} sem dados")
+          f"(fora), {len(nervosas)} acima de {VOLATILIDADE_MAXIMA:.2f}% (fora), "
+          f"{sem_dados} sem dados")
+    for ticker, vol in sorted(nervosas, key=lambda x: -x[1]):
+        print(f"    fora por ser volátil de mais: {ticker} ({vol:.3f}%)")
 
     if len(medidos) < QUANTAS:
         print(f"ERRO: só {len(medidos)} candidatos válidos, "
