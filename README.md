@@ -346,7 +346,32 @@ torneio: deixava de ser uma tese fixa a ser testada e passava a ser um modelo a
 ajustar-se ao que está a acontecer. Seria a regra 1 a ser violada sem ninguém
 dar por isso, porque a linha de código seria exatamente a mesma.
 
-<!-- TABELA-SAZONALIDADE -->
+### A tabela, tal como ficou
+
+Gerada a 21 de setembro de 2026, com 400 observações por mês (40 empresas ×
+10 anos). Fica aqui registada para se saber **o que o agente sabia à partida**,
+mesmo que o ficheiro se perca.
+
+| Mês | Média | | Mês | Média |
+|---|---:|---|---|---:|
+| **novembro** | **+4,78%** | | maio | +1,78% |
+| **julho** | **+3,19%** | | junho | +1,76% |
+| **janeiro** | **+2,05%** | | abril | +1,66% |
+| **agosto** | **+1,95%** | | outubro | +0,99% |
+| | | | dezembro | +0,77% |
+| | | | março | −0,01% |
+| | | | setembro | −0,54% |
+| | | | fevereiro | −0,57% |
+
+**Os 4 meses escolhidos: novembro, julho, janeiro e agosto.** Nos outros oito o
+agente não decide nada.
+
+Vale a pena olhar para os números com desconfiança antes de acreditar neles.
+Novembro está muito à frente, mas dez novembros não são dez observações
+independentes: são dez momentos do mesmo mercado, e as 40 empresas dentro de
+cada um andam juntas. O agente existe para pôr isto à prova com dinheiro
+simulado, não porque a tabela já prove alguma coisa. Se no fim ele ficar abaixo
+dos controlos, a resposta é que o padrão era do passado e não se repetiu.
 
 ---
 
