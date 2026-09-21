@@ -167,6 +167,19 @@ não ter apostas que cheguem.
 difícil de bater — o que der o valor mais baixo. Passar contra esse é passar
 contra os dois.
 
+**Uma limitação que fica dita.** O t-teste assume que cada posição é uma
+observação independente. Não são. Um agente que abra vinte posições no mesmo
+dia, nas vinte empresas, pelo mesmo motivo, está a fazer uma aposta contada
+vinte vezes — se o mercado cair nesse dia, caem as vinte juntas. O erro-padrão
+sai mais pequeno do que devia e a confiança sai maior do que é.
+
+Isto afeta **todos** os agentes um pouco, porque todos decidem os mesmos dias
+sobre as mesmas 60 empresas. Afeta mais os de regra de calendário, como o
+`sazonalidade`, em que a razão para comprar é literalmente a mesma para toda a
+gente no mesmo dia. Não há correção simples que não abra a porta a escolher a
+correção que dá jeito, por isso fica registado em vez de corrigido: **o valor
+da condição 2 é um limite superior da confiança, não a confiança.**
+
 As três condições estão no `selecao.py` e podem ser corridas a qualquer momento:
 
 ```bash
@@ -321,7 +334,7 @@ notícias: só preços do yfinance. A partir de 24 de outubro nenhum se altera
 | `momentum-5-1` | 5:1 | A mesma tese, alvo mais longe. Precisa de acertar >17%. |
 | `momentum-com-teto` | 3:1 | A mesma tese, mas recusa acima de **15%** da média. Comprar esticado é pior? |
 | `contrarian` | 3:1 | O mercado exagera nas descidas. Compra >5% **abaixo** da média de 50 dias. |
-| `sazonalidade` | 3:1 | Há meses do ano que são melhores. Compra nos 4 melhores historicamente. |
+| `sazonalidade` | 3:1 | Há meses do ano que são sistematicamente maus. Compra sempre, **exceto** nos 4 piores. |
 | `controlo-sempre-compra` | 3:1 | CONTROLO: compra todos os dias sem ler nada. |
 | `controlo-moeda-ao-ar` | 3:1 | CONTROLO: decide à sorte. |
 
@@ -344,6 +357,11 @@ não haveria maneira de saber qual delas explicava a diferença.
 O valor de 15% está fixo no `momentum.py` (`TETO_ACIMA_DA_MEDIA`) e fica
 congelado a partir de 24 de outubro, como o resto: mexer nele muda o que o par
 está a medir, retroativamente.
+
+**O `sazonalidade` é um par controlado com o `controlo-sempre-compra`.** O
+controlo compra todos os dias, sem ler nada; o sazonalidade compra todos os
+dias exceto nos quatro meses historicamente piores. A diferença entre os dois
+mede exatamente uma coisa: **vale a pena ficar de fora nos meses maus?**
 
 **O contrarian é o par do momentum, de propósito.** Os dois não podem ter razão
 ao mesmo tempo, e nunca compram a mesma empresa no mesmo dia. Se ambos ficarem
@@ -387,8 +405,33 @@ mesmo que o ficheiro se perca.
 | | | | setembro | −0,54% |
 | | | | fevereiro | −0,57% |
 
-**Os 4 meses escolhidos: novembro, julho, janeiro e agosto.** Nos outros oito o
-agente não decide nada.
+**Os 4 meses evitados: fevereiro, setembro, março e dezembro.** Nos outros
+oito, o agente compra. O quinto pior, outubro (+0,99%), fica de fora da
+exclusão — o corte foi entre dezembro (+0,77%) e outubro.
+
+#### Registo: a regra mudou a 21 de setembro de 2026, depois de a tabela existir
+
+A tabela **não mudou** — é a mesma, gerada a 21 de setembro com dados de
+2016-2025. O que mudou foi a regra que a lê.
+
+**Antes:** comprava nos 4 melhores meses (novembro, julho, janeiro, agosto).
+**Agora:** compra sempre, exceto nos 4 piores (fevereiro, setembro, março,
+dezembro).
+
+**O motivo é de calendário, não de desempenho.** O torneio vai de 24 de outubro
+de 2026 a 30 de junho de 2027. Dos quatro melhores meses, só novembro e janeiro
+caem lá dentro: o agente ficava ativo em 2 dos 8 meses. E em cada um desses
+comprava quase todas as empresas ao mesmo tempo, pelo mesmo motivo — na prática
+eram **duas apostas, não centenas**. O t-teste da condição 2 trataria as
+centenas como independentes e daria uma confiança que não existe.
+
+Virado ao contrário fica ativo em 6 dos meses do torneio e transforma-se num
+par controlado com o `controlo-sempre-compra`.
+
+Isto é dito com todas as letras porque a mudança **podia** ter sido feita a
+olhar para resultados, e não foi: à data desta alteração o agente ainda não
+tinha tomado uma única decisão, porque setembro é um dos meses que ele evita.
+Não havia desempenho nenhum para olhar.
 
 Vale a pena olhar para os números com desconfiança antes de acreditar neles.
 Novembro está muito à frente, mas dez novembros não são dez observações
