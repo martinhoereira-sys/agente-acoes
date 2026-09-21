@@ -107,3 +107,128 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-09-18,controlo-sempre-compra,DIS,COMPRA,102.67,99.5019,112.1743,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-09-18,momentum-simples,T,COMPRA,25.4,24.6346,27.6962,3.0,0.55,preço 4.2% acima da média de 50 dias,1000.0,1.0,0.05
 2026-09-18,controlo-sempre-compra,T,COMPRA,25.4,24.6346,27.6962,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,AAPL,COMPRA,336.13,326.8725,354.6451,2.0,0.55,preço 5.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,AAPL,COMPRA,336.13,326.8725,382.4177,5.0,0.55,preço 5.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,MSFT,COMPRA,493.78,480.0834,521.1733,2.0,0.55,preço 6.4% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,MSFT,COMPRA,493.78,480.0834,562.2631,5.0,0.55,preço 6.4% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,GOOGL,COMPRA,349.54,339.3271,369.9658,2.0,0.55,preço 1.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,GOOGL,COMPRA,349.54,339.3271,400.6046,5.0,0.55,preço 1.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,META,COMPRA,665.75,640.2689,716.7122,2.0,0.55,preço 9.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,META,COMPRA,665.75,640.2689,793.1556,5.0,0.55,preço 9.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,NVDA,COMPRA,222.27,209.2618,248.2863,2.0,0.55,preço 3.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,NVDA,COMPRA,222.27,209.2618,287.3108,5.0,0.55,preço 3.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,AMD,COMPRA,559.82,524.3055,630.8491,2.0,0.55,preço 12.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,AMD,COMPRA,559.82,524.3055,737.3927,5.0,0.55,preço 12.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,INTC,COMPRA,108.6,100.248,125.304,2.0,0.55,preço 11.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,INTC,COMPRA,108.6,100.248,150.36,5.0,0.55,preço 11.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,CRM,COMPRA,237.92,214.128,285.504,2.0,0.55,preço 15.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,CRM,COMPRA,237.92,214.128,356.88,5.0,0.55,preço 15.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,ORCL,COMPRA,147.61,137.863,167.1039,2.0,0.55,preço 4.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,ORCL,COMPRA,147.61,137.863,196.3448,5.0,0.55,preço 4.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,contrarian,BAC,COMPRA,57.73,55.9976,62.9272,3.0,0.55,preço 6.4% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,contrarian,GS,COMPRA,942.0,904.8595,1053.4216,3.0,0.55,preço 8.8% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,contrarian,MS,COMPRA,202.58,196.5662,220.6214,3.0,0.55,preço 5.3% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,JNJ,COMPRA,269.99,263.9793,282.0113,2.0,0.55,preço 2.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,JNJ,COMPRA,269.99,263.9793,300.0433,5.0,0.55,preço 2.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,PFE,COMPRA,27.66,27.0602,28.8595,2.0,0.55,preço 4.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,PFE,COMPRA,27.66,27.0602,30.6588,5.0,0.55,preço 4.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,contrarian,UNH,COMPRA,376.9,366.5922,407.8234,3.0,0.55,preço 6.3% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,ABBV,COMPRA,263.96,257.4366,277.0068,2.0,0.55,preço 3.4% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,ABBV,COMPRA,263.96,257.4366,296.577,5.0,0.55,preço 3.4% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,MRK,COMPRA,146.87,142.2251,156.1598,2.0,0.55,preço 7.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,MRK,COMPRA,146.87,142.2251,170.0944,5.0,0.55,preço 7.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,XOM,COMPRA,163.54,158.1913,174.2373,2.0,0.55,preço 4.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,XOM,COMPRA,163.54,158.1913,190.2833,5.0,0.55,preço 4.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,CVX,COMPRA,209.51,203.5756,221.3787,2.0,0.55,preço 5.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,CVX,COMPRA,209.51,203.5756,239.1818,5.0,0.55,preço 5.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,COP,COMPRA,131.83,126.7749,141.9402,2.0,0.55,preço 5.4% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,COP,COMPRA,131.83,126.7749,157.1055,5.0,0.55,preço 5.4% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,KO,COMPRA,88.25,86.8043,91.1415,2.0,0.55,preço 1.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,KO,COMPRA,88.25,86.8043,95.4787,5.0,0.55,preço 1.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,contrarian,PEP,COMPRA,129.75,127.1929,137.4212,3.0,0.55,preço 5.6% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,contrarian,MCD,COMPRA,248.24,242.5358,265.3526,3.0,0.55,preço 6.0% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,contrarian,NKE,COMPRA,35.51,34.3575,38.9676,3.0,0.55,preço 11.5% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,contrarian,SBUX,COMPRA,95.83,93.051,104.1671,3.0,0.55,preço 8.0% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,contrarian,BA,COMPRA,198.2,192.4365,215.4905,3.0,0.55,preço 8.3% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,contrarian,GE,COMPRA,314.27,303.6553,346.114,3.0,0.55,preço 9.7% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,T,COMPRA,25.4,24.6346,26.9308,2.0,0.55,preço 4.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,T,COMPRA,25.4,24.6346,29.227,5.0,0.55,preço 4.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,TSLA,COMPRA,364.27,341.6999,409.4102,2.0,0.55,preço 4.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,TSLA,COMPRA,364.27,341.6999,477.1204,5.0,0.55,preço 4.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-simples,MRNA,COMPRA,154.04,138.636,200.252,3.0,0.55,preço 56.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,MRNA,COMPRA,154.04,138.636,184.848,2.0,0.55,preço 56.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,MRNA,COMPRA,154.04,138.636,231.06,5.0,0.55,preço 56.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,MRNA,COMPRA,154.04,138.636,200.252,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,momentum-simples,SNDK,COMPRA,1791.8199,1621.3183,2303.3246,3.0,0.55,preço 19.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,SNDK,COMPRA,1791.8199,1621.3183,2132.823,2.0,0.55,preço 19.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,SNDK,COMPRA,1791.8199,1621.3183,2644.3278,5.0,0.55,preço 19.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,SNDK,COMPRA,1791.8199,1621.3183,2303.3246,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,SNDK,COMPRA,1791.8199,1621.3183,2303.3246,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,momentum-simples,BE,COMPRA,265.63,240.43,341.23,3.0,0.55,preço 17.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,BE,COMPRA,265.63,240.43,316.03,2.0,0.55,preço 17.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,BE,COMPRA,265.63,240.43,391.63,5.0,0.55,preço 17.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,BE,COMPRA,265.63,240.43,341.23,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,momentum-simples,LITE,COMPRA,930.91,837.819,1210.183,3.0,0.55,preço 10.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,LITE,COMPRA,930.91,837.819,1117.092,2.0,0.55,preço 10.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,LITE,COMPRA,930.91,837.819,1396.365,5.0,0.55,preço 10.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,LITE,COMPRA,930.91,837.819,1210.183,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,momentum-simples,SMCI,COMPRA,39.09,35.2859,50.5022,3.0,0.55,preço 16.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,SMCI,COMPRA,39.09,35.2859,46.6981,2.0,0.55,preço 16.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,SMCI,COMPRA,39.09,35.2859,58.1103,5.0,0.55,preço 16.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,SMCI,COMPRA,39.09,35.2859,50.5022,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,SMCI,COMPRA,39.09,35.2859,50.5022,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,momentum-simples,COHR,COMPRA,317.36,285.6526,412.4823,3.0,0.55,preço 6.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,COHR,COMPRA,317.36,285.6526,380.7749,2.0,0.55,preço 6.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,COHR,COMPRA,317.36,285.6526,475.8971,5.0,0.55,preço 6.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,COHR,COMPRA,317.36,285.6526,412.4823,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,COHR,COMPRA,317.36,285.6526,412.4823,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,momentum-simples,MU,COMPRA,1015.8,949.0382,1216.0853,3.0,0.55,preço 9.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,MU,COMPRA,1015.8,949.0382,1149.3236,2.0,0.55,preço 9.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,MU,COMPRA,1015.8,949.0382,1349.6089,5.0,0.55,preço 9.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,MU,COMPRA,1015.8,949.0382,1216.0853,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,MU,COMPRA,1015.8,949.0382,1216.0853,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,contrarian,WDC,COMPRA,441.36,413.4069,525.2193,3.0,0.55,preço 8.4% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,WDC,COMPRA,441.36,413.4069,525.2193,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,momentum-simples,MRVL,COMPRA,244.25,222.4815,309.5555,3.0,0.55,preço 13.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,MRVL,COMPRA,244.25,222.4815,287.787,2.0,0.55,preço 13.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,MRVL,COMPRA,244.25,222.4815,353.0924,5.0,0.55,preço 13.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,MRVL,COMPRA,244.25,222.4815,309.5555,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,MRVL,COMPRA,244.25,222.4815,309.5555,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,momentum-simples,TER,COMPRA,371.47,338.966,468.9819,3.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,TER,COMPRA,371.47,338.966,436.4779,2.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,TER,COMPRA,371.47,338.966,533.9898,5.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,TER,COMPRA,371.47,338.966,468.9819,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,TER,COMPRA,371.47,338.966,468.9819,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,momentum-simples,DELL,COMPRA,568.06,511.254,738.478,3.0,0.55,preço 22.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,DELL,COMPRA,568.06,511.254,681.672,2.0,0.55,preço 22.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,DELL,COMPRA,568.06,511.254,852.09,5.0,0.55,preço 22.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,DELL,COMPRA,568.06,511.254,738.478,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,DELL,COMPRA,568.06,511.254,738.478,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,momentum-simples,STX,COMPRA,858.79,795.0024,1050.1527,3.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,STX,COMPRA,858.79,795.0024,986.3651,2.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,STX,COMPRA,858.79,795.0024,1177.7278,5.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,STX,COMPRA,858.79,795.0024,1050.1527,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,contrarian,APP,COMPRA,308.06,293.3554,352.1739,3.0,0.55,preço 13.8% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,APP,COMPRA,308.06,293.3554,352.1739,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,momentum-simples,HOOD,COMPRA,119.82,107.838,155.766,3.0,0.55,preço 16.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,HOOD,COMPRA,119.82,107.838,143.784,2.0,0.55,preço 16.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,HOOD,COMPRA,119.82,107.838,179.73,5.0,0.55,preço 16.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,HOOD,COMPRA,119.82,107.838,155.766,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,HOOD,COMPRA,119.82,107.838,155.766,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,contrarian,CIEN,COMPRA,348.8,316.4856,445.7433,3.0,0.55,preço 9.2% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,CIEN,COMPRA,348.8,316.4856,445.7433,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,CIEN,COMPRA,348.8,316.4856,445.7433,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,GLW,COMPRA,150.13,137.4083,188.2951,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,GLW,COMPRA,150.13,137.4083,188.2951,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,momentum-simples,COIN,COMPRA,194.25,174.825,252.525,3.0,0.55,preço 16.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-2-1,COIN,COMPRA,194.25,174.825,233.1,2.0,0.55,preço 16.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,momentum-5-1,COIN,COMPRA,194.25,174.825,291.375,5.0,0.55,preço 16.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,COIN,COMPRA,194.25,174.825,252.525,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,contrarian,RDDT,COMPRA,150.85,139.9421,183.5738,3.0,0.55,preço 7.9% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,RDDT,COMPRA,150.85,139.9421,183.5738,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,RDDT,COMPRA,150.85,139.9421,183.5738,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,contrarian,DDOG,COMPRA,229.92,213.5606,278.9981,3.0,0.55,preço 5.6% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,DDOG,COMPRA,229.92,213.5606,278.9981,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-18,controlo-moeda-ao-ar,DDOG,COMPRA,229.92,213.5606,278.9981,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-18,contrarian,FLEX,COMPRA,108.51,101.5433,129.4102,3.0,0.55,preço 7.1% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-18,controlo-sempre-compra,FLEX,COMPRA,108.51,101.5433,129.4102,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
