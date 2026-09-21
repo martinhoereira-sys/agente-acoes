@@ -2,8 +2,7 @@
 Definições do projeto.
 
 FASE ATUAL: teste técnico.
-40 empresas, 1 agente + 2 controlos. As empresas subiram de 1 para 40 antes do
-arranque para dar para ver se o yfinance aguenta o volume de pedidos.
+60 empresas (40 grandes + 20 voláteis), 5 agentes + 2 controlos.
 Não mexer nos agentes depois do arranque oficial do torneio -- ver README.md.
 """
 
@@ -32,6 +31,18 @@ EMPRESAS = [
 
     # Outros
     "BA", "CAT", "GE", "DIS", "T", "VZ", "TSLA",
+
+    # Voláteis -- as 20 ações do S&P 500 com maior desvio-padrão das variações
+    # diárias nos 12 meses até 18 de setembro de 2026, excluindo as de cima.
+    # Escolhidas por regra, não a dedo: ver escolher_volateis.py e o README.
+    # As 40 de cima são as maiores empresas americanas e mexem-se pouco; com um
+    # stop a 2 desvios-padrão, uma ação calma raramente chega ao stop ou ao
+    # alvo e a posição fecha por tempo sem dizer nada. Estas fecham posições
+    # mais depressa, e uma posição fechada é uma observação.
+    "MRNA", "SNDK", "BE", "LITE", "SMCI",
+    "COHR", "MU", "WDC", "MRVL", "TER",
+    "DELL", "STX", "APP", "HOOD", "CIEN",
+    "GLW", "COIN", "RDDT", "DDOG", "FLEX",
 ]
 
 # ---------------------------------------------------------------------------
