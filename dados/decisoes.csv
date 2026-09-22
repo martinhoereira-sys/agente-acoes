@@ -287,3 +287,24 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-09-21,momentum-5-1,P,COMPRA,113.66,102.5213,169.3535,5.0,0.55,preço 22.9% acima da média de 50 dias,1000.0,1.0,0.05
 2026-09-21,controlo-sempre-compra,P,COMPRA,113.66,102.5213,147.0761,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-09-21,controlo-moeda-ao-ar,P,COMPRA,113.66,102.5213,147.0761,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-22,controlo-sempre-compra,JPM,COMPRA,340.0,332.4026,362.7921,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-22,controlo-sempre-compra,BAC,COMPRA,56.2,54.4074,61.5778,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-22,controlo-moeda-ao-ar,BAC,COMPRA,56.2,54.4074,61.5778,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-22,controlo-sempre-compra,V,COMPRA,362.04,354.7667,383.8598,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-22,controlo-moeda-ao-ar,V,COMPRA,362.04,354.7667,383.8598,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-22,controlo-sempre-compra,MA,COMPRA,555.89,546.3178,584.6067,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-22,controlo-sempre-compra,XOM,COMPRA,158.71,153.0705,175.6285,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-22,controlo-sempre-compra,COP,COMPRA,125.27,120.1021,140.7738,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-22,momentum-com-teto,KO,COMPRA,88.61,87.0031,93.4307,3.0,0.55,"preço 2.1% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-22,momentum-2-1,PG,COMPRA,148.22,145.5165,153.6271,2.0,0.55,preço 1.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-22,momentum-5-1,PG,COMPRA,148.22,145.5165,161.7377,5.0,0.55,preço 1.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-22,momentum-com-teto,PG,COMPRA,148.22,145.5165,156.3306,3.0,0.55,"preço 1.6% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-22,controlo-moeda-ao-ar,DIS,COMPRA,103.82,100.8217,112.8149,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-22,controlo-moeda-ao-ar,T,COMPRA,25.1,24.3527,27.3418,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-22,controlo-sempre-compra,VZ,COMPRA,46.45,45.1787,50.264,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-22,controlo-moeda-ao-ar,STX,COMPRA,919.84,855.0714,1114.1458,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-22,controlo-moeda-ao-ar,COIN,COMPRA,201.07,177.1217,272.9148,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-22,momentum-simples,DDOG,COMPRA,247.475,229.1644,302.4069,3.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-22,momentum-2-1,DDOG,COMPRA,247.475,229.1644,284.0962,2.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-22,momentum-5-1,DDOG,COMPRA,247.475,229.1644,339.0281,5.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-22,momentum-com-teto,DDOG,COMPRA,247.475,229.1644,302.4069,3.0,0.55,"preço 1.8% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
