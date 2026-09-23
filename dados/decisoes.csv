@@ -308,3 +308,16 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-09-22,momentum-2-1,DDOG,COMPRA,247.475,229.1644,284.0962,2.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
 2026-09-22,momentum-5-1,DDOG,COMPRA,247.475,229.1644,339.0281,5.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
 2026-09-22,momentum-com-teto,DDOG,COMPRA,247.475,229.1644,302.4069,3.0,0.55,"preço 1.8% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-23,controlo-moeda-ao-ar,JPM,COMPRA,337.53,329.9694,360.2119,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-23,contrarian,BAC,COMPRA,56.0,54.2213,61.336,3.0,0.55,preço 9.0% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-23,contrarian,UNH,COMPRA,371.29,362.0229,399.0912,3.0,0.55,preço 7.2% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-23,momentum-simples,XOM,COMPRA,161.23,155.3264,178.9408,3.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-23,momentum-2-1,XOM,COMPRA,161.23,155.3264,173.0372,2.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-23,momentum-5-1,XOM,COMPRA,161.23,155.3264,190.748,5.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-23,momentum-com-teto,XOM,COMPRA,161.23,155.3264,178.9408,3.0,0.55,"preço 2.0% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-23,momentum-simples,COP,COMPRA,128.09,122.8683,143.7551,3.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-23,momentum-2-1,COP,COMPRA,128.09,122.8683,138.5334,2.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-23,momentum-5-1,COP,COMPRA,128.09,122.8683,154.1985,5.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-23,contrarian,MCD,COMPRA,238.32,231.1921,259.7037,3.0,0.55,preço 9.2% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-23,controlo-sempre-compra,MCD,COMPRA,238.32,231.1921,259.7037,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-23,controlo-moeda-ao-ar,APP,COMPRA,315.25,296.2948,372.1157,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
