@@ -330,3 +330,12 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-09-24,contrarian,SBUX,COMPRA,93.65,91.4502,100.2493,3.0,0.55,preço 9.5% abaixo da média de 50 dias,1000.0,1.0,0.05
 2026-09-24,controlo-moeda-ao-ar,LITE,COMPRA,929.04,836.1501,1207.7096,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
 2026-09-24,momentum-com-teto,DELL,COMPRA,536.02,475.3395,718.0614,3.0,0.55,"preço 13.5% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-25,momentum-2-1,AMD,COMPRA,630.63,586.1496,719.5908,2.0,0.55,preço 24.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-25,controlo-moeda-ao-ar,MS,COMPRA,196.31,190.7861,212.8817,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-25,contrarian,PEP,COMPRA,128.63,126.2459,135.7822,3.0,0.55,preço 6.0% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-25,controlo-sempre-compra,PEP,COMPRA,128.63,126.2459,135.7822,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-25,controlo-moeda-ao-ar,PEP,COMPRA,128.63,126.2459,135.7822,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-25,momentum-com-teto,HOOD,COMPRA,119.4,107.1392,156.1825,3.0,0.55,"preço 14.5% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-25,momentum-com-teto,COIN,COMPRA,195.11,172.4783,263.0051,3.0,0.55,"preço 14.5% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-25,controlo-sempre-compra,DDOG,COMPRA,268.13,249.2743,324.6972,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-25,controlo-moeda-ao-ar,DDOG,COMPRA,268.13,249.2743,324.6972,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
