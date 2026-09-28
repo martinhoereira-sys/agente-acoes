@@ -339,3 +339,20 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-09-25,momentum-com-teto,COIN,COMPRA,195.11,172.4783,263.0051,3.0,0.55,"preço 14.5% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
 2026-09-25,controlo-sempre-compra,DDOG,COMPRA,268.13,249.2743,324.6972,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-09-25,controlo-moeda-ao-ar,DDOG,COMPRA,268.13,249.2743,324.6972,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-28,momentum-2-1,INTC,COMPRA,116.03,105.0559,137.9782,2.0,0.55,preço 16.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-28,momentum-simples,CRM,COMPRA,227.27,217.4937,256.5988,3.0,0.55,preço 6.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-28,controlo-sempre-compra,CRM,COMPRA,227.27,217.4937,256.5988,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-28,contrarian,ORCL,COMPRA,132.6,123.8916,158.7253,3.0,0.55,preço 6.9% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-28,momentum-2-1,PFE,COMPRA,28.72,28.1738,29.8124,2.0,0.55,preço 6.3% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-28,controlo-moeda-ao-ar,COP,COMPRA,126.04,120.6044,142.3469,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-28,controlo-moeda-ao-ar,MCD,COMPRA,233.6,227.454,252.038,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-28,momentum-2-1,PG,COMPRA,149.03,146.123,154.844,2.0,0.55,preço 2.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-28,momentum-5-1,PG,COMPRA,149.03,146.123,163.5649,5.0,0.55,preço 2.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-09-28,momentum-com-teto,PG,COMPRA,149.03,146.123,157.751,3.0,0.55,"preço 2.2% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-28,contrarian,BA,COMPRA,184.39,176.4562,208.1915,3.0,0.55,preço 13.7% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-28,controlo-sempre-compra,BA,COMPRA,184.39,176.4562,208.1915,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-28,controlo-moeda-ao-ar,BA,COMPRA,184.39,176.4562,208.1915,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-28,momentum-com-teto,SNDK,COMPRA,1712.89,1542.5017,2224.055,3.0,0.55,"preço 12.4% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-28,momentum-com-teto,BE,COMPRA,262.87,234.5487,347.834,3.0,0.55,"preço 14.0% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-28,controlo-sempre-compra,COHR,COMPRA,282.45,254.6839,365.7483,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-28,momentum-com-teto,MRVL,COMPRA,251.9,234.1212,305.2363,3.0,0.55,"preço 13.6% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
