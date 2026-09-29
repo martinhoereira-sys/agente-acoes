@@ -356,3 +356,10 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-09-28,momentum-com-teto,BE,COMPRA,262.87,234.5487,347.834,3.0,0.55,"preço 14.0% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
 2026-09-28,controlo-sempre-compra,COHR,COMPRA,282.45,254.6839,365.7483,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-09-28,momentum-com-teto,MRVL,COMPRA,251.9,234.1212,305.2363,3.0,0.55,"preço 13.6% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-29,momentum-com-teto,AAPL,COMPRA,329.4,319.3246,359.6262,3.0,0.55,"preço 2.3% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-29,contrarian,JPM,COMPRA,334.98,326.9003,359.219,3.0,0.55,preço 5.2% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-29,contrarian,GS,COMPRA,916.24,883.3451,1014.9247,3.0,0.55,preço 9.5% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-29,controlo-sempre-compra,T,COMPRA,24.48,23.7714,26.6058,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-29,controlo-moeda-ao-ar,VZ,COMPRA,45.98,44.6968,49.8296,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-29,momentum-com-teto,TSLA,COMPRA,352.84,334.3105,408.4284,3.0,0.55,"preço 1.6% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-29,momentum-com-teto,SMCI,COMPRA,41.02,37.4559,51.7123,3.0,0.55,"preço 14.8% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
