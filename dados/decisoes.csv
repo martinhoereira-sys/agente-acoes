@@ -363,3 +363,16 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-09-29,controlo-moeda-ao-ar,VZ,COMPRA,45.98,44.6968,49.8296,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
 2026-09-29,momentum-com-teto,TSLA,COMPRA,352.84,334.3105,408.4284,3.0,0.55,"preço 1.6% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
 2026-09-29,momentum-com-teto,SMCI,COMPRA,41.02,37.4559,51.7123,3.0,0.55,"preço 14.8% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-09-30,controlo-sempre-compra,JPM,COMPRA,330.83,322.7296,355.1311,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-30,controlo-sempre-compra,BAC,COMPRA,54.43,52.7263,59.5412,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-30,controlo-sempre-compra,GS,COMPRA,900.36,868.0768,997.2097,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-30,controlo-moeda-ao-ar,GS,COMPRA,900.36,868.0768,997.2097,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-30,contrarian,MS,COMPRA,188.08,182.5212,204.7564,3.0,0.55,preço 10.6% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-30,controlo-sempre-compra,MS,COMPRA,188.08,182.5212,204.7564,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-30,controlo-moeda-ao-ar,MA,COMPRA,551.47,540.7039,583.7684,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-30,controlo-sempre-compra,KO,COMPRA,86.08,84.7531,90.0608,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-30,contrarian,MCD,COMPRA,230.94,224.7748,249.4356,3.0,0.55,preço 11.0% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-30,controlo-sempre-compra,MCD,COMPRA,230.94,224.7748,249.4356,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-09-30,controlo-moeda-ao-ar,NKE,COMPRA,35.4,34.4505,38.2484,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-09-30,contrarian,APP,COMPRA,290.43,273.0086,342.6941,3.0,0.55,preço 13.5% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-09-30,controlo-sempre-compra,APP,COMPRA,290.43,273.0086,342.6941,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
