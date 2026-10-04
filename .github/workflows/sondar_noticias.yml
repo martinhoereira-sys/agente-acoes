@@ -1,0 +1,60 @@
+name: Sondar notícias
+
+# Corre à MÃO. É uma sondagem, não faz parte do torneio: vai contar notícias e
+# escrever o que encontrou, e não toca em dados/ nem em agente nenhum.
+#
+# Corre aqui e não no computador de quem pede porque o ambiente do Claude Code
+# não chega ao Yahoo (está bloqueado); o runner do GitHub chega.
+#
+# A chave do Finnhub vem de Settings > Secrets and variables > Actions, com o
+# nome FINNHUB_API_KEY. Sem ela, a sondagem faz só o yfinance e diz que o
+# Finnhub ficou de fora -- não falha a corrida.
+on:
+  workflow_dispatch:
+    inputs:
+      fonte:
+        description: "Que fontes sondar"
+        type: choice
+        default: todas
+        options: [todas, yfinance, finnhub]
+      dias:
+        description: "Tamanho da janela, em dias"
+        default: "30"
+
+permissions:
+  contents: write
+
+jobs:
+  sondar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ir buscar o código
+        uses: actions/checkout@v4
+
+      - name: Preparar o Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Sondar
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+        run: |
+          python sondar_noticias.py \
+            --fonte "${{ inputs.fonte }}" \
+            --dias "${{ inputs.dias }}"
+
+      - name: Gravar a sondagem no repositório
+        run: |
+          git config user.name "robo-agentes"
+          git config user.email "actions@github.com"
+          git add sondagem_noticias.json sondagem_noticias.md
+          if git diff --staged --quiet; then
+            echo "A sondagem não mudou."
+          else
+            git commit -m "Sondagem de notícias de $(date -u +%Y-%m-%d)"
+            git push
+          fi
