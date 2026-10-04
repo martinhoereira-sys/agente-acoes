@@ -85,6 +85,7 @@ aqui na mesma — para se poder ver que não foram feitas a olhar para resultado
 |---|---|---|
 | 2026-09-21 | `STOP_MAXIMO_PCT` de 10% para 15% (`base.py`) | Com 10%, o stop das ações mais nervosas ficava cortado muito abaixo dos 2 desvios-padrão que a regra manda. Na MRNA ficava *dentro* de um movimento normal de um dia: a posição fechava quase sempre de imediato, e sempre para o mesmo lado. |
 | 2026-09-21 | A regra da escolha das voláteis passa a excluir candidatas acima de 7,5% de volatilidade diária (`escolher_volateis.py`), e a lista foi gerada outra vez com a regra nova | O mesmo problema, visto do outro lado: uma ação em que o stop cabe dentro de um dia normal não é uma observação, é uma perda combinada de antemão. O limite é `STOP_MAXIMO_PCT / 2`, derivado e não escrito à mão. |
+| 2026-10-04 | Estado novo `SEM_DADOS` no `posicoes.py`: uma empresa sem preços durante 10 dias de bolsa seguidos fecha as posições abertas nela ao último preço conhecido | Faltava a regra para o caso de uma empresa deixar de dar dados a meio do torneio. Como a lista está congelada e só se pode ter uma posição aberta por agente e por empresa, uma posição que nunca fecha bloqueava o lugar daquele agente naquela empresa até ao fim. Ver **Uma empresa que deixa de ter preços**. |
 
 **O motivo é a mecânica do stop, não o desempenho de nenhuma ação.** O que se
 mediu foi o rácio entre a distância do stop e o movimento diário normal, que
@@ -97,6 +98,12 @@ exigente, não menos.
 
 A lista final saiu da regra corrida outra vez, não de uma remoção à mão: saiu
 a MRNA e entrou a 21.ª classificada. Ver **As empresas**.
+
+A saída da MRNA deixou quatro posições abertas nela, de 18 de setembro, que
+nunca mais podiam fechar por falta de preços — foi isso que deu pelo buraco na
+regra e levou à entrada de 4 de outubro. Com a regra nova fecharam a 2 de
+outubro, dez dias de bolsa depois do último preço, ao fecho de 18 de setembro:
+resultado zero menos os custos, três euros cada.
 
 ### Alterações à lógica de avaliação depois do arranque
 
@@ -585,6 +592,7 @@ Uma posição aberta no dia D fecha no primeiro dia a seguir em que:
 | o mínimo chega ao stop | STOP | ao stop |
 | o máximo chega ao alvo | ALVO | ao alvo |
 | passam `DIAS_MAXIMOS_POSICAO` dias de bolsa | TEMPO | ao fecho desse dia |
+| a empresa não dá preços há 10 dias de bolsa | SEM_DADOS | **ao último preço conhecido** |
 
 A abertura é vista primeiro porque é o primeiro preço do dia: se já vem fora do
 intervalo, a ordem executa logo ali e o que a cotação fizer a seguir nesse dia
@@ -595,6 +603,56 @@ perde-se mais do que o planeado, para cima ganha-se mais.
 stop.** Com preços diários não dá para saber qual veio primeiro, e é preferível
 ser pessimista a dar aos agentes um resultado melhor do que a realidade. Na
 abertura não há esta dúvida.
+
+### Uma empresa que deixa de ter preços
+
+> Se uma empresa não devolver preços durante **10 dias de bolsa seguidos**, as
+> posições abertas nela fecham ao **último preço conhecido**, com o motivo
+> `SEM_DADOS`. A empresa **fica na lista**, e se voltar a dar preços o agente
+> volta a poder decidir nela como se nada fosse.
+
+Isto vai acontecer. Durante oito meses, das sessenta empresas, alguma é comprada
+por outra, sai de bolsa, muda de ticker, ou a fonte simplesmente deixa de a
+servir. A lista está congelada pela regra 7, por isso **não se pode tirar a
+empresa de lá** — e sem regra nenhuma as posições abertas nela nunca fechavam.
+
+E não era só uma linha presa no registo: como cada agente só pode ter **uma
+posição aberta por empresa**, uma posição que nunca fecha **bloqueia o lugar
+daquele agente naquela empresa até ao fim do torneio**. O agente deixava de
+poder apostar nela outra vez, mesmo que os preços voltassem. Um agente que
+comprasse muito a empresa que desapareceu ficava com menos terreno do que os
+outros — e isso não é uma diferença de tese, é uma diferença de sorte.
+
+**Porque são 10 dias e não menos.** Porque o `yfinance` falha. Falha por limite
+de pedidos, por manutenção do Yahoo, por um ticker que vem vazio num dia e volta
+no seguinte. Essas falhas duram um dia ou dois e resolvem-se sozinhas. Fechar
+posições por causa delas era deixar a fonte de dados decidir apostas — o pior
+sítio possível para uma decisão, porque uma falha do Yahoo numa terça-feira não
+diz nada sobre nenhum agente. Com 10 dias de bolsa, que são duas semanas de
+calendário, nenhuma falha passageira chega lá; e uma empresa que saiu mesmo de
+bolsa fecha em duas semanas em vez de ficar pendurada oito meses.
+
+Dois pormenores que a regra tem de acertar:
+
+- **"Seguidos" quer dizer seguidos.** Um único dia com preços pelo meio põe a
+  contagem a zero. Nove dias sem, um com, nove sem — não fecha nada.
+- **Bolsa fechada não é falta de dados.** O calendário de dias de bolsa sai do
+  próprio `precos.csv`: um dia conta se **alguma** empresa deu preço nele. Um
+  fim de semana, o Natal ou um dia em que a corrida diária não correu não contam
+  contra ninguém, porque nesses dias não há linha de empresa nenhuma.
+
+O stop e o alvo continuam a ganhar ao silêncio: se a empresa tocou no stop no
+dia seguinte à decisão e só depois desapareceu, a posição fechou no stop, nesse
+dia, ao preço do stop. O `SEM_DADOS` é só para as que ainda estavam de pé quando
+os preços acabaram.
+
+O último preço conhecido é o último que houve mesmo — o fecho do último dia em
+que ela apareceu. Se desapareceu logo no dia seguinte à decisão, é o preço de
+entrada, e a posição fecha a zero menos os custos. Não se inventa um preço de
+saída melhor nem pior: a aposta não chegou a ser resolvida pelo mercado, e o
+registo diz exactamente isso.
+
+Esta regra está no `posicoes.py` e fica congelada com ele pela regra 7.
 
 Nada disto é gravado em ficheiro. O estado é sempre recalculado a partir dos
 preços — se um dia corrigirmos a regra, todo o histórico fica corrigido sozinho.
