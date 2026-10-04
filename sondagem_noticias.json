@@ -1,0 +1,828 @@
+{
+  "corrido_em": "2026-10-04T22:20:29.252706+00:00",
+  "janela": {
+    "inicio": "2026-09-04",
+    "fim": "2026-10-04",
+    "dias": 30,
+    "dias_de_bolsa": 14
+  },
+  "empresas": 60,
+  "fontes": {
+    "yfinance": {
+      "correu": true,
+      "por_ticker": {
+        "AAPL": [],
+        "MSFT": [],
+        "GOOGL": [],
+        "AMZN": [],
+        "META": [],
+        "NVDA": [],
+        "AMD": [],
+        "INTC": [],
+        "CRM": [],
+        "ORCL": [],
+        "JPM": [],
+        "BAC": [],
+        "GS": [],
+        "MS": [],
+        "V": [],
+        "MA": [],
+        "JNJ": [],
+        "PFE": [],
+        "UNH": [],
+        "ABBV": [],
+        "MRK": [],
+        "LLY": [],
+        "XOM": [],
+        "CVX": [],
+        "COP": [],
+        "KO": [],
+        "PEP": [],
+        "MCD": [],
+        "NKE": [],
+        "SBUX": [],
+        "WMT": [],
+        "COST": [],
+        "PG": [],
+        "BA": [],
+        "CAT": [],
+        "GE": [],
+        "DIS": [],
+        "T": [],
+        "VZ": [],
+        "TSLA": [],
+        "SNDK": [],
+        "BE": [],
+        "LITE": [],
+        "SMCI": [],
+        "COHR": [],
+        "MU": [],
+        "WDC": [],
+        "MRVL": [],
+        "TER": [],
+        "DELL": [],
+        "STX": [],
+        "APP": [],
+        "HOOD": [],
+        "CIEN": [],
+        "GLW": [],
+        "COIN": [],
+        "RDDT": [],
+        "DDOG": [],
+        "FLEX": [],
+        "P": []
+      },
+      "erros": {},
+      "acesso": {
+        "versao_yfinance": "1.7.0",
+        "caminho_de_acesso": "get_news(count=100)"
+      },
+      "medidas": {
+        "empresas": 60,
+        "empresas_com_pelo_menos_uma": 0,
+        "empresas_sem_nenhuma": [
+          "AAPL",
+          "ABBV",
+          "AMD",
+          "AMZN",
+          "APP",
+          "BA",
+          "BAC",
+          "BE",
+          "CAT",
+          "CIEN",
+          "COHR",
+          "COIN",
+          "COP",
+          "COST",
+          "CRM",
+          "CVX",
+          "DDOG",
+          "DELL",
+          "DIS",
+          "FLEX",
+          "GE",
+          "GLW",
+          "GOOGL",
+          "GS",
+          "HOOD",
+          "INTC",
+          "JNJ",
+          "JPM",
+          "KO",
+          "LITE",
+          "LLY",
+          "MA",
+          "MCD",
+          "META",
+          "MRK",
+          "MRVL",
+          "MS",
+          "MSFT",
+          "MU",
+          "NKE",
+          "NVDA",
+          "ORCL",
+          "P",
+          "PEP",
+          "PFE",
+          "PG",
+          "RDDT",
+          "SBUX",
+          "SMCI",
+          "SNDK",
+          "STX",
+          "T",
+          "TER",
+          "TSLA",
+          "UNH",
+          "V",
+          "VZ",
+          "WDC",
+          "WMT",
+          "XOM"
+        ],
+        "empresas_com_noticias_em_10_dias": 0,
+        "total_de_noticias_na_janela": 0,
+        "noticias_sem_instante_legivel": 0,
+        "media_por_empresa_por_dia": 0.0,
+        "mediana_por_empresa_por_dia": 0.0,
+        "media_por_empresa_na_janela": 0,
+        "mediana_por_empresa_na_janela": 0.0,
+        "mediana_dias_distintos": 0.0,
+        "dez_com_menos": [
+          {
+            "ticker": "AAPL",
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          {
+            "ticker": "ABBV",
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          {
+            "ticker": "AMD",
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          {
+            "ticker": "AMZN",
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          {
+            "ticker": "APP",
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          {
+            "ticker": "BA",
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          {
+            "ticker": "BAC",
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          {
+            "ticker": "BE",
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          {
+            "ticker": "CAT",
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          {
+            "ticker": "CIEN",
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          }
+        ],
+        "cobertura_dias_para_tras": {
+          "mediana": null,
+          "maxima": null,
+          "empresas_que_chegam_aos_30": 0
+        },
+        "por_empresa": {
+          "AAPL": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "MSFT": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "GOOGL": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "AMZN": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "META": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "NVDA": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "AMD": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "INTC": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "CRM": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "ORCL": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "JPM": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "BAC": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "GS": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "MS": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "V": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "MA": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "JNJ": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "PFE": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "UNH": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "ABBV": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "MRK": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "LLY": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "XOM": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "CVX": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "COP": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "KO": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "PEP": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "MCD": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "NKE": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "SBUX": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "WMT": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "COST": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "PG": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "BA": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "CAT": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "GE": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "DIS": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "T": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "VZ": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "TSLA": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "SNDK": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "BE": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "LITE": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "SMCI": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "COHR": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "MU": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "WDC": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "MRVL": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "TER": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "DELL": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "STX": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "APP": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "HOOD": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "CIEN": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "GLW": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "COIN": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "RDDT": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "DDOG": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "FLEX": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          },
+          "P": {
+            "noticias": 0,
+            "noticias_na_janela": 0,
+            "sem_instante": 0,
+            "dias_distintos": 0,
+            "dias_de_bolsa_cobertos": 0,
+            "mais_antiga": null,
+            "mais_recente": null
+          }
+        }
+      },
+      "tempo": {
+        "campos_de_tempo": {},
+        "noticias_com_instante": 0,
+        "com_hora_a_zero": 0,
+        "parece_so_data": false,
+        "horas_utc_distintas": 0,
+        "distribuicao_do_atraso_em_horas": {
+          "minimo": null,
+          "mediana": null,
+          "maximo": null
+        },
+        "com_instante_no_futuro": 0,
+        "a_menos_de_15min_da_corrida": 0,
+        "exemplos_em_bruto": []
+      },
+      "campos": {
+        "noticias_observadas": 0,
+        "campos": []
+      }
+    }
+  },
+  "comparacao_entre_fontes": {
+    "possivel": false,
+    "motivo": "é preciso haver duas fontes com dados"
+  }
+}
