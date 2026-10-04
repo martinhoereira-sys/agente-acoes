@@ -530,6 +530,9 @@ def desenhar(dados):
     As 20 mais recentes. <strong>STOP</strong> saiu a perder,
     <strong>ALVO</strong> saiu a ganhar, <strong>TEMPO</strong> chegou ao limite
     de {config.DIAS_MAXIMOS_POSICAO} dias de bolsa sem tocar em nenhum dos dois.
+    <strong>SEM_DADOS</strong> é a empresa que deixou de dar preços durante
+    {posicoes.DIAS_SEM_DADOS_PARA_FECHAR} dias de bolsa seguidos: a posição
+    fecha ao último preço conhecido.
   </p>
   {_tabela_ultimas(dados["ultimas"])}
 

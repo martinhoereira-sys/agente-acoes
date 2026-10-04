@@ -47,6 +47,25 @@ isso é que os dois gaps são vistos antes.
 Ao fim de config.DIAS_MAXIMOS_POSICAO dias de bolsa sem tocar em nada, fecha ao
 preço de fecho desse dia.
 
+UMA EMPRESA QUE DEIXA DE TER PREÇOS
+-----------------------------------
+Durante o torneio uma empresa pode deixar de dar dados: é comprada por outra,
+sai de bolsa, muda de ticker, ou a fonte falha e não volta. A lista de empresas
+está congelada (regra 7), por isso não se pode tirá-la de lá -- e sem regra
+nenhuma as posições abertas nela nunca fechavam. Ficavam penduradas até ao fim
+do torneio a ocupar o lugar daquele agente naquela empresa, porque só se deixa
+ter uma posição aberta por agente e por empresa.
+
+A regra: se uma empresa não devolver preços durante DIAS_SEM_DADOS_PARA_FECHAR
+dias de bolsa SEGUIDOS, as posições abertas nela fecham ao último preço
+conhecido, com o estado SEM_DADOS. A empresa fica na lista, e se voltar a dar
+preços o agente volta a poder decidir nela como se nada fosse.
+
+"Dias de bolsa" são os dias em que houve preços de alguma empresa -- o
+calendário sai do próprio precos.csv, não de um calendário de feriados escrito
+à mão. Seguidos quer dizer seguidos: um dia com preços pelo meio põe a
+contagem a zero.
+
 DIAS ANTIGOS SEM MÁXIMO E MÍNIMO
 --------------------------------
 As primeiras linhas do precos.csv só têm o fecho. Nesses dias usa-se o fecho no
@@ -65,7 +84,22 @@ import config
 ABERTA = "ABERTA"
 STOP = "STOP"
 ALVO = "ALVO"
-TEMPO = "TEMPO"      # fechada por limite de dias
+TEMPO = "TEMPO"           # fechada por limite de dias
+SEM_DADOS = "SEM_DADOS"   # a empresa deixou de dar preços
+
+# Quantos dias de bolsa seguidos sem preços fecham uma posição.
+#
+# PORQUE SÃO 10 E NÃO MENOS: o yfinance falha. Falha por limite de pedidos,
+# por manutenção do Yahoo, por um ticker que muda de nome durante um dia. Essas
+# falhas duram um dia ou dois e resolvem-se sozinhas -- e fechar posições por
+# causa delas era deixar a fonte de dados decidir apostas, que é o pior sítio
+# possível para uma decisão. Com 10 dias de bolsa (duas semanas de calendário)
+# nenhuma falha passageira chega lá, e uma empresa que saiu mesmo de bolsa
+# fecha em duas semanas em vez de ficar pendurada oito meses.
+#
+# Não é um número que se afine depois: é uma regra de avaliação como o
+# DIAS_MAXIMOS_POSICAO, e mexer-lhe reescreve o histórico todo (regra 7).
+DIAS_SEM_DADOS_PARA_FECHAR = 10
 
 
 def _numero(valor):
@@ -87,6 +121,17 @@ def _por_ticker(precos):
     for linhas in mapa.values():
         linhas.sort(key=lambda l: l["data"])
     return mapa
+
+
+def _calendario(precos):
+    """
+    As datas em que houve bolsa, por ordem.
+
+    Sai do próprio ficheiro: um dia está no calendário se ALGUMA empresa deu
+    preço nele. É assim que se distingue "a bolsa esteve fechada" de "esta
+    empresa deixou de dar preços" sem ter de saber feriados de cor.
+    """
+    return sorted({linha["data"] for linha in precos})
 
 
 def _resultado_euros(decisao, preco_saida):
@@ -121,20 +166,51 @@ def _resultado_euros(decisao, preco_saida):
     return round(quantidade * (preco_venda - preco_compra) - 2 * comissao, 2)
 
 
-def _fecho_da_posicao(decisao, dias_seguintes):
+def _fecho_da_posicao(decisao, dias_seguintes, calendario_seguinte):
     """
     Percorre os dias a seguir à decisão e devolve
     (estado, data_saida, preco_saida, dias_passados).
 
-    dias_seguintes já vem só com os dias posteriores ao da decisão, por ordem.
+    dias_seguintes      os dias DESTA empresa posteriores ao da decisão.
+    calendario_seguinte os dias de bolsa posteriores ao da decisão, de todas as
+                        empresas -- é contra este que se mede a falta de dados.
+
+    Andam os dois ao mesmo tempo: o calendário diz quais os dias que existiram,
+    o dias_seguintes diz em quais é que esta empresa apareceu.
     """
     stop = _numero(decisao.get("stop"))
     alvo = _numero(decisao.get("alvo"))
 
-    for passados, dia in enumerate(dias_seguintes, start=1):
-        fecho = _numero(dia.get("fecho"))
+    por_data = {dia["data"]: dia for dia in dias_seguintes}
+
+    # O último preço conhecido começa por ser o da entrada, que é o fecho do dia
+    # da decisão. Se a empresa desaparecer no dia seguinte, é esse o último
+    # preço que houve -- e é a esse que se fecha.
+    ultimo_conhecido = _numero(decisao.get("preco_entrada"))
+
+    # passados conta os dias DESTA empresa, como sempre contou: é o relógio dos
+    # DIAS_MAXIMOS_POSICAO e não pode mudar de sentido sem reescrever o
+    # histórico. sem_dados conta dias de bolsa seguidos em que ela não apareceu.
+    passados, sem_dados = 0, 0
+
+    for data in calendario_seguinte:
+        dia = por_data.get(data)
+        fecho = _numero(dia.get("fecho")) if dia is not None else None
+
         if fecho is None:
-            continue                       # dia sem preço não decide nada
+            # Sem linha, ou com linha e sem preço: para esta regra é o mesmo,
+            # não houve preço. Uma linha sem preço continua a contar para o
+            # relógio dos dias, que é o que já acontecia antes desta regra.
+            if dia is not None:
+                passados += 1
+            sem_dados += 1
+            if sem_dados >= DIAS_SEM_DADOS_PARA_FECHAR:
+                return SEM_DADOS, data, ultimo_conhecido, passados
+            continue
+
+        sem_dados = 0                     # apareceu: a contagem volta a zero
+        passados += 1
+        ultimo_conhecido = fecho
 
         # Sem máximo/mínimo (linhas antigas) usa-se o fecho: mínimo <= fecho
         # <= máximo, por isso isto nunca inventa um toque que não houve.
@@ -168,7 +244,7 @@ def _fecho_da_posicao(decisao, dias_seguintes):
         if passados >= config.DIAS_MAXIMOS_POSICAO:
             return TEMPO, dia["data"], fecho, passados
 
-    return ABERTA, None, None, len(dias_seguintes)
+    return ABERTA, None, None, passados
 
 
 def estado_das_posicoes(decisoes, precos):
@@ -178,15 +254,18 @@ def estado_das_posicoes(decisoes, precos):
         {"data", "agente", "ticker", "estado", "data_saida", "preco_saida",
          "resultado_eur", "dias"}
 
-    estado é ABERTA, STOP, ALVO ou TEMPO.
+    estado é ABERTA, STOP, ALVO, TEMPO ou SEM_DADOS.
     """
     historicos = _por_ticker(precos)
+    calendario = _calendario(precos)
     estados = []
 
     for decisao in decisoes:
         dias = historicos.get(decisao["ticker"], [])
         seguintes = [d for d in dias if d["data"] > decisao["data"]]
-        estado, data_saida, preco_saida, passados = _fecho_da_posicao(decisao, seguintes)
+        dias_de_bolsa = [d for d in calendario if d > decisao["data"]]
+        estado, data_saida, preco_saida, passados = _fecho_da_posicao(
+            decisao, seguintes, dias_de_bolsa)
 
         # Só se sabe fazer a conta de uma compra. O stop e o alvo são calculados
         # como se fosse sempre compra (ver base.py), por isso uma venda a
