@@ -513,3 +513,17 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-10-05,momentum-2-1,STX,COMPRA,887.09,814.9082,1031.4537,2.0,0.55,preço 3.8% acima da média de 50 dias,1000.0,1.0,0.05
 2026-10-05,momentum-5-1,STX,COMPRA,887.09,814.9082,1247.9992,5.0,0.55,preço 3.8% acima da média de 50 dias,1000.0,1.0,0.05
 2026-10-05,momentum-com-teto,STX,COMPRA,887.09,814.9082,1103.6355,3.0,0.55,"preço 3.8% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-10-06,sazonalidade,CRM,COMPRA,224.99,215.4831,253.5106,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-06,momentum-simples,PG,COMPRA,148.41,145.0366,158.5303,3.0,0.55,preço 1.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-06,momentum-2-1,PG,COMPRA,148.41,145.0366,155.1568,2.0,0.55,preço 1.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-06,momentum-5-1,PG,COMPRA,148.41,145.0366,165.2771,5.0,0.55,preço 1.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-06,momentum-com-teto,PG,COMPRA,148.41,145.0366,158.5303,3.0,0.55,"preço 1.9% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-10-06,controlo-sempre-compra,CAT,COMPRA,863.44,835.0614,948.5757,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-06,controlo-moeda-ao-ar,COHR,COMPRA,338.36,303.1445,444.0065,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-06,momentum-2-1,MRVL,COMPRA,287.01,267.656,325.7179,2.0,0.55,preço 24.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-06,contrarian,STX,COMPRA,805.63,736.0903,1014.2492,3.0,0.55,preço 5.7% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-06,controlo-sempre-compra,CIEN,COMPRA,443.65,402.6673,566.598,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-06,momentum-2-1,DDOG,COMPRA,278.24,264.4851,305.7499,2.0,0.55,preço 13.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-06,momentum-simples,P,COMPRA,147.2,135.2117,183.1648,3.0,0.55,preço 40.3% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-06,controlo-sempre-compra,P,COMPRA,147.2,135.2117,183.1648,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-06,controlo-moeda-ao-ar,P,COMPRA,147.2,135.2117,183.1648,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
