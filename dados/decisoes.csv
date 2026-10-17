@@ -802,3 +802,31 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-10-15,sazonalidade,FLEX,COMPRA,98.5,91.6293,119.1121,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
 2026-10-15,controlo-sempre-compra,FLEX,COMPRA,98.5,91.6293,119.1121,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-10-15,controlo-moeda-ao-ar,FLEX,COMPRA,98.5,91.6293,119.1121,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-15,momentum-com-teto,ABBV,COMPRA,283.4,276.5455,303.9634,3.0,0.55,"preço 9.0% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-10-15,sazonalidade,ABBV,COMPRA,283.4,276.5455,303.9634,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-15,controlo-moeda-ao-ar,ABBV,COMPRA,283.4,276.5455,303.9634,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-15,contrarian,SNDK,COMPRA,1394.83,1278.947,1742.4791,3.0,0.55,preço 12.4% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-15,sazonalidade,SNDK,COMPRA,1394.83,1278.947,1742.4791,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-15,controlo-sempre-compra,SNDK,COMPRA,1394.83,1278.947,1742.4791,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-15,contrarian,BE,COMPRA,236.3,211.2656,311.4032,3.0,0.55,preço 5.0% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-15,controlo-moeda-ao-ar,BE,COMPRA,236.3,211.2656,311.4032,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-15,contrarian,LITE,COMPRA,869.54,789.0438,1111.0286,3.0,0.55,preço 6.7% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-15,sazonalidade,LITE,COMPRA,869.54,789.0438,1111.0286,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-15,controlo-sempre-compra,LITE,COMPRA,869.54,789.0438,1111.0286,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-15,controlo-moeda-ao-ar,LITE,COMPRA,869.54,789.0438,1111.0286,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-15,contrarian,DELL,COMPRA,473.39,437.4411,581.2366,3.0,0.55,preço 7.7% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-15,sazonalidade,DELL,COMPRA,473.39,437.4411,581.2366,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-15,controlo-sempre-compra,DELL,COMPRA,473.39,437.4411,581.2366,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-15,controlo-moeda-ao-ar,DELL,COMPRA,473.39,437.4411,581.2366,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-15,sazonalidade,HOOD,COMPRA,103.99,96.952,125.1039,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-15,controlo-moeda-ao-ar,HOOD,COMPRA,103.99,96.952,125.1039,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-15,sazonalidade,COIN,COMPRA,183.81,169.3301,227.2497,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-15,momentum-simples,RDDT,COMPRA,159.36,149.1665,189.9405,3.0,0.55,preço 3.3% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-15,momentum-2-1,RDDT,COMPRA,159.36,149.1665,179.747,2.0,0.55,preço 3.3% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-15,momentum-5-1,RDDT,COMPRA,159.36,149.1665,210.3275,5.0,0.55,preço 3.3% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-15,momentum-com-teto,RDDT,COMPRA,159.36,149.1665,189.9405,3.0,0.55,"preço 3.3% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-10-15,momentum-2-1,DDOG,COMPRA,266.25,250.6226,297.5047,2.0,0.55,preço 7.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-15,sazonalidade,DDOG,COMPRA,266.25,250.6226,313.1321,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-15,momentum-simples,P,COMPRA,133.4,121.2992,169.7025,3.0,0.55,preço 16.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-15,momentum-2-1,P,COMPRA,133.4,121.2992,157.6016,2.0,0.55,preço 16.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-15,controlo-sempre-compra,P,COMPRA,133.4,121.2992,169.7025,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
