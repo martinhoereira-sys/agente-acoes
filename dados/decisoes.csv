@@ -866,3 +866,18 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-10-16,sazonalidade,FLEX,COMPRA,90.46,83.4201,111.5796,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
 2026-10-16,controlo-sempre-compra,FLEX,COMPRA,90.46,83.4201,111.5796,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-10-16,momentum-com-teto,P,COMPRA,124.01,111.8436,160.5092,3.0,0.55,"preço 7.2% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-10-19,momentum-simples,AMZN,COMPRA,262.45,252.6618,291.8147,3.0,0.55,preço 2.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-19,momentum-2-1,AMZN,COMPRA,262.45,252.6618,282.0265,2.0,0.55,preço 2.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-19,momentum-5-1,AMZN,COMPRA,262.45,252.6618,311.3912,5.0,0.55,preço 2.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-19,momentum-com-teto,AMZN,COMPRA,262.45,252.6618,291.8147,3.0,0.55,"preço 2.2% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-10-19,momentum-simples,META,COMPRA,705.44,669.7555,812.4935,3.0,0.55,preço 7.3% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-19,momentum-2-1,META,COMPRA,705.44,669.7555,776.809,2.0,0.55,preço 7.3% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-19,controlo-sempre-compra,META,COMPRA,705.44,669.7555,812.4935,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-19,sazonalidade,XOM,COMPRA,178.28,174.36,190.04,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-19,controlo-moeda-ao-ar,COP,COMPRA,145.24,140.7198,158.8005,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-19,sazonalidade,HOOD,COMPRA,96.52,91.4928,111.6015,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-19,controlo-moeda-ao-ar,HOOD,COMPRA,96.52,91.4928,111.6015,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-19,contrarian,COIN,COMPRA,168.45,158.1963,199.211,3.0,0.55,preço 5.3% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-19,momentum-2-1,DDOG,COMPRA,260.36,243.4677,294.1445,2.0,0.55,preço 5.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-19,controlo-moeda-ao-ar,DDOG,COMPRA,260.36,243.4677,311.0368,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-19,controlo-moeda-ao-ar,FLEX,COMPRA,87.54,80.8434,107.6298,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
