@@ -881,3 +881,35 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-10-19,momentum-2-1,DDOG,COMPRA,260.36,243.4677,294.1445,2.0,0.55,preço 5.1% acima da média de 50 dias,1000.0,1.0,0.05
 2026-10-19,controlo-moeda-ao-ar,DDOG,COMPRA,260.36,243.4677,311.0368,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
 2026-10-19,controlo-moeda-ao-ar,FLEX,COMPRA,87.54,80.8434,107.6298,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-20,controlo-moeda-ao-ar,META,COMPRA,694.25,658.8924,800.3227,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-20,sazonalidade,AMD,COMPRA,534.74,506.7479,618.7163,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-20,controlo-sempre-compra,AMD,COMPRA,534.74,506.7479,618.7163,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-20,contrarian,GS,COMPRA,884.81,865.4276,942.9571,3.0,0.55,preço 8.5% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-20,sazonalidade,GS,COMPRA,884.81,865.4276,942.9571,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-20,contrarian,MS,COMPRA,180.4,176.3347,192.596,3.0,0.55,preço 11.1% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-20,sazonalidade,MS,COMPRA,180.4,176.3347,192.596,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-20,controlo-sempre-compra,MS,COMPRA,180.4,176.3347,192.596,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-20,momentum-2-1,V,COMPRA,406.57,397.078,425.554,2.0,0.55,preço 8.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-20,momentum-2-1,UNH,COMPRA,419.26,404.8232,448.1336,2.0,0.55,preço 8.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-20,momentum-2-1,LLY,COMPRA,1283.66,1236.0382,1378.9037,2.0,0.55,preço 8.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-20,controlo-moeda-ao-ar,CVX,COMPRA,225.71,220.2249,242.1654,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-20,momentum-simples,NKE,COMPRA,37.88,36.5416,41.8951,3.0,0.55,preço 1.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-20,momentum-2-1,NKE,COMPRA,37.88,36.5416,40.5567,2.0,0.55,preço 1.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-20,momentum-5-1,NKE,COMPRA,37.88,36.5416,44.5719,5.0,0.55,preço 1.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-20,momentum-com-teto,NKE,COMPRA,37.88,36.5416,41.8951,3.0,0.55,"preço 1.7% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-10-20,contrarian,GE,COMPRA,299.87,291.3414,325.4559,3.0,0.55,preço 8.4% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-20,sazonalidade,GE,COMPRA,299.87,291.3414,325.4559,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-20,controlo-sempre-compra,GE,COMPRA,299.87,291.3414,325.4559,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-20,sazonalidade,BE,COMPRA,222.65,199.0164,293.5509,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-20,controlo-sempre-compra,BE,COMPRA,222.65,199.0164,293.5509,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-20,contrarian,LITE,COMPRA,822.51,746.4381,1050.7258,3.0,0.55,preço 11.6% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-20,sazonalidade,LITE,COMPRA,822.51,746.4381,1050.7258,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-20,controlo-sempre-compra,LITE,COMPRA,822.51,746.4381,1050.7258,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-20,contrarian,COHR,COMPRA,231.8,207.9507,303.348,3.0,0.55,preço 21.4% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-20,sazonalidade,COHR,COMPRA,231.8,207.9507,303.348,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-20,controlo-sempre-compra,COHR,COMPRA,231.8,207.9507,303.348,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-20,controlo-moeda-ao-ar,COHR,COMPRA,231.8,207.9507,303.348,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-20,contrarian,GLW,COMPRA,132.26,122.5335,161.4395,3.0,0.55,preço 13.7% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-20,sazonalidade,GLW,COMPRA,132.26,122.5335,161.4395,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-20,controlo-sempre-compra,GLW,COMPRA,132.26,122.5335,161.4395,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-20,sazonalidade,P,COMPRA,126.52,115.1706,160.5683,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
