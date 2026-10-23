@@ -913,3 +913,12 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-10-20,sazonalidade,GLW,COMPRA,132.26,122.5335,161.4395,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
 2026-10-20,controlo-sempre-compra,GLW,COMPRA,132.26,122.5335,161.4395,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-10-20,sazonalidade,P,COMPRA,126.52,115.1706,160.5683,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-21,controlo-sempre-compra,GOOGL,COMPRA,334.76,326.9387,358.2238,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-21,momentum-simples,AMD,COMPRA,552.72,522.1572,644.4083,3.0,0.55,preço 2.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-21,momentum-2-1,AMD,COMPRA,552.72,522.1572,613.8456,2.0,0.55,preço 2.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-21,momentum-com-teto,AMD,COMPRA,552.72,522.1572,644.4083,3.0,0.55,"preço 2.1% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-10-21,controlo-moeda-ao-ar,XOM,COMPRA,178.09,174.2046,189.7461,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-21,momentum-2-1,CVX,COMPRA,226.78,221.3687,237.6027,2.0,0.55,preço 8.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-21,controlo-moeda-ao-ar,T,COMPRA,21.91,20.672,25.624,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-21,controlo-moeda-ao-ar,GLW,COMPRA,134.92,124.9743,164.7571,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-21,controlo-moeda-ao-ar,P,COMPRA,130.93,119.1411,166.2967,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
