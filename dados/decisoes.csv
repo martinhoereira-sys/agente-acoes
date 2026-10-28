@@ -1048,3 +1048,18 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-10-26,sazonalidade,RDDT,COMPRA,138.45,130.0248,163.7255,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
 2026-10-26,controlo-sempre-compra,RDDT,COMPRA,138.45,130.0248,163.7255,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-10-26,controlo-moeda-ao-ar,RDDT,COMPRA,138.45,130.0248,163.7255,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-27,momentum-simples,AMD,COMPRA,560.26,520.8294,678.5518,3.0,0.55,preço 3.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-27,momentum-2-1,AMD,COMPRA,560.26,520.8294,639.1212,2.0,0.55,preço 3.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-27,momentum-5-1,AMD,COMPRA,560.26,520.8294,757.4131,5.0,0.55,preço 3.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-27,momentum-com-teto,AMD,COMPRA,560.26,520.8294,678.5518,3.0,0.55,"preço 3.0% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-10-27,contrarian,BA,COMPRA,168.18,158.9339,195.9183,3.0,0.55,preço 15.5% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-27,sazonalidade,BA,COMPRA,168.18,158.9339,195.9183,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-27,controlo-sempre-compra,BA,COMPRA,168.18,158.9339,195.9183,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-27,controlo-moeda-ao-ar,GE,COMPRA,297.66,288.3473,325.598,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-27,controlo-moeda-ao-ar,DIS,COMPRA,110.23,107.3671,118.8186,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-27,momentum-com-teto,TSLA,COMPRA,407.46,387.3624,467.7529,3.0,0.55,"preço 11.3% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-10-27,sazonalidade,TSLA,COMPRA,407.46,387.3624,467.7529,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-27,contrarian,GLW,COMPRA,126.3,116.5188,155.6435,3.0,0.55,preço 15.5% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-10-27,sazonalidade,GLW,COMPRA,126.3,116.5188,155.6435,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-27,controlo-sempre-compra,GLW,COMPRA,126.3,116.5188,155.6435,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-27,controlo-moeda-ao-ar,COIN,COMPRA,161.09,150.1121,194.0236,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
