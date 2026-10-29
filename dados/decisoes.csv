@@ -1063,3 +1063,20 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-10-27,sazonalidade,GLW,COMPRA,126.3,116.5188,155.6435,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
 2026-10-27,controlo-sempre-compra,GLW,COMPRA,126.3,116.5188,155.6435,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-10-27,controlo-moeda-ao-ar,COIN,COMPRA,161.09,150.1121,194.0236,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-28,sazonalidade,META,COMPRA,612.49,584.4398,696.6405,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-28,controlo-sempre-compra,META,COMPRA,612.49,584.4398,696.6405,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-10-28,momentum-simples,ORCL,COMPRA,144.54,132.3702,181.0495,3.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-28,momentum-2-1,ORCL,COMPRA,144.54,132.3702,168.8797,2.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-28,momentum-5-1,ORCL,COMPRA,144.54,132.3702,205.3892,5.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-28,momentum-com-teto,ORCL,COMPRA,144.54,132.3702,181.0495,3.0,0.55,"preço 2.0% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-10-28,momentum-2-1,V,COMPRA,400.6,391.1708,419.4583,2.0,0.55,preço 5.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-28,controlo-moeda-ao-ar,NKE,COMPRA,37.15,35.7355,41.3936,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-28,momentum-2-1,TSLA,COMPRA,404.22,384.0881,444.4839,2.0,0.55,preço 10.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-28,momentum-simples,MRVL,COMPRA,251.65,231.3174,312.6479,3.0,0.55,preço 3.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-28,momentum-2-1,MRVL,COMPRA,251.65,231.3174,292.3152,2.0,0.55,preço 3.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-28,momentum-5-1,MRVL,COMPRA,251.65,231.3174,353.3131,5.0,0.55,preço 3.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-10-28,momentum-com-teto,MRVL,COMPRA,251.65,231.3174,312.6479,3.0,0.55,"preço 3.1% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-10-28,controlo-moeda-ao-ar,TER,COMPRA,313.24,286.056,394.7921,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-28,sazonalidade,HOOD,COMPRA,91.43,85.762,108.4341,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
+2026-10-28,controlo-moeda-ao-ar,HOOD,COMPRA,91.43,85.762,108.4341,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-10-28,momentum-2-1,P,COMPRA,138.6,126.0407,163.7185,2.0,0.55,preço 16.6% acima da média de 50 dias,1000.0,1.0,0.05
