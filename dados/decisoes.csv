@@ -1175,3 +1175,48 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-10-30,sazonalidade,DDOG,COMPRA,235.27,212.98,302.14,3.0,0.55,mês 10 não está entre os 4 piores historicamente (+0.99% de média),1000.0,1.0,0.05
 2026-10-30,controlo-sempre-compra,DDOG,COMPRA,235.27,212.98,302.14,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-10-30,momentum-2-1,P,COMPRA,126.98,115.0398,150.8605,2.0,0.55,preço 6.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-2-1,AAPL,COMPRA,338.32,331.4338,352.0924,2.0,0.55,preço 1.4% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,controlo-sempre-compra,MSFT,COMPRA,507.12,493.1012,549.1764,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-02,controlo-moeda-ao-ar,MSFT,COMPRA,507.12,493.1012,549.1764,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-02,controlo-moeda-ao-ar,NVDA,COMPRA,202.06,194.2885,225.3745,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-02,contrarian,AMD,COMPRA,466.84,425.1803,591.819,3.0,0.55,preço 14.8% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,sazonalidade,AMD,COMPRA,466.84,425.1803,591.819,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-02,controlo-sempre-compra,AMD,COMPRA,466.84,425.1803,591.819,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-02,contrarian,CRM,COMPRA,226.18,216.5129,255.1813,3.0,0.55,preço 5.4% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,sazonalidade,ORCL,COMPRA,119.22,107.6498,153.9306,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-02,controlo-sempre-compra,ORCL,COMPRA,119.22,107.6498,153.9306,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-02,controlo-moeda-ao-ar,ORCL,COMPRA,119.22,107.6498,153.9306,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-02,momentum-2-1,V,COMPRA,425.51,414.6604,447.2092,2.0,0.55,preço 11.3% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-2-1,MA,COMPRA,658.1,638.8945,696.5111,2.0,0.55,preço 12.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-5-1,MA,COMPRA,658.1,638.8945,754.1276,5.0,0.55,preço 12.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-2-1,UNH,COMPRA,400.44,385.8354,429.6492,2.0,0.55,preço 2.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-2-1,ABBV,COMPRA,288.84,280.5264,305.4673,2.0,0.55,preço 7.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-5-1,ABBV,COMPRA,288.84,280.5264,330.4082,5.0,0.55,preço 7.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-2-1,XOM,COMPRA,179.67,173.4787,192.0526,2.0,0.55,preço 6.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-5-1,CVX,COMPRA,227.77,220.4526,264.3571,5.0,0.55,preço 6.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-2-1,COP,COMPRA,146.84,140.9582,158.6035,2.0,0.55,preço 7.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-5-1,COP,COMPRA,146.84,140.9582,176.2488,5.0,0.55,preço 7.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-2-1,KO,COMPRA,95.83,93.1001,101.2897,2.0,0.55,preço 7.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,sazonalidade,PEP,COMPRA,140.42,135.638,154.7661,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-02,controlo-sempre-compra,PEP,COMPRA,140.42,135.638,154.7661,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-02,momentum-2-1,MCD,COMPRA,265.64,258.6667,279.5865,2.0,0.55,preço 7.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-2-1,WMT,COMPRA,127.69,124.069,134.932,2.0,0.55,preço 15.3% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-5-1,WMT,COMPRA,127.69,124.069,145.795,5.0,0.55,preço 15.3% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,sazonalidade,WMT,COMPRA,127.69,124.069,138.553,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-02,controlo-moeda-ao-ar,WMT,COMPRA,127.69,124.069,138.553,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-02,momentum-simples,COST,COMPRA,1040.55,1014.905,1117.4851,3.0,0.55,preço 10.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-2-1,COST,COMPRA,1040.55,1014.905,1091.8401,2.0,0.55,preço 10.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-5-1,COST,COMPRA,1040.55,1014.905,1168.7751,5.0,0.55,preço 10.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,momentum-com-teto,COST,COMPRA,1040.55,1014.905,1117.4851,3.0,0.55,"preço 10.2% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-02,controlo-moeda-ao-ar,LITE,COMPRA,684.4,589.6308,968.7077,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-02,contrarian,MRVL,COMPRA,171.41,151.2647,231.846,3.0,0.55,preço 29.0% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,sazonalidade,MRVL,COMPRA,171.41,151.2647,231.846,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-02,controlo-sempre-compra,MRVL,COMPRA,171.41,151.2647,231.846,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-02,controlo-moeda-ao-ar,MRVL,COMPRA,171.41,151.2647,231.846,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-02,controlo-moeda-ao-ar,TER,COMPRA,261.01,240.9022,321.3335,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-02,controlo-moeda-ao-ar,HOOD,COMPRA,83.84,78.3029,100.4512,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-02,contrarian,CIEN,COMPRA,284.34,245.5355,400.7535,3.0,0.55,preço 21.3% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,controlo-sempre-compra,CIEN,COMPRA,284.34,245.5355,400.7535,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-02,controlo-moeda-ao-ar,CIEN,COMPRA,284.34,245.5355,400.7535,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-02,contrarian,P,COMPRA,113.78,102.0788,148.8836,3.0,0.55,preço 5.0% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-02,sazonalidade,P,COMPRA,113.78,102.0788,148.8836,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
