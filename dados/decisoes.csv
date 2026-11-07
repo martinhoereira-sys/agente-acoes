@@ -1444,3 +1444,47 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-11-05,sazonalidade,P,COMPRA,93.44,81.9816,127.8152,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
 2026-11-05,controlo-sempre-compra,P,COMPRA,93.44,81.9816,127.8152,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-11-05,controlo-moeda-ao-ar,P,COMPRA,93.44,81.9816,127.8152,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-06,momentum-2-1,MSFT,COMPRA,530.61,506.9302,577.9696,2.0,0.55,preço 2.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,controlo-sempre-compra,MSFT,COMPRA,530.61,506.9302,601.6494,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-06,controlo-moeda-ao-ar,MSFT,COMPRA,530.61,506.9302,601.6494,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-06,contrarian,CRM,COMPRA,213.65,203.5712,243.8864,3.0,0.55,preço 10.8% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,sazonalidade,CRM,COMPRA,213.65,203.5712,243.8864,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-06,controlo-sempre-compra,CRM,COMPRA,213.65,203.5712,243.8864,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-06,momentum-2-1,V,COMPRA,422.65,408.3349,451.2801,2.0,0.55,preço 9.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-simples,MA,COMPRA,652.7,628.7947,724.416,3.0,0.55,preço 10.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-2-1,MA,COMPRA,652.7,628.7947,700.5106,2.0,0.55,preço 10.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-5-1,MA,COMPRA,652.7,628.7947,772.2266,5.0,0.55,preço 10.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-com-teto,MA,COMPRA,652.7,628.7947,724.416,3.0,0.55,"preço 10.1% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-06,sazonalidade,MA,COMPRA,652.7,628.7947,724.416,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-06,controlo-sempre-compra,MA,COMPRA,652.7,628.7947,724.416,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-06,momentum-simples,PFE,COMPRA,29.39,28.4465,32.2204,3.0,0.55,preço 3.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-2-1,PFE,COMPRA,29.39,28.4465,31.277,2.0,0.55,preço 3.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-5-1,PFE,COMPRA,29.39,28.4465,34.1074,5.0,0.55,preço 3.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-com-teto,PFE,COMPRA,29.39,28.4465,32.2204,3.0,0.55,"preço 3.7% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-06,sazonalidade,PFE,COMPRA,29.39,28.4465,32.2204,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-06,controlo-sempre-compra,PFE,COMPRA,29.39,28.4465,32.2204,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-06,momentum-2-1,KO,COMPRA,95.67,92.9969,101.0163,2.0,0.55,preço 6.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-simples,MCD,COMPRA,276.52,266.324,307.108,3.0,0.55,preço 11.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-2-1,MCD,COMPRA,276.52,266.324,296.912,2.0,0.55,preço 11.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-5-1,MCD,COMPRA,276.52,266.324,327.5,5.0,0.55,preço 11.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-com-teto,MCD,COMPRA,276.52,266.324,307.108,3.0,0.55,"preço 11.2% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-06,sazonalidade,MCD,COMPRA,276.52,266.324,307.108,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-06,controlo-sempre-compra,MCD,COMPRA,276.52,266.324,307.108,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-06,controlo-moeda-ao-ar,MCD,COMPRA,276.52,266.324,307.108,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-06,momentum-2-1,NKE,COMPRA,38.59,36.8239,42.1223,2.0,0.55,preço 4.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-2-1,SBUX,COMPRA,105.41,101.4834,113.2632,2.0,0.55,preço 6.3% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,sazonalidade,SBUX,COMPRA,105.41,101.4834,117.1899,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-06,controlo-sempre-compra,SBUX,COMPRA,105.41,101.4834,117.1899,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-06,momentum-simples,WMT,COMPRA,125.52,121.026,139.002,3.0,0.55,preço 11.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-2-1,WMT,COMPRA,125.52,121.026,134.508,2.0,0.55,preço 11.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-5-1,WMT,COMPRA,125.52,121.026,147.99,5.0,0.55,preço 11.6% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-com-teto,WMT,COMPRA,125.52,121.026,139.002,3.0,0.55,"preço 11.6% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-06,sazonalidade,WMT,COMPRA,125.52,121.026,139.002,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-06,controlo-moeda-ao-ar,WMT,COMPRA,125.52,121.026,139.002,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-06,momentum-2-1,DIS,COMPRA,116.75,113.4573,123.3354,2.0,0.55,preço 8.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,momentum-5-1,DIS,COMPRA,116.75,113.4573,133.2136,5.0,0.55,preço 8.1% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-06,sazonalidade,DIS,COMPRA,116.75,113.4573,126.6281,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-06,controlo-sempre-compra,DIS,COMPRA,116.75,113.4573,126.6281,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-06,controlo-moeda-ao-ar,MU,COMPRA,690.0,612.6679,921.9963,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-06,controlo-moeda-ao-ar,STX,COMPRA,460.99,410.3647,612.866,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-06,controlo-moeda-ao-ar,CIEN,COMPRA,243.39,209.918,343.8061,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
