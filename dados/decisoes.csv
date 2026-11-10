@@ -1488,3 +1488,17 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-11-06,controlo-moeda-ao-ar,MU,COMPRA,690.0,612.6679,921.9963,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
 2026-11-06,controlo-moeda-ao-ar,STX,COMPRA,460.99,410.3647,612.866,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
 2026-11-06,controlo-moeda-ao-ar,CIEN,COMPRA,243.39,209.918,343.8061,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-09,contrarian,NVDA,COMPRA,178.67,167.8607,211.0979,3.0,0.55,preço 18.4% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-09,sazonalidade,NVDA,COMPRA,178.67,167.8607,211.0979,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-09,controlo-sempre-compra,NVDA,COMPRA,178.67,167.8607,211.0979,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-09,momentum-2-1,MRK,COMPRA,148.76,141.8822,162.5156,2.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-09,momentum-5-1,MRK,COMPRA,148.76,141.8822,183.149,5.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-09,momentum-com-teto,MRK,COMPRA,148.76,141.8822,169.3934,3.0,0.55,"preço 1.8% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-09,controlo-moeda-ao-ar,LLY,COMPRA,1411.95,1338.5293,1632.212,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-09,sazonalidade,CVX,COMPRA,210.78,203.3178,233.1666,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-09,momentum-2-1,TSLA,COMPRA,378.05,349.4035,435.3431,2.0,0.55,preço 1.4% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-09,momentum-5-1,TSLA,COMPRA,378.05,349.4035,521.2827,5.0,0.55,preço 1.4% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-09,momentum-com-teto,TSLA,COMPRA,378.05,349.4035,463.9896,3.0,0.55,"preço 1.4% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-09,contrarian,COIN,COMPRA,136.1,123.6124,173.5628,3.0,0.55,preço 22.0% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-09,sazonalidade,COIN,COMPRA,136.1,123.6124,173.5628,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-09,controlo-sempre-compra,COIN,COMPRA,136.1,123.6124,173.5628,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
