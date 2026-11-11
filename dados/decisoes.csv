@@ -1502,3 +1502,13 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-11-09,contrarian,COIN,COMPRA,136.1,123.6124,173.5628,3.0,0.55,preço 22.0% abaixo da média de 50 dias,1000.0,1.0,0.05
 2026-11-09,sazonalidade,COIN,COMPRA,136.1,123.6124,173.5628,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
 2026-11-09,controlo-sempre-compra,COIN,COMPRA,136.1,123.6124,173.5628,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-10,contrarian,NVDA,COMPRA,168.89,158.3152,200.6145,3.0,0.55,preço 22.5% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-10,sazonalidade,NVDA,COMPRA,168.89,158.3152,200.6145,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-10,controlo-sempre-compra,NVDA,COMPRA,168.89,158.3152,200.6145,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-10,controlo-moeda-ao-ar,CRM,COMPRA,213.48,203.8921,242.2437,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-10,controlo-moeda-ao-ar,PFE,COMPRA,29.36,28.4124,32.2027,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-10,sazonalidade,XOM,COMPRA,164.47,157.894,184.1979,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-10,controlo-sempre-compra,XOM,COMPRA,164.47,157.894,184.1979,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-10,controlo-moeda-ao-ar,XOM,COMPRA,164.47,157.894,184.1979,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-10,sazonalidade,GE,COMPRA,337.91,319.8025,392.2326,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-10,controlo-sempre-compra,GE,COMPRA,337.91,319.8025,392.2326,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
