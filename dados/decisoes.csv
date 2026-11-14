@@ -1545,3 +1545,15 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-11-12,controlo-moeda-ao-ar,COHR,COMPRA,232.08,197.268,336.516,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
 2026-11-12,controlo-moeda-ao-ar,HOOD,COMPRA,81.35,74.9322,100.6035,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
 2026-11-12,controlo-moeda-ao-ar,FLEX,COMPRA,78.12,66.8259,112.0024,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-13,momentum-com-teto,AAPL,COMPRA,356.27,343.768,393.7759,3.0,0.55,"preço 5.2% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-13,momentum-simples,JPM,COMPRA,346.19,334.2413,382.0361,3.0,0.55,preço 1.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-13,momentum-2-1,JPM,COMPRA,346.19,334.2413,370.0874,2.0,0.55,preço 1.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-13,momentum-5-1,JPM,COMPRA,346.19,334.2413,405.9335,5.0,0.55,preço 1.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-13,momentum-com-teto,JPM,COMPRA,346.19,334.2413,382.0361,3.0,0.55,"preço 1.9% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-13,momentum-simples,CVX,COMPRA,219.89,212.6497,241.6109,3.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-13,momentum-2-1,CVX,COMPRA,219.89,212.6497,234.3706,2.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-13,momentum-5-1,CVX,COMPRA,219.89,212.6497,256.0915,5.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-13,momentum-com-teto,CVX,COMPRA,219.89,212.6497,241.6109,3.0,0.55,"preço 2.0% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-13,momentum-5-1,KO,COMPRA,99.25,96.6662,112.1691,5.0,0.55,preço 9.4% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-13,controlo-moeda-ao-ar,COST,COMPRA,1106.21,1074.6562,1200.8713,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-13,controlo-moeda-ao-ar,PG,COMPRA,169.8,163.7818,187.8546,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
