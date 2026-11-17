@@ -1557,3 +1557,22 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-11-13,momentum-5-1,KO,COMPRA,99.25,96.6662,112.1691,5.0,0.55,preço 9.4% acima da média de 50 dias,1000.0,1.0,0.05
 2026-11-13,controlo-moeda-ao-ar,COST,COMPRA,1106.21,1074.6562,1200.8713,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
 2026-11-13,controlo-moeda-ao-ar,PG,COMPRA,169.8,163.7818,187.8546,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-16,contrarian,NVDA,COMPRA,156.14,145.7777,187.2269,3.0,0.55,preço 26.7% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-16,sazonalidade,NVDA,COMPRA,156.14,145.7777,187.2269,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-16,controlo-sempre-compra,NVDA,COMPRA,156.14,145.7777,187.2269,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-16,contrarian,AMD,COMPRA,504.28,428.638,731.206,3.0,0.55,preço 9.2% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-16,momentum-2-1,JNJ,COMPRA,282.55,273.2764,301.0971,2.0,0.55,preço 5.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-16,momentum-simples,KO,COMPRA,99.48,96.9169,107.1694,3.0,0.55,preço 9.3% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-16,momentum-com-teto,KO,COMPRA,99.48,96.9169,107.1694,3.0,0.55,"preço 9.3% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-16,momentum-2-1,PEP,COMPRA,146.43,141.4874,156.3152,2.0,0.55,preço 9.4% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-16,momentum-2-1,PG,COMPRA,173.02,166.8913,185.2774,2.0,0.55,preço 12.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-16,contrarian,COHR,COMPRA,203.43,172.9155,294.9735,3.0,0.55,preço 22.9% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-16,sazonalidade,COHR,COMPRA,203.43,172.9155,294.9735,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-16,controlo-sempre-compra,COHR,COMPRA,203.43,172.9155,294.9735,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-16,controlo-moeda-ao-ar,COHR,COMPRA,203.43,172.9155,294.9735,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-16,contrarian,HOOD,COMPRA,72.06,66.0674,90.0377,3.0,0.55,preço 29.5% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-16,sazonalidade,HOOD,COMPRA,72.06,66.0674,90.0377,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-16,controlo-sempre-compra,HOOD,COMPRA,72.06,66.0674,90.0377,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-16,contrarian,COIN,COMPRA,119.84,109.4788,150.9236,3.0,0.55,preço 29.1% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-16,sazonalidade,COIN,COMPRA,119.84,109.4788,150.9236,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-16,controlo-sempre-compra,COIN,COMPRA,119.84,109.4788,150.9236,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
