@@ -1604,3 +1604,16 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-11-17,sazonalidade,DDOG,COMPRA,165.18,146.7323,220.523,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
 2026-11-17,controlo-sempre-compra,DDOG,COMPRA,165.18,146.7323,220.523,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-11-17,controlo-moeda-ao-ar,DDOG,COMPRA,165.18,146.7323,220.523,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-18,sazonalidade,JPM,COMPRA,324.11,311.9209,360.6774,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-18,controlo-sempre-compra,JPM,COMPRA,324.11,311.9209,360.6774,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-18,controlo-moeda-ao-ar,JPM,COMPRA,324.11,311.9209,360.6774,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-18,momentum-2-1,JNJ,COMPRA,272.7,263.2708,291.5583,2.0,0.55,preço 2.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-18,contrarian,UNH,COMPRA,349.91,329.9602,409.7594,3.0,0.55,preço 10.4% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-18,sazonalidade,UNH,COMPRA,349.91,329.9602,409.7594,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-18,controlo-sempre-compra,UNH,COMPRA,349.91,329.9602,409.7594,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-18,contrarian,MRK,COMPRA,137.78,132.0001,155.1196,3.0,0.55,preço 5.4% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-18,controlo-moeda-ao-ar,KO,COMPRA,98.09,95.5387,105.744,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-18,controlo-moeda-ao-ar,BA,COMPRA,162.91,153.5722,190.9233,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-18,momentum-2-1,DIS,COMPRA,122.36,118.0391,131.0018,2.0,0.55,preço 11.2% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-18,controlo-moeda-ao-ar,SMCI,COMPRA,24.37,21.7175,32.3275,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-18,controlo-moeda-ao-ar,COIN,COMPRA,110.51,101.4216,137.7751,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
