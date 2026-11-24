@@ -1737,3 +1737,20 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-11-20,sazonalidade,COIN,COMPRA,101.97,93.4298,127.5907,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
 2026-11-20,controlo-sempre-compra,COIN,COMPRA,101.97,93.4298,127.5907,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-11-20,controlo-moeda-ao-ar,FLEX,COMPRA,66.24,56.8922,94.2833,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-23,momentum-com-teto,AAPL,COMPRA,349.08,336.3925,387.1426,3.0,0.55,"preço 2.1% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-23,contrarian,NVDA,COMPRA,165.05,140.2925,239.3225,3.0,0.55,preço 19.9% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-23,sazonalidade,NVDA,COMPRA,165.05,140.2925,239.3225,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-23,controlo-sempre-compra,NVDA,COMPRA,165.05,140.2925,239.3225,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-23,controlo-moeda-ao-ar,NVDA,COMPRA,165.05,140.2925,239.3225,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-23,controlo-moeda-ao-ar,ORCL,COMPRA,113.68,99.8331,155.2208,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-23,controlo-moeda-ao-ar,GS,COMPRA,823.62,773.0767,975.2498,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-23,controlo-moeda-ao-ar,MS,COMPRA,172.6,163.0184,201.3448,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-23,sazonalidade,XOM,COMPRA,156.9,150.6417,175.675,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-23,controlo-sempre-compra,XOM,COMPRA,156.9,150.6417,175.675,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-23,controlo-moeda-ao-ar,XOM,COMPRA,156.9,150.6417,175.675,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-23,momentum-2-1,TSLA,COMPRA,385.46,349.4375,457.5051,2.0,0.55,preço 2.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-23,momentum-5-1,TSLA,COMPRA,385.46,349.4375,565.5727,5.0,0.55,preço 2.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-23,momentum-com-teto,TSLA,COMPRA,385.46,349.4375,493.5276,3.0,0.55,"preço 2.5% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-23,controlo-moeda-ao-ar,SMCI,COMPRA,24.53,21.2953,34.2341,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-23,controlo-moeda-ao-ar,DELL,COMPRA,334.91,284.6735,485.6195,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-23,controlo-moeda-ao-ar,HOOD,COMPRA,67.37,60.851,86.9271,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
