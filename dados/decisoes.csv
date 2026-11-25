@@ -1754,3 +1754,12 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-11-23,controlo-moeda-ao-ar,SMCI,COMPRA,24.53,21.2953,34.2341,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
 2026-11-23,controlo-moeda-ao-ar,DELL,COMPRA,334.91,284.6735,485.6195,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
 2026-11-23,controlo-moeda-ao-ar,HOOD,COMPRA,67.37,60.851,86.9271,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-24,sazonalidade,AMD,COMPRA,413.27,351.2795,599.2415,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-24,controlo-sempre-compra,AMD,COMPRA,413.27,351.2795,599.2415,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-24,controlo-moeda-ao-ar,AMD,COMPRA,413.27,351.2795,599.2415,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-24,controlo-moeda-ao-ar,CRM,COMPRA,193.26,181.6416,228.1153,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-24,controlo-moeda-ao-ar,PFE,COMPRA,28.46,27.4843,31.3871,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-24,momentum-simples,COST,COMPRA,1091.71,1061.3786,1182.7043,3.0,0.55,preço 12.9% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-24,momentum-com-teto,COST,COMPRA,1091.71,1061.3786,1182.7043,3.0,0.55,"preço 12.9% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-24,sazonalidade,VZ,COMPRA,47.16,46.1562,50.1713,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-24,controlo-sempre-compra,VZ,COMPRA,47.16,46.1562,50.1713,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
