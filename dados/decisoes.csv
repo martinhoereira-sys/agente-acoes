@@ -1763,3 +1763,17 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-11-24,momentum-com-teto,COST,COMPRA,1091.71,1061.3786,1182.7043,3.0,0.55,"preço 12.9% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
 2026-11-24,sazonalidade,VZ,COMPRA,47.16,46.1562,50.1713,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
 2026-11-24,controlo-sempre-compra,VZ,COMPRA,47.16,46.1562,50.1713,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-25,controlo-moeda-ao-ar,GOOGL,COMPRA,273.1,252.938,333.5861,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-25,controlo-moeda-ao-ar,MS,COMPRA,167.55,158.4502,194.8495,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-25,controlo-sempre-compra,WMT,COMPRA,131.94,127.7865,144.4004,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-25,contrarian,LITE,COMPRA,476.58,405.093,691.041,3.0,0.55,preço 40.7% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-25,sazonalidade,LITE,COMPRA,476.58,405.093,691.041,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-25,controlo-sempre-compra,LITE,COMPRA,476.58,405.093,691.041,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-25,controlo-moeda-ao-ar,LITE,COMPRA,476.58,405.093,691.041,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-25,contrarian,SMCI,COMPRA,23.31,20.2976,32.3473,3.0,0.55,preço 31.9% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-25,sazonalidade,SMCI,COMPRA,23.31,20.2976,32.3473,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-25,controlo-sempre-compra,SMCI,COMPRA,23.31,20.2976,32.3473,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-25,contrarian,TER,COMPRA,212.15,180.6941,306.5178,3.0,0.55,preço 33.9% abaixo da média de 50 dias,1000.0,1.0,0.05
+2026-11-25,sazonalidade,TER,COMPRA,212.15,180.6941,306.5178,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-25,controlo-sempre-compra,TER,COMPRA,212.15,180.6941,306.5178,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-25,controlo-moeda-ao-ar,GLW,COMPRA,100.24,87.1234,139.5899,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
