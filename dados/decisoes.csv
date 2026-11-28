@@ -1777,3 +1777,26 @@ data,agente,ticker,acao,preco_entrada,stop,alvo,racio,confianca,razao,valor_apos
 2026-11-25,sazonalidade,TER,COMPRA,212.15,180.6941,306.5178,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
 2026-11-25,controlo-sempre-compra,TER,COMPRA,212.15,180.6941,306.5178,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
 2026-11-25,controlo-moeda-ao-ar,GLW,COMPRA,100.24,87.1234,139.5899,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-27,controlo-moeda-ao-ar,ORCL,COMPRA,107.13,95.1924,142.9427,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-27,controlo-moeda-ao-ar,GS,COMPRA,812.87,763.5967,960.6899,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-27,momentum-2-1,V,COMPRA,429.56,413.7402,461.1997,2.0,0.55,preço 8.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-27,momentum-simples,NKE,COMPRA,37.32,34.8625,44.6925,3.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-27,momentum-2-1,NKE,COMPRA,37.32,34.8625,42.235,2.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-27,momentum-5-1,NKE,COMPRA,37.32,34.8625,49.6076,5.0,0.55,preço 1.8% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-27,momentum-com-teto,NKE,COMPRA,37.32,34.8625,44.6925,3.0,0.55,"preço 1.8% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-27,momentum-simples,GE,COMPRA,323.94,306.3129,376.8212,3.0,0.55,preço 3.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-27,momentum-2-1,GE,COMPRA,323.94,306.3129,359.1941,2.0,0.55,preço 3.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-27,momentum-5-1,GE,COMPRA,323.94,306.3129,412.0753,5.0,0.55,preço 3.0% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-27,momentum-com-teto,GE,COMPRA,323.94,306.3129,376.8212,3.0,0.55,"preço 3.0% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-27,momentum-simples,DIS,COMPRA,127.24,122.4923,141.483,3.0,0.55,preço 13.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-27,momentum-2-1,DIS,COMPRA,127.24,122.4923,136.7353,2.0,0.55,preço 13.7% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-27,momentum-com-teto,DIS,COMPRA,127.24,122.4923,141.483,3.0,0.55,"preço 13.7% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-27,sazonalidade,DIS,COMPRA,127.24,122.4923,141.483,3.0,0.55,mês 11 não está entre os 4 piores historicamente (+4.78% de média),1000.0,1.0,0.05
+2026-11-27,controlo-sempre-compra,DIS,COMPRA,127.24,122.4923,141.483,3.0,0.5,controlo: compra sempre,1000.0,1.0,0.05
+2026-11-27,momentum-simples,T,COMPRA,23.21,22.688,24.776,3.0,0.55,preço 1.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-27,momentum-2-1,T,COMPRA,23.21,22.688,24.254,2.0,0.55,preço 1.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-27,momentum-5-1,T,COMPRA,23.21,22.688,25.82,5.0,0.55,preço 1.5% acima da média de 50 dias,1000.0,1.0,0.05
+2026-11-27,momentum-com-teto,T,COMPRA,23.21,22.688,24.776,3.0,0.55,"preço 1.5% acima da média de 50 dias, dentro do teto de 15%",1000.0,1.0,0.05
+2026-11-27,controlo-moeda-ao-ar,SMCI,COMPRA,23.76,20.6711,33.0268,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-27,controlo-moeda-ao-ar,TER,COMPRA,222.96,189.516,323.292,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
+2026-11-27,controlo-moeda-ao-ar,COIN,COMPRA,107.04,96.6764,138.1309,3.0,0.5,controlo: moeda ao ar,1000.0,1.0,0.05
